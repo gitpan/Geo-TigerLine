@@ -1,0 +1,24 @@
+Record Type C - Geographic Entity Names
+
+     Field   BV  Fmt  Type  Beg  End  Len  Description
+        RT   No    L     A    1    1    1  Record Type
+   VERSION   No    L     N    2    5    4  Version Number
+     STATE  Yes    L     N    6    7    2  FIPS State Code
+    COUNTY  Yes    L     N    8   10    3  FIPS County Code
+    FIPSYR  Yes    L     N   11   14    4  FIPS Code and Name Relationship Applicable Year
+      FIPS  Yes    L     N   15   19    5  FIPS PUB 55-3 Code
+    FIPSCC  Yes    L     A   20   21    2  FIPS 55 Class Code
+       PDC  Yes    L     A   22   22    1  Census Place Description Code
+     LASAD  Yes    L     N   23   24    2  Legal/Administrative/Statistical Area Description Code
+    ENTITY   No    L     A   25   25    1  Entity Type Code
+        MA  Yes    L     N   26   29    4  Metropolitan Area Code
+        SD  Yes    L     N   30   34    5  School District Code
+       AIR  Yes    L     N   35   38    4  Census American Indian/Alaska Native Area Code
+       VTD  Yes    R     A   39   44    6  Voting District Code
+        UA  Yes    L     N   45   49    5  Census Urbanized Area Code
+      ANRC  Yes    L     N   50   51    2  Census Alaska Native Regional Corporation Code
+   CENSUS5  Yes    L     N   52   54    3  Census Use 5
+      NAME   No    L     A   55  112   58  Name of Geographic Area
+
+
+

@@ -1,0 +1,262 @@
+package Geo::TigerLine::Record::Z;
+
+use strict;
+
+use Carp::Assert;
+use base qw(Geo::TigerLine::Record::Parser Geo::TigerLine::Record::Accessor
+            Geo::TigerLine::Record Class::Data::Inheritable);
+
+use vars qw($VERSION);
+$VERSION = '0.01';
+
+
+# Auto-generated data dictionary.
+my %Data_Dict = (
+               'zip4l' => {
+                            'beg' => '19',
+                            'bv' => 'Yes',
+                            'description' => '+4 Postal Add-On Code, Left',
+                            'fieldnum' => '5',
+                            'len' => '4',
+                            'end' => '22',
+                            'fmt' => 'L',
+                            'field' => 'zip4l',
+                            'type' => 'N'
+                          },
+               'rtsq' => {
+                           'beg' => '16',
+                           'bv' => 'No',
+                           'description' => 'Record Sequence Number',
+                           'fieldnum' => '4',
+                           'len' => '3',
+                           'end' => '18',
+                           'fmt' => 'R',
+                           'field' => 'rtsq',
+                           'type' => 'N'
+                         },
+               'version' => {
+                              'beg' => '2',
+                              'bv' => 'No',
+                              'description' => 'Version Number',
+                              'fieldnum' => '2',
+                              'len' => '4',
+                              'end' => '5',
+                              'fmt' => 'L',
+                              'field' => 'version',
+                              'type' => 'N'
+                            },
+               'zip4r' => {
+                            'beg' => '23',
+                            'bv' => 'Yes',
+                            'description' => '+4 Postal Add-On Code, Right',
+                            'fieldnum' => '6',
+                            'len' => '4',
+                            'end' => '26',
+                            'fmt' => 'L',
+                            'field' => 'zip4r',
+                            'type' => 'N'
+                          },
+               'tlid' => {
+                           'beg' => '6',
+                           'bv' => 'No',
+                           'description' => 'TIGER/Line ID, Permanent Record Number',
+                           'fieldnum' => '3',
+                           'len' => '10',
+                           'end' => '15',
+                           'fmt' => 'R',
+                           'field' => 'tlid',
+                           'type' => 'N'
+                         },
+               'rt' => {
+                         'beg' => '1',
+                         'bv' => 'No',
+                         'description' => 'Record Type',
+                         'fieldnum' => '1',
+                         'len' => '1',
+                         'end' => '1',
+                         'fmt' => 'L',
+                         'field' => 'rt',
+                         'type' => 'A'
+                       }
+             );
+
+
+my @Data_Fields = (
+                 'rt',
+                 'version',
+                 'tlid',
+                 'rtsq',
+                 'zip4l',
+                 'zip4r'
+               );
+
+
+assert(keys %Data_Dict == @Data_Fields);
+
+# Turn the data dictionary into class data
+__PACKAGE__->mk_classdata('Fields');
+__PACKAGE__->mk_classdata('Dict');
+__PACKAGE__->mk_classdata('Pack_Tmpl');
+
+__PACKAGE__->Dict(\%Data_Dict);
+__PACKAGE__->Fields(\@Data_Fields);
+
+# Generate a pack template for parsing and turn it into class data.
+my $pack_tmpl = join ' ', map { "A$_" } map { $_->{len} } 
+                                          @Data_Dict{@Data_Fields};
+__PACKAGE__->Pack_Tmpl($pack_tmpl);
+
+# Generate accessors for each data field
+foreach my $def (@Data_Dict{@Data_Fields}) {
+    __PACKAGE__->mk_accessor($def);
+}
+
+
+=pod
+
+=head1 NAME
+
+Geo::TigerLine::Record::Z - TIGER/Line 1998 ZIP+4 Codes
+
+=head1 SYNOPSIS
+
+  use Geo::TigerLine::Record::Z;
+
+  @records = Geo::TigerLine::Record::Z->parse_file($fh);
+  @records = Geo::TigerLine::Record::Z->parse_file($fh, \&callback);
+
+  $record = Geo::TigerLine::Record::Z->new(\%fields);
+
+  $record->rt();
+  $record->version();
+  $record->tlid();
+  $record->rtsq();
+  $record->zip4l();
+  $record->zip4r();
+
+
+=head1 DESCRIPTION
+
+This is a class representing record type Z of the TIGER/Line 1998
+census geographic database.  Each object is one record.  It also
+contains methods to parse TIGER/Line record type Z files and turn them
+into objects.
+
+This is intended as an intermediate format between pulling the raw
+data out of the simplistic TIGER/Line data files into something more
+sophisticated (a process you should only have to do once).  As such,
+its not very fast, but its careful, easy to use and performs some
+verifications on the data being read.
+
+As this class is autogenerated by mk_parsers, think before you modify this
+file.  Its OO, so consider sub-classing instead.
+
+
+=head2 Accessors
+
+These are simple get/set accessors for each field of a record
+generated from the TIGER/Line 1998 data dictionary.  They perform some
+data validation.
+
+=over 4
+
+=item B<rt>
+
+    $data = $record->rt();
+    $record->rt($data);
+
+Record Type.  
+
+Expects alphanumeric data of no more than 1 characters.  $data cannot be blank 
+and should be left justified.
+
+
+=item B<version>
+
+    $data = $record->version();
+    $record->version($data);
+
+Version Number.  
+
+Expects numeric data of no more than 4 characters.  $data cannot be blank 
+and should be left justified.
+
+
+=item B<tlid>
+
+    $data = $record->tlid();
+    $record->tlid($data);
+
+TIGER/Line ID, Permanent Record Number.  
+
+Expects numeric data of no more than 10 characters.  $data cannot be blank 
+and should be right justified.
+
+
+=item B<rtsq>
+
+    $data = $record->rtsq();
+    $record->rtsq($data);
+
+Record Sequence Number.  
+
+Expects numeric data of no more than 3 characters.  $data cannot be blank 
+and should be right justified.
+
+
+=item B<zip4l>
+
+    $data = $record->zip4l();
+    $record->zip4l($data);
+
++4 Postal Add-On Code, Left.  
+
+Expects numeric data of no more than 4 characters.  $data can be blank 
+and should be left justified.
+
+
+=item B<zip4r>
+
+    $data = $record->zip4r();
+    $record->zip4r($data);
+
++4 Postal Add-On Code, Right.  
+
+Expects numeric data of no more than 4 characters.  $data can be blank 
+and should be left justified.
+
+
+
+=back
+
+
+=head2 Data dictionary
+
+This is the original TIGER/Line 1998 data dictionary from which this
+class was generated.
+
+    Record Type Z - ZIP+4 Codes  
+    
+         Field   BV  Fmt  Type  Beg  End  Len  Description
+            RT   No    L     A    1    1    1  Record Type
+       VERSION   No    L     N    2    5    4  Version Number
+          TLID   No    R     N    6   15   10  TIGER/Line ID, Permanent Record Number
+          RTSQ   No    R     N   16   18    3  Record Sequence Number
+         ZIP4L  Yes    L     N   19   22    4  +4 Postal Add-On Code, Left
+         ZIP4R  Yes    L     N   23   26    4  +4 Postal Add-On Code, Right
+    
+
+
+
+=head1 AUTHOR
+
+Michael G Schwern <schwern@pobox.com>
+
+=head1 SEE ALSO
+
+L<Geo::TigerLine>, L<mk_parsers>
+
+=cut
+
+
+return 'Honey flash!';

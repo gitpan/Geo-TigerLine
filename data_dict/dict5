@@ -1,0 +1,14 @@
+Record Type 5 - Complete Chain Feature Identifiers
+
+     Field   BV  Fmt  Type  Beg  End  Len  Description
+        RT   No    L     A    1    1    1  Record Type
+     STATE   No    L     N    2    3    2  FIPS State Code for File
+    COUNTY   No    L     N    4    6    3  FIPS County Code for File
+      FEAT   No    R     N    7   14    8  Line Name Identification Number
+    FEDIRP  Yes    L     A   15   16    2  Feature Direction, Prefix
+    FENAME  Yes    L     A   17   46   30  Feature Name
+    FETYPE  Yes    L     A   47   50    4  Feature Type
+    FEDIRS  Yes    L     A   51   52    2  Feature Direction, Suffix
+
+
+
