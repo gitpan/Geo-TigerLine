@@ -7,208 +7,241 @@ use base qw(Geo::TigerLine::Record::Parser Geo::TigerLine::Record::Accessor
             Geo::TigerLine::Record Class::Data::Inheritable);
 
 use vars qw($VERSION);
-$VERSION = '0.01';
+$VERSION = '0.02';
 
 
 # Auto-generated data dictionary.
 my %Data_Dict = (
-               'ma' => {
-                         'beg' => '26',
-                         'bv' => 'Yes',
-                         'description' => 'Metropolitan Area Code',
-                         'fieldnum' => '11',
-                         'len' => '4',
-                         'end' => '29',
-                         'fmt' => 'L',
-                         'field' => 'ma',
-                         'type' => 'N'
-                       },
-               'anrc' => {
-                           'beg' => '50',
-                           'bv' => 'Yes',
-                           'description' => 'Census Alaska Native Regional Corporation Code',
-                           'fieldnum' => '16',
-                           'len' => '2',
-                           'end' => '51',
-                           'fmt' => 'L',
-                           'field' => 'anrc',
-                           'type' => 'N'
-                         },
-               'fipsyr' => {
-                             'beg' => '11',
-                             'bv' => 'Yes',
-                             'description' => 'FIPS Code and Name Relationship Applicable Year',
-                             'fieldnum' => '5',
-                             'len' => '4',
-                             'end' => '14',
-                             'fmt' => 'L',
-                             'field' => 'fipsyr',
-                             'type' => 'N'
-                           },
-               'entity' => {
-                             'beg' => '25',
-                             'bv' => 'No',
-                             'description' => 'Entity Type Code',
-                             'fieldnum' => '10',
-                             'len' => '1',
-                             'end' => '25',
-                             'fmt' => 'L',
-                             'field' => 'entity',
-                             'type' => 'A'
-                           },
-               'pdc' => {
-                          'beg' => '22',
-                          'bv' => 'Yes',
-                          'description' => 'Census Place Description Code',
-                          'fieldnum' => '8',
-                          'len' => '1',
-                          'end' => '22',
-                          'fmt' => 'L',
-                          'field' => 'pdc',
-                          'type' => 'A'
-                        },
-               'fipscc' => {
-                             'beg' => '20',
-                             'bv' => 'Yes',
-                             'description' => 'FIPS 55 Class Code',
-                             'fieldnum' => '7',
-                             'len' => '2',
-                             'end' => '21',
-                             'fmt' => 'L',
-                             'field' => 'fipscc',
-                             'type' => 'A'
-                           },
-               'name' => {
-                           'beg' => '55',
-                           'bv' => 'No',
-                           'description' => 'Name of Geographic Area',
-                           'fieldnum' => '18',
-                           'len' => '58',
-                           'end' => '112',
-                           'fmt' => 'L',
-                           'field' => 'name',
-                           'type' => 'A'
-                         },
-               'lasad' => {
-                            'beg' => '23',
-                            'bv' => 'Yes',
-                            'description' => 'Legal/Administrative/Statistical Area Description Code',
-                            'fieldnum' => '9',
-                            'len' => '2',
-                            'end' => '24',
-                            'fmt' => 'L',
-                            'field' => 'lasad',
-                            'type' => 'N'
-                          },
-               'state' => {
-                            'beg' => '6',
-                            'bv' => 'Yes',
-                            'description' => 'FIPS State Code',
-                            'fieldnum' => '3',
-                            'len' => '2',
-                            'end' => '7',
-                            'fmt' => 'L',
-                            'field' => 'state',
-                            'type' => 'N'
-                          },
-               'sd' => {
-                         'beg' => '30',
-                         'bv' => 'Yes',
-                         'description' => 'School District Code',
-                         'fieldnum' => '12',
-                         'len' => '5',
-                         'end' => '34',
-                         'fmt' => 'L',
-                         'field' => 'sd',
-                         'type' => 'N'
-                       },
-               'air' => {
-                          'beg' => '35',
-                          'bv' => 'Yes',
-                          'description' => 'Census American Indian/Alaska Native Area Code',
-                          'fieldnum' => '13',
-                          'len' => '4',
-                          'end' => '38',
-                          'fmt' => 'L',
-                          'field' => 'air',
-                          'type' => 'N'
-                        },
-               'county' => {
-                             'beg' => '8',
-                             'bv' => 'Yes',
-                             'description' => 'FIPS County Code',
-                             'fieldnum' => '4',
-                             'len' => '3',
-                             'end' => '10',
-                             'fmt' => 'L',
-                             'field' => 'county',
-                             'type' => 'N'
-                           },
-               'ua' => {
-                         'beg' => '45',
-                         'bv' => 'Yes',
-                         'description' => 'Census Urbanized Area Code',
-                         'fieldnum' => '15',
-                         'len' => '5',
-                         'end' => '49',
-                         'fmt' => 'L',
-                         'field' => 'ua',
-                         'type' => 'N'
-                       },
-               'fips' => {
-                           'beg' => '15',
-                           'bv' => 'Yes',
-                           'description' => 'FIPS PUB 55-3 Code',
-                           'fieldnum' => '6',
-                           'len' => '5',
-                           'end' => '19',
-                           'fmt' => 'L',
-                           'field' => 'fips',
-                           'type' => 'N'
-                         },
-               'census5' => {
-                              'beg' => '52',
+               'vtdtract' => {
+                               'len' => 6,
+                               'beg' => 39,
+                               'bv' => 'Yes',
+                               'fieldnum' => 14,
+                               'type' => 'A',
+                               'description' => 'Census Voting District Code/Census Tract Code',
+                               'end' => 44,
+                               'fmt' => 'R',
+                               'field' => 'vtdtract'
+                             },
+               'commreg' => {
+                              'len' => 1,
+                              'beg' => 61,
                               'bv' => 'Yes',
-                              'description' => 'Census Use 5',
-                              'fieldnum' => '17',
-                              'len' => '3',
-                              'end' => '54',
+                              'fieldnum' => 19,
+                              'type' => 'N',
+                              'description' => 'Commercial Region Code, Economic Census',
+                              'end' => 61,
                               'fmt' => 'L',
-                              'field' => 'census5',
-                              'type' => 'N'
+                              'field' => 'commreg'
                             },
-               'vtd' => {
-                          'beg' => '39',
-                          'bv' => 'Yes',
-                          'description' => 'Voting District Code',
-                          'fieldnum' => '14',
-                          'len' => '6',
-                          'end' => '44',
-                          'fmt' => 'R',
-                          'field' => 'vtd',
-                          'type' => 'A'
-                        },
-               'version' => {
-                              'beg' => '2',
-                              'bv' => 'No',
-                              'description' => 'Version Number',
-                              'fieldnum' => '2',
-                              'len' => '4',
-                              'end' => '5',
-                              'fmt' => 'L',
-                              'field' => 'version',
-                              'type' => 'N'
-                            },
-               'rt' => {
-                         'beg' => '1',
-                         'bv' => 'No',
-                         'description' => 'Record Type',
-                         'fieldnum' => '1',
-                         'len' => '1',
-                         'end' => '1',
+               'state' => {
+                            'len' => 2,
+                            'beg' => 6,
+                            'bv' => 'Yes',
+                            'fieldnum' => 3,
+                            'type' => 'N',
+                            'description' => 'FIPS State Code',
+                            'end' => 7,
+                            'fmt' => 'L',
+                            'field' => 'state'
+                          },
+               'cbsanecta' => {
+                                'len' => 5,
+                                'beg' => 56,
+                                'bv' => 'Yes',
+                                'fieldnum' => 18,
+                                'type' => 'N',
+                                'description' => 'Metropolitan Statistical Area/Micropolitan Statistical Area/New England City and Town Area/Metropolitan Division/New England City and Town Area Division Code',
+                                'end' => 60,
+                                'fmt' => 'L',
+                                'field' => 'cbsanecta'
+                              },
+               'entity' => {
+                             'len' => 1,
+                             'beg' => 25,
+                             'bv' => 'No',
+                             'fieldnum' => 10,
+                             'type' => 'A',
+                             'description' => 'Entity Type Code',
+                             'end' => 25,
+                             'fmt' => 'L',
+                             'field' => 'entity'
+                           },
+               'ma' => {
+                         'len' => 4,
+                         'beg' => 26,
+                         'bv' => 'Yes',
+                         'fieldnum' => 11,
+                         'type' => 'N',
+                         'description' => 'Metropolitan Area Code',
+                         'end' => 29,
                          'fmt' => 'L',
-                         'field' => 'rt',
-                         'type' => 'A'
+                         'field' => 'ma'
+                       },
+               'rt' => {
+                         'len' => 1,
+                         'beg' => 1,
+                         'bv' => 'No',
+                         'fieldnum' => 1,
+                         'type' => 'A',
+                         'description' => 'Record Type',
+                         'end' => 1,
+                         'fmt' => 'L',
+                         'field' => 'rt'
+                       },
+               'fipscc' => {
+                             'len' => 2,
+                             'beg' => 20,
+                             'bv' => 'Yes',
+                             'fieldnum' => 7,
+                             'type' => 'A',
+                             'description' => 'FIPS 55 Class Code',
+                             'end' => 21,
+                             'fmt' => 'L',
+                             'field' => 'fipscc'
+                           },
+               'datayr' => {
+                             'len' => 4,
+                             'beg' => 11,
+                             'bv' => 'Yes',
+                             'fieldnum' => 5,
+                             'type' => 'A',
+                             'description' => 'FIPS Code, Name, and/or Attribute Data Applicable Year',
+                             'end' => 14,
+                             'fmt' => 'L',
+                             'field' => 'datayr'
+                           },
+               'placedc' => {
+                              'len' => 1,
+                              'beg' => 22,
+                              'bv' => 'Yes',
+                              'fieldnum' => 8,
+                              'type' => 'A',
+                              'description' => 'Place Description Code',
+                              'end' => 22,
+                              'fmt' => 'L',
+                              'field' => 'placedc'
+                            },
+               'aitsce' => {
+                             'len' => 3,
+                             'beg' => 50,
+                             'bv' => 'Yes',
+                             'fieldnum' => 16,
+                             'type' => 'N',
+                             'description' => 'Census American Indian Tribal Subdivision Code',
+                             'end' => 52,
+                             'fmt' => 'L',
+                             'field' => 'aitsce'
+                           },
+               'version' => {
+                              'len' => 4,
+                              'beg' => 2,
+                              'bv' => 'No',
+                              'fieldnum' => 2,
+                              'type' => 'N',
+                              'description' => 'Version Number',
+                              'end' => 5,
+                              'fmt' => 'L',
+                              'field' => 'version'
+                            },
+               'name' => {
+                           'len' => 60,
+                           'beg' => 63,
+                           'bv' => 'Yes',
+                           'fieldnum' => 21,
+                           'type' => 'A',
+                           'description' => 'Name of Geographic Area',
+                           'end' => 122,
+                           'fmt' => 'L',
+                           'field' => 'name'
+                         },
+               'fips' => {
+                           'len' => 5,
+                           'beg' => 15,
+                           'bv' => 'Yes',
+                           'fieldnum' => 6,
+                           'type' => 'N',
+                           'description' => 'FIPS PUB 55-3 Code',
+                           'end' => 19,
+                           'fmt' => 'L',
+                           'field' => 'fips'
+                         },
+               'rs_c2' => {
+                            'len' => 1,
+                            'beg' => 62,
+                            'bv' => 'Yes',
+                            'fieldnum' => 20,
+                            'type' => 'N',
+                            'description' => 'Reserved Space C2',
+                            'end' => 62,
+                            'fmt' => 'L',
+                            'field' => 'rs_c2'
+                          },
+               'uauga' => {
+                            'len' => 5,
+                            'beg' => 45,
+                            'bv' => 'Yes',
+                            'fieldnum' => 15,
+                            'type' => 'N',
+                            'description' => 'Urban Area Code/Urban Growth Area Code',
+                            'end' => 49,
+                            'fmt' => 'L',
+                            'field' => 'uauga'
+                          },
+               'csacnecta' => {
+                                'len' => 3,
+                                'beg' => 53,
+                                'bv' => 'Yes',
+                                'fieldnum' => 17,
+                                'type' => 'N',
+                                'description' => 'Combined Statistical Area/Combined New England City and Town Area Code',
+                                'end' => 55,
+                                'fmt' => 'L',
+                                'field' => 'csacnecta'
+                              },
+               'lsadc' => {
+                            'len' => 2,
+                            'beg' => 23,
+                            'bv' => 'Yes',
+                            'fieldnum' => 9,
+                            'type' => 'A',
+                            'description' => 'Legal/Statistical Area Description Code',
+                            'end' => 24,
+                            'fmt' => 'L',
+                            'field' => 'lsadc'
+                          },
+               'aianhh' => {
+                             'len' => 4,
+                             'beg' => 35,
+                             'bv' => 'Yes',
+                             'fieldnum' => 13,
+                             'type' => 'N',
+                             'description' => 'Census American Indian/Alaska Native Area/Hawaiian Home Land Code',
+                             'end' => 38,
+                             'fmt' => 'L',
+                             'field' => 'aianhh'
+                           },
+               'county' => {
+                             'len' => 3,
+                             'beg' => 8,
+                             'bv' => 'Yes',
+                             'fieldnum' => 4,
+                             'type' => 'N',
+                             'description' => 'FIPS County Code',
+                             'end' => 10,
+                             'fmt' => 'L',
+                             'field' => 'county'
+                           },
+               'sd' => {
+                         'len' => 5,
+                         'beg' => 30,
+                         'bv' => 'Yes',
+                         'fieldnum' => 12,
+                         'type' => 'N',
+                         'description' => 'School District Code',
+                         'end' => 34,
+                         'fmt' => 'L',
+                         'field' => 'sd'
                        }
              );
 
@@ -218,19 +251,22 @@ my @Data_Fields = (
                  'version',
                  'state',
                  'county',
-                 'fipsyr',
+                 'datayr',
                  'fips',
                  'fipscc',
-                 'pdc',
-                 'lasad',
+                 'placedc',
+                 'lsadc',
                  'entity',
                  'ma',
                  'sd',
-                 'air',
-                 'vtd',
-                 'ua',
-                 'anrc',
-                 'census5',
+                 'aianhh',
+                 'vtdtract',
+                 'uauga',
+                 'aitsce',
+                 'csacnecta',
+                 'cbsanecta',
+                 'commreg',
+                 'rs_c2',
                  'name'
                );
 
@@ -260,7 +296,7 @@ foreach my $def (@Data_Dict{@Data_Fields}) {
 
 =head1 NAME
 
-Geo::TigerLine::Record::C - TIGER/Line 1998 Geographic Entity Names
+Geo::TigerLine::Record::C - TIGER/Line 2003 Geographic Entity Names
 
 =head1 SYNOPSIS
 
@@ -275,25 +311,28 @@ Geo::TigerLine::Record::C - TIGER/Line 1998 Geographic Entity Names
   $record->version();
   $record->state();
   $record->county();
-  $record->fipsyr();
+  $record->datayr();
   $record->fips();
   $record->fipscc();
-  $record->pdc();
-  $record->lasad();
+  $record->placedc();
+  $record->lsadc();
   $record->entity();
   $record->ma();
   $record->sd();
-  $record->air();
-  $record->vtd();
-  $record->ua();
-  $record->anrc();
-  $record->census5();
+  $record->aianhh();
+  $record->vtdtract();
+  $record->uauga();
+  $record->aitsce();
+  $record->csacnecta();
+  $record->cbsanecta();
+  $record->commreg();
+  $record->rs_c2();
   $record->name();
 
 
 =head1 DESCRIPTION
 
-This is a class representing record type C of the TIGER/Line 1998
+This is a class representing record type C of the TIGER/Line 2003
 census geographic database.  Each object is one record.  It also
 contains methods to parse TIGER/Line record type C files and turn them
 into objects.
@@ -301,17 +340,17 @@ into objects.
 This is intended as an intermediate format between pulling the raw
 data out of the simplistic TIGER/Line data files into something more
 sophisticated (a process you should only have to do once).  As such,
-its not very fast, but its careful, easy to use and performs some
+it's not very fast, but its careful, easy to use and performs some
 verifications on the data being read.
 
 As this class is autogenerated by mk_parsers, think before you modify this
-file.  Its OO, so consider sub-classing instead.
+file.  It's OO, so consider sub-classing instead.
 
 
 =head2 Accessors
 
 These are simple get/set accessors for each field of a record
-generated from the TIGER/Line 1998 data dictionary.  They perform some
+generated from the TIGER/Line 2003 data dictionary.  They perform some
 data validation.
 
 =over 4
@@ -360,14 +399,14 @@ Expects numeric data of no more than 3 characters.  $data can be blank
 and should be left justified.
 
 
-=item B<fipsyr>
+=item B<datayr>
 
-    $data = $record->fipsyr();
-    $record->fipsyr($data);
+    $data = $record->datayr();
+    $record->datayr($data);
 
-FIPS Code and Name Relationship Applicable Year.  
+FIPS Code, Name, and/or Attribute Data Applicable Year.  
 
-Expects numeric data of no more than 4 characters.  $data can be blank 
+Expects alphanumeric data of no more than 4 characters.  $data can be blank 
 and should be left justified.
 
 
@@ -393,25 +432,25 @@ Expects alphanumeric data of no more than 2 characters.  $data can be blank
 and should be left justified.
 
 
-=item B<pdc>
+=item B<placedc>
 
-    $data = $record->pdc();
-    $record->pdc($data);
+    $data = $record->placedc();
+    $record->placedc($data);
 
-Census Place Description Code.  
+Place Description Code.  
 
 Expects alphanumeric data of no more than 1 characters.  $data can be blank 
 and should be left justified.
 
 
-=item B<lasad>
+=item B<lsadc>
 
-    $data = $record->lasad();
-    $record->lasad($data);
+    $data = $record->lsadc();
+    $record->lsadc($data);
 
-Legal/Administrative/Statistical Area Description Code.  
+Legal/Statistical Area Description Code.  
 
-Expects numeric data of no more than 2 characters.  $data can be blank 
+Expects alphanumeric data of no more than 2 characters.  $data can be blank 
 and should be left justified.
 
 
@@ -448,58 +487,91 @@ Expects numeric data of no more than 5 characters.  $data can be blank
 and should be left justified.
 
 
-=item B<air>
+=item B<aianhh>
 
-    $data = $record->air();
-    $record->air($data);
+    $data = $record->aianhh();
+    $record->aianhh($data);
 
-Census American Indian/Alaska Native Area Code.  
+Census American Indian/Alaska Native Area/Hawaiian Home Land Code.  
 
 Expects numeric data of no more than 4 characters.  $data can be blank 
 and should be left justified.
 
 
-=item B<vtd>
+=item B<vtdtract>
 
-    $data = $record->vtd();
-    $record->vtd($data);
+    $data = $record->vtdtract();
+    $record->vtdtract($data);
 
-Voting District Code.  
+Census Voting District Code/Census Tract Code.  
 
 Expects alphanumeric data of no more than 6 characters.  $data can be blank 
 and should be right justified.
 
 
-=item B<ua>
+=item B<uauga>
 
-    $data = $record->ua();
-    $record->ua($data);
+    $data = $record->uauga();
+    $record->uauga($data);
 
-Census Urbanized Area Code.  
+Urban Area Code/Urban Growth Area Code.  
 
 Expects numeric data of no more than 5 characters.  $data can be blank 
 and should be left justified.
 
 
-=item B<anrc>
+=item B<aitsce>
 
-    $data = $record->anrc();
-    $record->anrc($data);
+    $data = $record->aitsce();
+    $record->aitsce($data);
 
-Census Alaska Native Regional Corporation Code.  
+Census American Indian Tribal Subdivision Code.  
 
-Expects numeric data of no more than 2 characters.  $data can be blank 
+Expects numeric data of no more than 3 characters.  $data can be blank 
 and should be left justified.
 
 
-=item B<census5>
+=item B<csacnecta>
 
-    $data = $record->census5();
-    $record->census5($data);
+    $data = $record->csacnecta();
+    $record->csacnecta($data);
 
-Census Use 5.  
+Combined Statistical Area/Combined New England City and Town Area Code.  
 
 Expects numeric data of no more than 3 characters.  $data can be blank 
+and should be left justified.
+
+
+=item B<cbsanecta>
+
+    $data = $record->cbsanecta();
+    $record->cbsanecta($data);
+
+Metropolitan Statistical Area/Micropolitan Statistical Area/New England City and Town Area/Metropolitan Division/New England City and Town Area Division Code.  
+
+Expects numeric data of no more than 5 characters.  $data can be blank 
+and should be left justified.
+
+
+=item B<commreg>
+
+    $data = $record->commreg();
+    $record->commreg($data);
+
+Commercial Region Code, Economic Census.  
+
+Expects numeric data of no more than 1 characters.  $data can be blank 
+and should be left justified.
+
+
+=item B<rs_c2>
+
+    $data = $record->rs_c2();
+    $record->rs_c2($data);
+
+Reserved Space C2.  
+
+Expects numeric data of no more than 1 characters.  $data can be blank 
 and should be left justified.
 
 
@@ -510,7 +582,7 @@ and should be left justified.
 
 Name of Geographic Area.  
 
-Expects alphanumeric data of no more than 58 characters.  $data cannot be blank 
+Expects alphanumeric data of no more than 60 characters.  $data can be blank 
 and should be left justified.
 
 
@@ -520,33 +592,33 @@ and should be left justified.
 
 =head2 Data dictionary
 
-This is the original TIGER/Line 1998 data dictionary from which this
+This is the original TIGER/Line 2003 data dictionary from which this
 class was generated.
 
     Record Type C - Geographic Entity Names
     
-         Field   BV  Fmt  Type  Beg  End  Len  Description
-            RT   No    L     A    1    1    1  Record Type
-       VERSION   No    L     N    2    5    4  Version Number
-         STATE  Yes    L     N    6    7    2  FIPS State Code
-        COUNTY  Yes    L     N    8   10    3  FIPS County Code
-        FIPSYR  Yes    L     N   11   14    4  FIPS Code and Name Relationship Applicable Year
-          FIPS  Yes    L     N   15   19    5  FIPS PUB 55-3 Code
-        FIPSCC  Yes    L     A   20   21    2  FIPS 55 Class Code
-           PDC  Yes    L     A   22   22    1  Census Place Description Code
-         LASAD  Yes    L     N   23   24    2  Legal/Administrative/Statistical Area Description Code
-        ENTITY   No    L     A   25   25    1  Entity Type Code
-            MA  Yes    L     N   26   29    4  Metropolitan Area Code
-            SD  Yes    L     N   30   34    5  School District Code
-           AIR  Yes    L     N   35   38    4  Census American Indian/Alaska Native Area Code
-           VTD  Yes    R     A   39   44    6  Voting District Code
-            UA  Yes    L     N   45   49    5  Census Urbanized Area Code
-          ANRC  Yes    L     N   50   51    2  Census Alaska Native Regional Corporation Code
-       CENSUS5  Yes    L     N   52   54    3  Census Use 5
-          NAME   No    L     A   55  112   58  Name of Geographic Area
-    
-    
-    
+    Field     BV   Fmt Type Beg End Len Description
+    RT        No    L   A    1    1  1  Record Type
+    VERSION   No    L   N    2    5  4  Version Number
+    STATE     Yes   L   N    6    7  2  FIPS State Code
+    COUNTY    Yes   L   N    8   10  3  FIPS County Code
+    DATAYR    Yes   L   A   11   14  4  FIPS Code, Name, and/or Attribute Data Applicable Year
+    FIPS      Yes   L   N   15   19  5  FIPS PUB 55-3 Code
+    FIPSCC    Yes   L   A   20   21  2  FIPS 55 Class Code
+    PLACEDC   Yes   L   A   22   22  1  Place Description Code
+    LSADC     Yes   L   A   23   24  2  Legal/Statistical Area Description Code
+    ENTITY    No    L   A   25   25  1  Entity Type Code
+    MA        Yes   L   N   26   29  4  Metropolitan Area Code
+    SD        Yes   L   N   30   34  5  School District Code
+    AIANHH    Yes   L   N   35   38  4  Census American Indian/Alaska Native Area/Hawaiian Home Land Code
+    VTDTRACT  Yes   R   A   39   44  6  Census Voting District Code/Census Tract Code
+    UAUGA     Yes   L   N   45   49  5  Urban Area Code/Urban Growth Area Code
+    AITSCE     Yes  L   N   50   52  3  Census American Indian Tribal Subdivision Code
+    CSACNECTA  Yes  L   N   53   55  3  Combined Statistical Area/Combined New England City and Town Area Code
+    CBSANECTA  Yes  L   N   56   60  5  Metropolitan Statistical Area/Micropolitan Statistical Area/New England City and Town Area/Metropolitan Division/New England City and Town Area Division Code
+    COMMREG    Yes  L   N   61   61  1  Commercial Region Code, Economic Census
+    RS-C2      Yes  L   N   62   62  1  Reserved Space C2
+    NAME       Yes  L   A   63  122 60  Name of Geographic Area
 
 
 

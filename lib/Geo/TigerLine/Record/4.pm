@@ -7,109 +7,109 @@ use base qw(Geo::TigerLine::Record::Parser Geo::TigerLine::Record::Accessor
             Geo::TigerLine::Record Class::Data::Inheritable);
 
 use vars qw($VERSION);
-$VERSION = '0.01';
+$VERSION = '0.02';
 
 
 # Auto-generated data dictionary.
 my %Data_Dict = (
-               'feat5' => {
-                            'beg' => '51',
-                            'bv' => 'Yes',
-                            'description' => 'Line Additional Name Identification Number, Fifth',
-                            'fieldnum' => '9',
-                            'len' => '8',
-                            'end' => '58',
-                            'fmt' => 'R',
-                            'field' => 'feat5',
-                            'type' => 'N'
-                          },
-               'tlid' => {
-                           'beg' => '6',
-                           'bv' => 'No',
-                           'description' => 'TIGER/Line ID, Permanent Record Number',
-                           'fieldnum' => '3',
-                           'len' => '10',
-                           'end' => '15',
-                           'fmt' => 'R',
-                           'field' => 'tlid',
-                           'type' => 'N'
-                         },
-               'rtsq' => {
-                           'beg' => '16',
-                           'bv' => 'No',
-                           'description' => 'Record Sequence Number',
-                           'fieldnum' => '4',
-                           'len' => '3',
-                           'end' => '18',
-                           'fmt' => 'R',
-                           'field' => 'rtsq',
-                           'type' => 'N'
-                         },
                'feat1' => {
-                            'beg' => '19',
+                            'len' => 8,
+                            'beg' => 19,
                             'bv' => 'No',
+                            'fieldnum' => 5,
+                            'type' => 'N',
                             'description' => 'Line Additional Name Identification Number, First',
-                            'fieldnum' => '5',
-                            'len' => '8',
-                            'end' => '26',
+                            'end' => 26,
                             'fmt' => 'R',
-                            'field' => 'feat1',
-                            'type' => 'N'
+                            'field' => 'feat1'
                           },
                'version' => {
-                              'beg' => '2',
+                              'len' => 4,
+                              'beg' => 2,
                               'bv' => 'No',
+                              'fieldnum' => 2,
+                              'type' => 'N',
                               'description' => 'Version Number',
-                              'fieldnum' => '2',
-                              'len' => '4',
-                              'end' => '5',
+                              'end' => 5,
                               'fmt' => 'L',
-                              'field' => 'version',
-                              'type' => 'N'
+                              'field' => 'version'
                             },
-               'feat2' => {
-                            'beg' => '27',
-                            'bv' => 'Yes',
-                            'description' => 'Line Additional Name Identification Number, Second',
-                            'fieldnum' => '6',
-                            'len' => '8',
-                            'end' => '34',
-                            'fmt' => 'R',
-                            'field' => 'feat2',
-                            'type' => 'N'
-                          },
                'feat3' => {
-                            'beg' => '35',
+                            'len' => 8,
+                            'beg' => 35,
                             'bv' => 'Yes',
+                            'fieldnum' => 7,
+                            'type' => 'N',
                             'description' => 'Line Additional Name Identification Number, Third',
-                            'fieldnum' => '7',
-                            'len' => '8',
-                            'end' => '42',
+                            'end' => 42,
                             'fmt' => 'R',
-                            'field' => 'feat3',
-                            'type' => 'N'
+                            'field' => 'feat3'
+                          },
+               'tlid' => {
+                           'len' => 10,
+                           'beg' => 6,
+                           'bv' => 'No',
+                           'fieldnum' => 3,
+                           'type' => 'N',
+                           'description' => 'TIGER/Line ID, Permanent 1-Cell Number',
+                           'end' => 15,
+                           'fmt' => 'R',
+                           'field' => 'tlid'
+                         },
+               'feat4' => {
+                            'len' => 8,
+                            'beg' => 43,
+                            'bv' => 'Yes',
+                            'fieldnum' => 8,
+                            'type' => 'N',
+                            'description' => 'Line Additional Name Identification Number, Fourth',
+                            'end' => 50,
+                            'fmt' => 'R',
+                            'field' => 'feat4'
+                          },
+               'rtsq' => {
+                           'len' => 3,
+                           'beg' => 16,
+                           'bv' => 'No',
+                           'fieldnum' => 4,
+                           'type' => 'N',
+                           'description' => 'Record Sequence Number',
+                           'end' => 18,
+                           'fmt' => 'R',
+                           'field' => 'rtsq'
+                         },
+               'feat5' => {
+                            'len' => 8,
+                            'beg' => 51,
+                            'bv' => 'Yes',
+                            'fieldnum' => 9,
+                            'type' => 'N',
+                            'description' => 'Line Additional Name Identification Number, Fifth',
+                            'end' => 58,
+                            'fmt' => 'R',
+                            'field' => 'feat5'
                           },
                'rt' => {
-                         'beg' => '1',
+                         'len' => 1,
+                         'beg' => 1,
                          'bv' => 'No',
+                         'fieldnum' => 1,
+                         'type' => 'A',
                          'description' => 'Record Type',
-                         'fieldnum' => '1',
-                         'len' => '1',
-                         'end' => '1',
+                         'end' => 1,
                          'fmt' => 'L',
-                         'field' => 'rt',
-                         'type' => 'A'
+                         'field' => 'rt'
                        },
-               'feat4' => {
-                            'beg' => '43',
+               'feat2' => {
+                            'len' => 8,
+                            'beg' => 27,
                             'bv' => 'Yes',
-                            'description' => 'Line Additional Name Identification Number, Fourth',
-                            'fieldnum' => '8',
-                            'len' => '8',
-                            'end' => '50',
+                            'fieldnum' => 6,
+                            'type' => 'N',
+                            'description' => 'Line Additional Name Identification Number, Second',
+                            'end' => 34,
                             'fmt' => 'R',
-                            'field' => 'feat4',
-                            'type' => 'N'
+                            'field' => 'feat2'
                           }
              );
 
@@ -152,7 +152,7 @@ foreach my $def (@Data_Dict{@Data_Fields}) {
 
 =head1 NAME
 
-Geo::TigerLine::Record::4 - TIGER/Line 1998 Index to Alternative Feature Identifiers
+Geo::TigerLine::Record::4 - TIGER/Line 2003 Index to Alternative Feature Identifiers
 
 =head1 SYNOPSIS
 
@@ -176,7 +176,7 @@ Geo::TigerLine::Record::4 - TIGER/Line 1998 Index to Alternative Feature Identif
 
 =head1 DESCRIPTION
 
-This is a class representing record type 4 of the TIGER/Line 1998
+This is a class representing record type 4 of the TIGER/Line 2003
 census geographic database.  Each object is one record.  It also
 contains methods to parse TIGER/Line record type 4 files and turn them
 into objects.
@@ -184,17 +184,17 @@ into objects.
 This is intended as an intermediate format between pulling the raw
 data out of the simplistic TIGER/Line data files into something more
 sophisticated (a process you should only have to do once).  As such,
-its not very fast, but its careful, easy to use and performs some
+it's not very fast, but its careful, easy to use and performs some
 verifications on the data being read.
 
 As this class is autogenerated by mk_parsers, think before you modify this
-file.  Its OO, so consider sub-classing instead.
+file.  It's OO, so consider sub-classing instead.
 
 
 =head2 Accessors
 
 These are simple get/set accessors for each field of a record
-generated from the TIGER/Line 1998 data dictionary.  They perform some
+generated from the TIGER/Line 2003 data dictionary.  They perform some
 data validation.
 
 =over 4
@@ -226,7 +226,7 @@ and should be left justified.
     $data = $record->tlid();
     $record->tlid($data);
 
-TIGER/Line ID, Permanent Record Number.  
+TIGER/Line ID, Permanent 1-Cell Number.  
 
 Expects numeric data of no more than 10 characters.  $data cannot be blank 
 and should be right justified.
@@ -304,24 +304,21 @@ and should be right justified.
 
 =head2 Data dictionary
 
-This is the original TIGER/Line 1998 data dictionary from which this
+This is the original TIGER/Line 2003 data dictionary from which this
 class was generated.
 
     Record Type 4 - Index to Alternative Feature Identifiers
     
-         Field   BV  Fmt  Type  Beg  End  Len  Description
-            RT   No    L     A    1    1    1  Record Type
-       VERSION   No    L     N    2    5    4  Version Number
-          TLID   No    R     N    6   15   10  TIGER/Line ID, Permanent Record Number
-          RTSQ   No    R     N   16   18    3  Record Sequence Number
-         FEAT1   No    R     N   19   26    8  Line Additional Name Identification Number, First
-         FEAT2  Yes    R     N   27   34    8  Line Additional Name Identification Number, Second
-         FEAT3  Yes    R     N   35   42    8  Line Additional Name Identification Number, Third
-         FEAT4  Yes    R     N   43   50    8  Line Additional Name Identification Number, Fourth
-         FEAT5  Yes    R     N   51   58    8  Line Additional Name Identification Number, Fifth
-    
-    
-    
+    Field   BV  Fmt Type Beg End Len Description
+    RT      No   L   A    1    1   1 Record Type
+    VERSION No   L   N    2    5   4 Version Number
+    TLID    No   R   N    6   15  10 TIGER/Line ID, Permanent 1-Cell Number
+    RTSQ    No   R   N   16   18   3 Record Sequence Number
+    FEAT1   No   R   N   19   26   8 Line Additional Name Identification Number, First
+    FEAT2   Yes  R   N   27   34   8 Line Additional Name Identification Number, Second
+    FEAT3   Yes  R   N   35   42   8 Line Additional Name Identification Number, Third
+    FEAT4   Yes  R   N   43   50   8 Line Additional Name Identification Number, Fourth
+    FEAT5   Yes  R   N   51   58   8 Line Additional Name Identification Number, Fifth
 
 
 

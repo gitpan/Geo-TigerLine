@@ -51,6 +51,8 @@ sub new {
         $self->$k($v);
     }
 
+    warn "inside ", __PACKAGE__, "->new = $self\n";
+
     return $self;
 }
 

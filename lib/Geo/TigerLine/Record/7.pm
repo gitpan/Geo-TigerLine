@@ -7,131 +7,120 @@ use base qw(Geo::TigerLine::Record::Parser Geo::TigerLine::Record::Accessor
             Geo::TigerLine::Record Class::Data::Inheritable);
 
 use vars qw($VERSION);
-$VERSION = '0.01';
+$VERSION = '0.02';
 
 
 # Auto-generated data dictionary.
 my %Data_Dict = (
-               'lalong' => {
-                             'beg' => '55',
-                             'bv' => 'Yes',
-                             'description' => 'Longitude',
-                             'fieldnum' => '9',
-                             'len' => '10',
-                             'end' => '64',
-                             'fmt' => 'R',
-                             'field' => 'lalong',
-                             'type' => 'N'
-                           },
-               'state' => {
-                            'beg' => '6',
-                            'bv' => 'No',
-                            'description' => 'FIPS State Code for File',
-                            'fieldnum' => '3',
-                            'len' => '2',
-                            'end' => '7',
-                            'fmt' => 'L',
-                            'field' => 'state',
-                            'type' => 'N'
-                          },
-               'county' => {
-                             'beg' => '8',
-                             'bv' => 'No',
-                             'description' => 'FIPS County Code for File',
-                             'fieldnum' => '4',
-                             'len' => '3',
-                             'end' => '10',
-                             'fmt' => 'L',
-                             'field' => 'county',
-                             'type' => 'N'
-                           },
-               'cfcc' => {
-                           'beg' => '22',
-                           'bv' => 'Yes',
-                           'description' => 'Census Feature Class Code',
-                           'fieldnum' => '7',
-                           'len' => '3',
-                           'end' => '24',
-                           'fmt' => 'L',
-                           'field' => 'cfcc',
-                           'type' => 'A'
-                         },
-               'filler' => {
-                             'beg' => '74',
-                             'bv' => 'Yes',
-                             'description' => 'Filler (to make even character count)',
-                             'fieldnum' => '11',
-                             'len' => '1',
-                             'end' => '74',
-                             'fmt' => 'L',
-                             'field' => 'filler',
-                             'type' => 'A'
-                           },
                'source' => {
-                             'beg' => '21',
+                             'len' => 1,
+                             'beg' => 21,
                              'bv' => 'Yes',
+                             'fieldnum' => 5,
+                             'type' => 'A',
                              'description' => 'Source or First Source Code to Update',
-                             'fieldnum' => '6',
-                             'len' => '1',
-                             'end' => '21',
+                             'end' => 21,
                              'fmt' => 'L',
-                             'field' => 'source',
-                             'type' => 'A'
+                             'field' => 'source'
                            },
                'lalat' => {
-                            'beg' => '65',
+                            'len' => 9,
+                            'beg' => 65,
                             'bv' => 'Yes',
+                            'fieldnum' => 9,
+                            'type' => 'N',
                             'description' => 'Latitude',
-                            'fieldnum' => '10',
-                            'len' => '9',
-                            'end' => '73',
+                            'end' => 73,
                             'fmt' => 'R',
-                            'field' => 'lalat',
-                            'type' => 'N'
+                            'field' => 'lalat'
                           },
-               'laname' => {
-                             'beg' => '25',
-                             'bv' => 'Yes',
-                             'description' => 'Landmark Name',
-                             'fieldnum' => '8',
-                             'len' => '30',
-                             'end' => '54',
-                             'fmt' => 'L',
-                             'field' => 'laname',
-                             'type' => 'A'
-                           },
                'version' => {
-                              'beg' => '2',
+                              'len' => 4,
+                              'beg' => 2,
                               'bv' => 'No',
+                              'fieldnum' => 2,
+                              'type' => 'N',
                               'description' => 'Version Number',
-                              'fieldnum' => '2',
-                              'len' => '4',
-                              'end' => '5',
+                              'end' => 5,
                               'fmt' => 'L',
-                              'field' => 'version',
-                              'type' => 'N'
+                              'field' => 'version'
                             },
-               'rt' => {
-                         'beg' => '1',
-                         'bv' => 'No',
-                         'description' => 'Record Type',
-                         'fieldnum' => '1',
-                         'len' => '1',
-                         'end' => '1',
-                         'fmt' => 'L',
-                         'field' => 'rt',
-                         'type' => 'A'
-                       },
-               'land' => {
-                           'beg' => '11',
+               'lalong' => {
+                             'len' => 10,
+                             'beg' => 55,
+                             'bv' => 'Yes',
+                             'fieldnum' => 8,
+                             'type' => 'N',
+                             'description' => 'Longitude',
+                             'end' => 64,
+                             'fmt' => 'R',
+                             'field' => 'lalong'
+                           },
+               'file' => {
+                           'len' => 5,
+                           'beg' => 6,
                            'bv' => 'No',
+                           'fieldnum' => 3,
+                           'type' => 'N',
+                           'description' => 'File Code',
+                           'end' => 10,
+                           'fmt' => 'L',
+                           'field' => 'file'
+                         },
+               'land' => {
+                           'len' => 10,
+                           'beg' => 11,
+                           'bv' => 'No',
+                           'fieldnum' => 4,
+                           'type' => 'N',
                            'description' => 'Landmark Identification Number',
-                           'fieldnum' => '5',
-                           'len' => '10',
-                           'end' => '20',
+                           'end' => 20,
                            'fmt' => 'R',
-                           'field' => 'land',
-                           'type' => 'N'
+                           'field' => 'land'
+                         },
+               'laname' => {
+                             'len' => 30,
+                             'beg' => 25,
+                             'bv' => 'Yes',
+                             'fieldnum' => 7,
+                             'type' => 'A',
+                             'description' => 'Landmark Name',
+                             'end' => 54,
+                             'fmt' => 'L',
+                             'field' => 'laname'
+                           },
+               'filler' => {
+                             'len' => 1,
+                             'beg' => 74,
+                             'bv' => 'Yes',
+                             'fieldnum' => 10,
+                             'type' => 'A',
+                             'description' => 'Filler (to make even character count)',
+                             'end' => 74,
+                             'fmt' => 'L',
+                             'field' => 'filler'
+                           },
+               'rt' => {
+                         'len' => 1,
+                         'beg' => 1,
+                         'bv' => 'No',
+                         'fieldnum' => 1,
+                         'type' => 'A',
+                         'description' => 'Record Type',
+                         'end' => 1,
+                         'fmt' => 'L',
+                         'field' => 'rt'
+                       },
+               'cfcc' => {
+                           'len' => 3,
+                           'beg' => 22,
+                           'bv' => 'No',
+                           'fieldnum' => 6,
+                           'type' => 'A',
+                           'description' => 'Census Feature Class Code',
+                           'end' => 24,
+                           'fmt' => 'L',
+                           'field' => 'cfcc'
                          }
              );
 
@@ -139,8 +128,7 @@ my %Data_Dict = (
 my @Data_Fields = (
                  'rt',
                  'version',
-                 'state',
-                 'county',
+                 'file',
                  'land',
                  'source',
                  'cfcc',
@@ -176,7 +164,7 @@ foreach my $def (@Data_Dict{@Data_Fields}) {
 
 =head1 NAME
 
-Geo::TigerLine::Record::7 - TIGER/Line 1998 Landmark  Features
+Geo::TigerLine::Record::7 - TIGER/Line 2003 Landmark Features
 
 =head1 SYNOPSIS
 
@@ -189,8 +177,7 @@ Geo::TigerLine::Record::7 - TIGER/Line 1998 Landmark  Features
 
   $record->rt();
   $record->version();
-  $record->state();
-  $record->county();
+  $record->file();
   $record->land();
   $record->source();
   $record->cfcc();
@@ -202,7 +189,7 @@ Geo::TigerLine::Record::7 - TIGER/Line 1998 Landmark  Features
 
 =head1 DESCRIPTION
 
-This is a class representing record type 7 of the TIGER/Line 1998
+This is a class representing record type 7 of the TIGER/Line 2003
 census geographic database.  Each object is one record.  It also
 contains methods to parse TIGER/Line record type 7 files and turn them
 into objects.
@@ -210,17 +197,17 @@ into objects.
 This is intended as an intermediate format between pulling the raw
 data out of the simplistic TIGER/Line data files into something more
 sophisticated (a process you should only have to do once).  As such,
-its not very fast, but its careful, easy to use and performs some
+it's not very fast, but its careful, easy to use and performs some
 verifications on the data being read.
 
 As this class is autogenerated by mk_parsers, think before you modify this
-file.  Its OO, so consider sub-classing instead.
+file.  It's OO, so consider sub-classing instead.
 
 
 =head2 Accessors
 
 These are simple get/set accessors for each field of a record
-generated from the TIGER/Line 1998 data dictionary.  They perform some
+generated from the TIGER/Line 2003 data dictionary.  They perform some
 data validation.
 
 =over 4
@@ -247,25 +234,14 @@ Expects numeric data of no more than 4 characters.  $data cannot be blank
 and should be left justified.
 
 
-=item B<state>
+=item B<file>
 
-    $data = $record->state();
-    $record->state($data);
+    $data = $record->file();
+    $record->file($data);
 
-FIPS State Code for File.  
+File Code.  
 
-Expects numeric data of no more than 2 characters.  $data cannot be blank 
-and should be left justified.
-
-
-=item B<county>
-
-    $data = $record->county();
-    $record->county($data);
-
-FIPS County Code for File.  
-
-Expects numeric data of no more than 3 characters.  $data cannot be blank 
+Expects numeric data of no more than 5 characters.  $data cannot be blank 
 and should be left justified.
 
 
@@ -298,7 +274,7 @@ and should be left justified.
 
 Census Feature Class Code.  
 
-Expects alphanumeric data of no more than 3 characters.  $data can be blank 
+Expects alphanumeric data of no more than 3 characters.  $data cannot be blank 
 and should be left justified.
 
 
@@ -352,25 +328,22 @@ and should be left justified.
 
 =head2 Data dictionary
 
-This is the original TIGER/Line 1998 data dictionary from which this
+This is the original TIGER/Line 2003 data dictionary from which this
 class was generated.
 
-    Record Type 7 - Landmark  Features
+    Record Type 7 - Landmark Features
     
-         Field   BV  Fmt  Type  Beg  End  Len  Description
-            RT   No    L     A    1    1    1  Record Type
-       VERSION   No    L     N    2    5    4  Version Number
-         STATE   No    L     N    6    7    2  FIPS State Code for File
-        COUNTY   No    L     N    8   10    3  FIPS County Code for File
-          LAND   No    R     N   11   20   10  Landmark Identification Number
-        SOURCE  Yes    L     A   21   21    1  Source or First Source Code to Update
-          CFCC  Yes    L     A   22   24    3  Census Feature Class Code
-        LANAME  Yes    L     A   25   54   30  Landmark Name
-        LALONG  Yes    R     N   55   64   10  Longitude
-         LALAT  Yes    R     N   65   73    9  Latitude
-        FILLER  Yes    L     A   74   74    1  Filler (to make even character count)
-    
-    
+    Field BV Fmt Type Beg End Len Description
+    RT      No  L A  1  1  1 Record Type
+    VERSION No  L N  2  5  4 Version Number
+    FILE    No  L N  6 10  5 File Code
+    LAND    No  R N 11 20 10 Landmark Identification Number
+    SOURCE  Yes L A 21 21  1 Source or First Source Code to Update
+    CFCC    No  L A 22 24  3 Census Feature Class Code
+    LANAME  Yes L A 25 54 30 Landmark Name
+    LALONG  Yes R N 55 64 10 Longitude
+    LALAT   Yes R N 65 73  9 Latitude
+    FILLER  Yes L A 74 74  1 Filler (to make even character count)
     
 
 

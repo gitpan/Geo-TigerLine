@@ -7,122 +7,146 @@ use base qw(Geo::TigerLine::Record::Parser Geo::TigerLine::Record::Accessor
             Geo::TigerLine::Record Class::Data::Inheritable);
 
 use vars qw($VERSION);
-$VERSION = '0.01';
+$VERSION = '0.02';
 
 
 # Auto-generated data dictionary.
 my %Data_Dict = (
-               'state' => {
-                            'beg' => '6',
-                            'bv' => 'No',
-                            'description' => 'FIPS State Code for File',
-                            'fieldnum' => '3',
-                            'len' => '2',
-                            'end' => '7',
-                            'fmt' => 'L',
-                            'field' => 'state',
-                            'type' => 'N'
-                          },
-               'county' => {
-                             'beg' => '8',
-                             'bv' => 'No',
-                             'description' => 'FIPS County Code for File',
-                             'fieldnum' => '4',
-                             'len' => '3',
-                             'end' => '10',
-                             'fmt' => 'L',
-                             'field' => 'county',
-                             'type' => 'N'
-                           },
-               'maxid' => {
-                            'beg' => '16',
-                            'bv' => 'No',
-                            'description' => 'TIGER/Line ID, Maximum Permanent ID for Census File',
-                            'fieldnum' => '6',
-                            'len' => '10',
-                            'end' => '25',
-                            'fmt' => 'R',
-                            'field' => 'maxid',
-                            'type' => 'N'
-                          },
+               'tzhighid' => {
+                               'len' => 10,
+                               'beg' => 66,
+                               'bv' => 'No',
+                               'fieldnum' => 10,
+                               'type' => 'N',
+                               'description' => 'Current High TIGER Zero-Cell ID for Census File Identification Code',
+                               'end' => 75,
+                               'fmt' => 'R',
+                               'field' => 'tzhighid'
+                             },
+               'version' => {
+                              'len' => 4,
+                              'beg' => 2,
+                              'bv' => 'No',
+                              'fieldnum' => 2,
+                              'type' => 'N',
+                              'description' => 'Version Number',
+                              'end' => 5,
+                              'fmt' => 'L',
+                              'field' => 'version'
+                            },
+               'file' => {
+                           'len' => 5,
+                           'beg' => 6,
+                           'bv' => 'No',
+                           'fieldnum' => 3,
+                           'type' => 'N',
+                           'description' => 'File Code',
+                           'end' => 10,
+                           'fmt' => 'L',
+                           'field' => 'file'
+                         },
+               'tlminid' => {
+                              'len' => 10,
+                              'beg' => 26,
+                              'bv' => 'No',
+                              'fieldnum' => 6,
+                              'type' => 'N',
+                              'description' => 'Lowest Possible TIGER/Line ID in range for Census File Identification Code',
+                              'end' => 35,
+                              'fmt' => 'R',
+                              'field' => 'tlminid'
+                            },
+               'tzmaxid' => {
+                              'len' => 10,
+                              'beg' => 46,
+                              'bv' => 'No',
+                              'fieldnum' => 8,
+                              'type' => 'N',
+                              'description' => 'Highest Possible TIGER Zero-Cell ID in range for Census File Identification Code',
+                              'end' => 55,
+                              'fmt' => 'R',
+                              'field' => 'tzmaxid'
+                            },
+               'tlmaxid' => {
+                              'len' => 10,
+                              'beg' => 16,
+                              'bv' => 'No',
+                              'fieldnum' => 5,
+                              'type' => 'N',
+                              'description' => 'Highest Possible TIGER/Line ID in range for Census File Identification Code',
+                              'end' => 25,
+                              'fmt' => 'R',
+                              'field' => 'tlmaxid'
+                            },
+               'tlihghid' => {
+                               'len' => 10,
+                               'beg' => 36,
+                               'bv' => 'No',
+                               'fieldnum' => 7,
+                               'type' => 'N',
+                               'description' => 'Current High TIGER/Line ID for Census File Identification Code',
+                               'end' => 45,
+                               'fmt' => 'R',
+                               'field' => 'tlihghid'
+                             },
                'cenid' => {
-                            'beg' => '11',
+                            'len' => 5,
+                            'beg' => 11,
                             'bv' => 'No',
+                            'fieldnum' => 4,
+                            'type' => 'A',
                             'description' => 'Census File Identification Code',
-                            'fieldnum' => '5',
-                            'len' => '5',
-                            'end' => '15',
+                            'end' => 15,
                             'fmt' => 'L',
-                            'field' => 'cenid',
-                            'type' => 'A'
+                            'field' => 'cenid'
                           },
                'filler' => {
-                             'beg' => '46',
+                             'len' => 1,
+                             'beg' => 76,
                              'bv' => 'Yes',
+                             'fieldnum' => 11,
+                             'type' => 'A',
                              'description' => 'Filler (to make even character count)',
-                             'fieldnum' => '9',
-                             'len' => '1',
-                             'end' => '46',
+                             'end' => 76,
                              'fmt' => 'L',
-                             'field' => 'filler',
-                             'type' => 'A'
+                             'field' => 'filler'
                            },
-               'minid' => {
-                            'beg' => '26',
-                            'bv' => 'No',
-                            'description' => 'TIGER/Line ID, Minimum Permanent ID for Census File',
-                            'fieldnum' => '7',
-                            'len' => '10',
-                            'end' => '35',
-                            'fmt' => 'R',
-                            'field' => 'minid',
-                            'type' => 'N'
-                          },
-               'highid' => {
-                             'beg' => '36',
-                             'bv' => 'No',
-                             'description' => 'TIGER/Line ID, Current High ID for Census File',
-                             'fieldnum' => '8',
-                             'len' => '10',
-                             'end' => '45',
-                             'fmt' => 'R',
-                             'field' => 'highid',
-                             'type' => 'N'
-                           },
-               'version' => {
-                              'beg' => '2',
-                              'bv' => 'No',
-                              'description' => 'Version Number',
-                              'fieldnum' => '2',
-                              'len' => '4',
-                              'end' => '5',
-                              'fmt' => 'L',
-                              'field' => 'version',
-                              'type' => 'N'
-                            },
                'rt' => {
-                         'beg' => '1',
+                         'len' => 1,
+                         'beg' => 1,
                          'bv' => 'No',
+                         'fieldnum' => 1,
+                         'type' => 'A',
                          'description' => 'Record Type',
-                         'fieldnum' => '1',
-                         'len' => '1',
-                         'end' => '1',
+                         'end' => 1,
                          'fmt' => 'L',
-                         'field' => 'rt',
-                         'type' => 'A'
-                       }
+                         'field' => 'rt'
+                       },
+               'tzminid' => {
+                              'len' => 10,
+                              'beg' => 56,
+                              'bv' => 'No',
+                              'fieldnum' => 9,
+                              'type' => 'N',
+                              'description' => 'Lowest Possible TIGER Zero-Cell ID in range for Census File Identification Code',
+                              'end' => 65,
+                              'fmt' => 'R',
+                              'field' => 'tzminid'
+                            }
              );
 
 
 my @Data_Fields = (
                  'rt',
                  'version',
-                 'state',
-                 'county',
+                 'file',
                  'cenid',
-                 'maxid',
-                 'minid',
-                 'highid',
+                 'tlmaxid',
+                 'tlminid',
+                 'tlihghid',
+                 'tzmaxid',
+                 'tzminid',
+                 'tzhighid',
                  'filler'
                );
 
@@ -152,7 +176,7 @@ foreach my $def (@Data_Dict{@Data_Fields}) {
 
 =head1 NAME
 
-Geo::TigerLine::Record::R - TIGER/Line 1998 TIGER/Line ID Record Number Range
+Geo::TigerLine::Record::R - TIGER/Line 2003 TIGER/Line ID Record Number Range
 
 =head1 SYNOPSIS
 
@@ -165,18 +189,20 @@ Geo::TigerLine::Record::R - TIGER/Line 1998 TIGER/Line ID Record Number Range
 
   $record->rt();
   $record->version();
-  $record->state();
-  $record->county();
+  $record->file();
   $record->cenid();
-  $record->maxid();
-  $record->minid();
-  $record->highid();
+  $record->tlmaxid();
+  $record->tlminid();
+  $record->tlihghid();
+  $record->tzmaxid();
+  $record->tzminid();
+  $record->tzhighid();
   $record->filler();
 
 
 =head1 DESCRIPTION
 
-This is a class representing record type R of the TIGER/Line 1998
+This is a class representing record type R of the TIGER/Line 2003
 census geographic database.  Each object is one record.  It also
 contains methods to parse TIGER/Line record type R files and turn them
 into objects.
@@ -184,17 +210,17 @@ into objects.
 This is intended as an intermediate format between pulling the raw
 data out of the simplistic TIGER/Line data files into something more
 sophisticated (a process you should only have to do once).  As such,
-its not very fast, but its careful, easy to use and performs some
+it's not very fast, but its careful, easy to use and performs some
 verifications on the data being read.
 
 As this class is autogenerated by mk_parsers, think before you modify this
-file.  Its OO, so consider sub-classing instead.
+file.  It's OO, so consider sub-classing instead.
 
 
 =head2 Accessors
 
 These are simple get/set accessors for each field of a record
-generated from the TIGER/Line 1998 data dictionary.  They perform some
+generated from the TIGER/Line 2003 data dictionary.  They perform some
 data validation.
 
 =over 4
@@ -221,25 +247,14 @@ Expects numeric data of no more than 4 characters.  $data cannot be blank
 and should be left justified.
 
 
-=item B<state>
+=item B<file>
 
-    $data = $record->state();
-    $record->state($data);
+    $data = $record->file();
+    $record->file($data);
 
-FIPS State Code for File.  
+File Code.  
 
-Expects numeric data of no more than 2 characters.  $data cannot be blank 
-and should be left justified.
-
-
-=item B<county>
-
-    $data = $record->county();
-    $record->county($data);
-
-FIPS County Code for File.  
-
-Expects numeric data of no more than 3 characters.  $data cannot be blank 
+Expects numeric data of no more than 5 characters.  $data cannot be blank 
 and should be left justified.
 
 
@@ -254,34 +269,67 @@ Expects alphanumeric data of no more than 5 characters.  $data cannot be blank
 and should be left justified.
 
 
-=item B<maxid>
+=item B<tlmaxid>
 
-    $data = $record->maxid();
-    $record->maxid($data);
+    $data = $record->tlmaxid();
+    $record->tlmaxid($data);
 
-TIGER/Line ID, Maximum Permanent ID for Census File.  
-
-Expects numeric data of no more than 10 characters.  $data cannot be blank 
-and should be right justified.
-
-
-=item B<minid>
-
-    $data = $record->minid();
-    $record->minid($data);
-
-TIGER/Line ID, Minimum Permanent ID for Census File.  
+Highest Possible TIGER/Line ID in range for Census File Identification Code.  
 
 Expects numeric data of no more than 10 characters.  $data cannot be blank 
 and should be right justified.
 
 
-=item B<highid>
+=item B<tlminid>
 
-    $data = $record->highid();
-    $record->highid($data);
+    $data = $record->tlminid();
+    $record->tlminid($data);
 
-TIGER/Line ID, Current High ID for Census File.  
+Lowest Possible TIGER/Line ID in range for Census File Identification Code.  
+
+Expects numeric data of no more than 10 characters.  $data cannot be blank 
+and should be right justified.
+
+
+=item B<tlihghid>
+
+    $data = $record->tlihghid();
+    $record->tlihghid($data);
+
+Current High TIGER/Line ID for Census File Identification Code.  
+
+Expects numeric data of no more than 10 characters.  $data cannot be blank 
+and should be right justified.
+
+
+=item B<tzmaxid>
+
+    $data = $record->tzmaxid();
+    $record->tzmaxid($data);
+
+Highest Possible TIGER Zero-Cell ID in range for Census File Identification Code.  
+
+Expects numeric data of no more than 10 characters.  $data cannot be blank 
+and should be right justified.
+
+
+=item B<tzminid>
+
+    $data = $record->tzminid();
+    $record->tzminid($data);
+
+Lowest Possible TIGER Zero-Cell ID in range for Census File Identification Code.  
+
+Expects numeric data of no more than 10 characters.  $data cannot be blank 
+and should be right justified.
+
+
+=item B<tzhighid>
+
+    $data = $record->tzhighid();
+    $record->tzhighid($data);
+
+Current High TIGER Zero-Cell ID for Census File Identification Code.  
 
 Expects numeric data of no more than 10 characters.  $data cannot be blank 
 and should be right justified.
@@ -304,24 +352,23 @@ and should be left justified.
 
 =head2 Data dictionary
 
-This is the original TIGER/Line 1998 data dictionary from which this
+This is the original TIGER/Line 2003 data dictionary from which this
 class was generated.
 
     Record Type R - TIGER/Line ID Record Number Range
     
-         Field   BV  Fmt  Type  Beg  End  Len  Description
-            RT   No    L     A    1    1    1  Record Type
-       VERSION   No    L     N    2    5    4  Version Number
-         STATE   No    L     N    6    7    2  FIPS State Code for File
-        COUNTY   No    L     N    8   10    3  FIPS County Code for File
-         CENID   No    L     A   11   15    5  Census File Identification Code
-         MAXID   No    R     N   16   25   10  TIGER/Line ID, Maximum Permanent ID for Census File
-         MINID   No    R     N   26   35   10  TIGER/Line ID, Minimum Permanent ID for Census File
-        HIGHID   No    R     N   36   45   10  TIGER/Line ID, Current High ID for Census File
-        FILLER  Yes    L     A   46   46    1  Filler (to make even character count)
-    
-    
-    
+    Field    BV  Fmt Type Beg End Len Description
+    RT       No   L   A    1    1  1  Record Type
+    VERSION  No   L   N    2    5  4  Version Number
+    FILE     No   L   N    6   10  5  File Code
+    CENID    No   L   A   11   15  5  Census File Identification Code
+    TLMAXID  No   R   N   16   25 10  Highest Possible TIGER/Line ID in range for Census File Identification Code
+    TLMINID  No   R   N   26   35 10  Lowest Possible TIGER/Line ID in range for Census File Identification Code
+    TLIHGHID No   R   N   36   45 10  Current High TIGER/Line ID for Census File Identification Code
+    TZMAXID  No   R   N   46   55 10  Highest Possible TIGER Zero-Cell ID in range for Census File Identification Code
+    TZMINID  No   R   N   56   65 10  Lowest Possible TIGER Zero-Cell ID in range for Census File Identification Code
+    TZHIGHID No   R   N   66   75 10  Current High TIGER Zero-Cell ID for Census File Identification Code
+    FILLER   Yes  L   A   76   76  1  Filler (to make even character count)
 
 
 

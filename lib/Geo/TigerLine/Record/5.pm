@@ -7,106 +7,106 @@ use base qw(Geo::TigerLine::Record::Parser Geo::TigerLine::Record::Accessor
             Geo::TigerLine::Record Class::Data::Inheritable);
 
 use vars qw($VERSION);
-$VERSION = '0.01';
+$VERSION = '0.02';
 
 
 # Auto-generated data dictionary.
 my %Data_Dict = (
-               'state' => {
-                            'beg' => '2',
-                            'bv' => 'No',
-                            'description' => 'FIPS State Code for File',
-                            'fieldnum' => '2',
-                            'len' => '2',
-                            'end' => '3',
-                            'fmt' => 'L',
-                            'field' => 'state',
-                            'type' => 'N'
-                          },
+               'version' => {
+                              'len' => 4,
+                              'beg' => 2,
+                              'bv' => 'No',
+                              'fieldnum' => 2,
+                              'type' => 'N',
+                              'description' => 'Version Number',
+                              'end' => 5,
+                              'fmt' => 'L',
+                              'field' => 'version'
+                            },
                'fetype' => {
-                             'beg' => '47',
+                             'len' => 4,
+                             'beg' => 51,
                              'bv' => 'Yes',
+                             'fieldnum' => 7,
+                             'type' => 'A',
                              'description' => 'Feature Type',
-                             'fieldnum' => '7',
-                             'len' => '4',
-                             'end' => '50',
+                             'end' => 54,
                              'fmt' => 'L',
-                             'field' => 'fetype',
-                             'type' => 'A'
+                             'field' => 'fetype'
                            },
-               'county' => {
-                             'beg' => '4',
-                             'bv' => 'No',
-                             'description' => 'FIPS County Code for File',
-                             'fieldnum' => '3',
-                             'len' => '3',
-                             'end' => '6',
-                             'fmt' => 'L',
-                             'field' => 'county',
-                             'type' => 'N'
-                           },
-               'fedirs' => {
-                             'beg' => '51',
-                             'bv' => 'Yes',
-                             'description' => 'Feature Direction, Suffix',
-                             'fieldnum' => '8',
-                             'len' => '2',
-                             'end' => '52',
-                             'fmt' => 'L',
-                             'field' => 'fedirs',
-                             'type' => 'A'
-                           },
+               'file' => {
+                           'len' => 5,
+                           'beg' => 6,
+                           'bv' => 'No',
+                           'fieldnum' => 3,
+                           'type' => 'N',
+                           'description' => 'File Code',
+                           'end' => 10,
+                           'fmt' => 'L',
+                           'field' => 'file'
+                         },
                'fename' => {
-                             'beg' => '17',
+                             'len' => 30,
+                             'beg' => 21,
                              'bv' => 'Yes',
+                             'fieldnum' => 6,
+                             'type' => 'A',
                              'description' => 'Feature Name',
-                             'fieldnum' => '6',
-                             'len' => '30',
-                             'end' => '46',
+                             'end' => 50,
                              'fmt' => 'L',
-                             'field' => 'fename',
-                             'type' => 'A'
+                             'field' => 'fename'
                            },
                'feat' => {
-                           'beg' => '7',
+                           'len' => 8,
+                           'beg' => 11,
                            'bv' => 'No',
+                           'fieldnum' => 4,
+                           'type' => 'N',
                            'description' => 'Line Name Identification Number',
-                           'fieldnum' => '4',
-                           'len' => '8',
-                           'end' => '14',
+                           'end' => 18,
                            'fmt' => 'R',
-                           'field' => 'feat',
-                           'type' => 'N'
+                           'field' => 'feat'
                          },
-               'fedirp' => {
-                             'beg' => '15',
+               'fedirs' => {
+                             'len' => 2,
+                             'beg' => 55,
                              'bv' => 'Yes',
-                             'description' => 'Feature Direction, Prefix',
-                             'fieldnum' => '5',
-                             'len' => '2',
-                             'end' => '16',
+                             'fieldnum' => 8,
+                             'type' => 'A',
+                             'description' => 'Feature Direction, Suffix',
+                             'end' => 56,
                              'fmt' => 'L',
-                             'field' => 'fedirp',
-                             'type' => 'A'
+                             'field' => 'fedirs'
                            },
                'rt' => {
-                         'beg' => '1',
+                         'len' => 1,
+                         'beg' => 1,
                          'bv' => 'No',
+                         'fieldnum' => 1,
+                         'type' => 'A',
                          'description' => 'Record Type',
-                         'fieldnum' => '1',
-                         'len' => '1',
-                         'end' => '1',
+                         'end' => 1,
                          'fmt' => 'L',
-                         'field' => 'rt',
-                         'type' => 'A'
-                       }
+                         'field' => 'rt'
+                       },
+               'fedirp' => {
+                             'len' => 2,
+                             'beg' => 19,
+                             'bv' => 'Yes',
+                             'fieldnum' => 5,
+                             'type' => 'A',
+                             'description' => 'Feature Direction, Prefix',
+                             'end' => 20,
+                             'fmt' => 'L',
+                             'field' => 'fedirp'
+                           }
              );
 
 
 my @Data_Fields = (
                  'rt',
-                 'state',
-                 'county',
+                 'version',
+                 'file',
                  'feat',
                  'fedirp',
                  'fename',
@@ -140,7 +140,7 @@ foreach my $def (@Data_Dict{@Data_Fields}) {
 
 =head1 NAME
 
-Geo::TigerLine::Record::5 - TIGER/Line 1998 Complete Chain Feature Identifiers
+Geo::TigerLine::Record::5 - TIGER/Line 2003 Complete Chain Feature Identifiers
 
 =head1 SYNOPSIS
 
@@ -152,8 +152,8 @@ Geo::TigerLine::Record::5 - TIGER/Line 1998 Complete Chain Feature Identifiers
   $record = Geo::TigerLine::Record::5->new(\%fields);
 
   $record->rt();
-  $record->state();
-  $record->county();
+  $record->version();
+  $record->file();
   $record->feat();
   $record->fedirp();
   $record->fename();
@@ -163,7 +163,7 @@ Geo::TigerLine::Record::5 - TIGER/Line 1998 Complete Chain Feature Identifiers
 
 =head1 DESCRIPTION
 
-This is a class representing record type 5 of the TIGER/Line 1998
+This is a class representing record type 5 of the TIGER/Line 2003
 census geographic database.  Each object is one record.  It also
 contains methods to parse TIGER/Line record type 5 files and turn them
 into objects.
@@ -171,17 +171,17 @@ into objects.
 This is intended as an intermediate format between pulling the raw
 data out of the simplistic TIGER/Line data files into something more
 sophisticated (a process you should only have to do once).  As such,
-its not very fast, but its careful, easy to use and performs some
+it's not very fast, but its careful, easy to use and performs some
 verifications on the data being read.
 
 As this class is autogenerated by mk_parsers, think before you modify this
-file.  Its OO, so consider sub-classing instead.
+file.  It's OO, so consider sub-classing instead.
 
 
 =head2 Accessors
 
 These are simple get/set accessors for each field of a record
-generated from the TIGER/Line 1998 data dictionary.  They perform some
+generated from the TIGER/Line 2003 data dictionary.  They perform some
 data validation.
 
 =over 4
@@ -197,25 +197,25 @@ Expects alphanumeric data of no more than 1 characters.  $data cannot be blank
 and should be left justified.
 
 
-=item B<state>
+=item B<version>
 
-    $data = $record->state();
-    $record->state($data);
+    $data = $record->version();
+    $record->version($data);
 
-FIPS State Code for File.  
+Version Number.  
 
-Expects numeric data of no more than 2 characters.  $data cannot be blank 
+Expects numeric data of no more than 4 characters.  $data cannot be blank 
 and should be left justified.
 
 
-=item B<county>
+=item B<file>
 
-    $data = $record->county();
-    $record->county($data);
+    $data = $record->file();
+    $record->file($data);
 
-FIPS County Code for File.  
+File Code.  
 
-Expects numeric data of no more than 3 characters.  $data cannot be blank 
+Expects numeric data of no more than 5 characters.  $data cannot be blank 
 and should be left justified.
 
 
@@ -280,23 +280,20 @@ and should be left justified.
 
 =head2 Data dictionary
 
-This is the original TIGER/Line 1998 data dictionary from which this
+This is the original TIGER/Line 2003 data dictionary from which this
 class was generated.
 
     Record Type 5 - Complete Chain Feature Identifiers
     
-         Field   BV  Fmt  Type  Beg  End  Len  Description
-            RT   No    L     A    1    1    1  Record Type
-         STATE   No    L     N    2    3    2  FIPS State Code for File
-        COUNTY   No    L     N    4    6    3  FIPS County Code for File
-          FEAT   No    R     N    7   14    8  Line Name Identification Number
-        FEDIRP  Yes    L     A   15   16    2  Feature Direction, Prefix
-        FENAME  Yes    L     A   17   46   30  Feature Name
-        FETYPE  Yes    L     A   47   50    4  Feature Type
-        FEDIRS  Yes    L     A   51   52    2  Feature Direction, Suffix
-    
-    
-    
+    Field   BV  Fmt Type Beg End Len Description
+    RT      No   L   A    1   1   1  Record Type
+    VERSION No   L   N    2   5   4  Version Number
+    FILE    No   L   N    6  10   5  File Code
+    FEAT    No   R   N   11  18   8  Line Name Identification Number
+    FEDIRP  Yes  L   A   19  20   2  Feature Direction, Prefix
+    FENAME  Yes  L   A   21  50  30  Feature Name
+    FETYPE  Yes  L   A   51  54   4  Feature Type
+    FEDIRS  Yes  L   A   55  56   2  Feature Direction, Suffix
 
 
 

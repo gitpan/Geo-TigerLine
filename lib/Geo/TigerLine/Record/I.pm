@@ -7,147 +7,195 @@ use base qw(Geo::TigerLine::Record::Parser Geo::TigerLine::Record::Accessor
             Geo::TigerLine::Record Class::Data::Inheritable);
 
 use vars qw($VERSION);
-$VERSION = '0.01';
+$VERSION = '0.02';
 
 
 # Auto-generated data dictionary.
 my %Data_Dict = (
-               'polyidl' => {
-                              'beg' => '27',
-                              'bv' => 'Yes',
-                              'description' => 'Polygon Identification Code, Left',
-                              'fieldnum' => '8',
-                              'len' => '10',
-                              'end' => '36',
-                              'fmt' => 'R',
-                              'field' => 'polyidl',
-                              'type' => 'N'
-                            },
-               'state' => {
-                            'beg' => '16',
-                            'bv' => 'No',
-                            'description' => 'FIPS State Code for File',
-                            'fieldnum' => '4',
-                            'len' => '2',
-                            'end' => '17',
-                            'fmt' => 'L',
-                            'field' => 'state',
-                            'type' => 'N'
-                          },
-               'county' => {
-                             'beg' => '18',
-                             'bv' => 'No',
-                             'description' => 'FIPS County Code for File',
-                             'fieldnum' => '5',
-                             'len' => '3',
-                             'end' => '20',
-                             'fmt' => 'L',
-                             'field' => 'county',
-                             'type' => 'N'
-                           },
-               'filler' => {
-                             'beg' => '52',
+               'source' => {
+                             'len' => 10,
+                             'beg' => 71,
                              'bv' => 'Yes',
-                             'description' => 'Filler (to make even character count)',
-                             'fieldnum' => '11',
-                             'len' => '1',
-                             'end' => '52',
+                             'fieldnum' => 11,
+                             'type' => 'A',
+                             'description' => 'TIGER 1-Cell Source Code',
+                             'end' => 80,
                              'fmt' => 'L',
-                             'field' => 'filler',
-                             'type' => 'A'
-                           },
-               'cenidl' => {
-                             'beg' => '22',
-                             'bv' => 'Yes',
-                             'description' => 'Census File Identification Code, Left',
-                             'fieldnum' => '7',
-                             'len' => '5',
-                             'end' => '26',
-                             'fmt' => 'L',
-                             'field' => 'cenidl',
-                             'type' => 'A'
-                           },
-               'rtlink' => {
-                             'beg' => '21',
-                             'bv' => 'No',
-                             'description' => 'Record Type of Link',
-                             'fieldnum' => '6',
-                             'len' => '1',
-                             'end' => '21',
-                             'fmt' => 'L',
-                             'field' => 'rtlink',
-                             'type' => 'A'
+                             'field' => 'source'
                            },
                'polyidr' => {
-                              'beg' => '42',
+                              'len' => 10,
+                              'beg' => 61,
                               'bv' => 'Yes',
+                              'fieldnum' => 10,
+                              'type' => 'N',
                               'description' => 'Polygon Identification Code, Right',
-                              'fieldnum' => '10',
-                              'len' => '10',
-                              'end' => '51',
+                              'end' => 70,
                               'fmt' => 'R',
-                              'field' => 'polyidr',
-                              'type' => 'N'
+                              'field' => 'polyidr'
                             },
-               'tlid' => {
-                           'beg' => '6',
+               'tzide' => {
+                            'len' => 10,
+                            'beg' => 31,
+                            'bv' => 'No',
+                            'fieldnum' => 6,
+                            'type' => 'N',
+                            'description' => 'TIGER ID, End, Permanent Zero-Cell Number',
+                            'end' => 40,
+                            'fmt' => 'R',
+                            'field' => 'tzide'
+                          },
+               'version' => {
+                              'len' => 4,
+                              'beg' => 2,
+                              'bv' => 'No',
+                              'fieldnum' => 2,
+                              'type' => 'N',
+                              'description' => 'Version Number',
+                              'end' => 5,
+                              'fmt' => 'L',
+                              'field' => 'version'
+                            },
+               'file' => {
+                           'len' => 5,
+                           'beg' => 6,
                            'bv' => 'No',
-                           'description' => 'TIGER/Line ID, Permanent Record Number',
-                           'fieldnum' => '3',
-                           'len' => '10',
-                           'end' => '15',
-                           'fmt' => 'R',
-                           'field' => 'tlid',
-                           'type' => 'N'
+                           'fieldnum' => 3,
+                           'type' => 'N',
+                           'description' => 'File Code',
+                           'end' => 10,
+                           'fmt' => 'L',
+                           'field' => 'file'
                          },
                'cenidr' => {
-                             'beg' => '37',
+                             'len' => 5,
+                             'beg' => 56,
                              'bv' => 'Yes',
+                             'fieldnum' => 9,
+                             'type' => 'A',
                              'description' => 'Census File Identification Code, Right',
-                             'fieldnum' => '9',
-                             'len' => '5',
-                             'end' => '41',
+                             'end' => 60,
                              'fmt' => 'L',
-                             'field' => 'cenidr',
-                             'type' => 'A'
+                             'field' => 'cenidr'
                            },
-               'version' => {
-                              'beg' => '2',
-                              'bv' => 'No',
-                              'description' => 'Version Number',
-                              'fieldnum' => '2',
-                              'len' => '4',
-                              'end' => '5',
-                              'fmt' => 'L',
-                              'field' => 'version',
-                              'type' => 'N'
-                            },
+               'rs_i1' => {
+                            'len' => 10,
+                            'beg' => 98,
+                            'bv' => 'Yes',
+                            'fieldnum' => 13,
+                            'type' => 'A',
+                            'description' => 'Reserved Space I1',
+                            'end' => 107,
+                            'fmt' => 'L',
+                            'field' => 'rs_i1'
+                          },
+               'cenidl' => {
+                             'len' => 5,
+                             'beg' => 41,
+                             'bv' => 'Yes',
+                             'fieldnum' => 7,
+                             'type' => 'A',
+                             'description' => 'Census File Identification Code, Left',
+                             'end' => 45,
+                             'fmt' => 'L',
+                             'field' => 'cenidl'
+                           },
+               'ftseg' => {
+                            'len' => 17,
+                            'beg' => 81,
+                            'bv' => 'Yes',
+                            'fieldnum' => 12,
+                            'type' => 'A',
+                            'description' => 'FTSeg ID (AAAAA.O.XXXXXXXXX) (Authority-S-ID) FGDC Transportation ID Standard (not filled)',
+                            'end' => 97,
+                            'fmt' => 'L',
+                            'field' => 'ftseg'
+                          },
+               'tlid' => {
+                           'len' => 10,
+                           'beg' => 11,
+                           'bv' => 'No',
+                           'fieldnum' => 4,
+                           'type' => 'N',
+                           'description' => 'TIGER/Line ID, Permanent 1-Cell Number',
+                           'end' => 20,
+                           'fmt' => 'R',
+                           'field' => 'tlid'
+                         },
+               'rs_i3' => {
+                            'len' => 10,
+                            'beg' => 118,
+                            'bv' => 'Yes',
+                            'fieldnum' => 15,
+                            'type' => 'A',
+                            'description' => 'Reserved Space I3',
+                            'end' => 127,
+                            'fmt' => 'L',
+                            'field' => 'rs_i3'
+                          },
+               'rs_i2' => {
+                            'len' => 10,
+                            'beg' => 108,
+                            'bv' => 'Yes',
+                            'fieldnum' => 14,
+                            'type' => 'A',
+                            'description' => 'Reserved Space I2',
+                            'end' => 117,
+                            'fmt' => 'L',
+                            'field' => 'rs_i2'
+                          },
+               'tzids' => {
+                            'len' => 10,
+                            'beg' => 21,
+                            'bv' => 'No',
+                            'fieldnum' => 5,
+                            'type' => 'N',
+                            'description' => 'TIGER ID, Start, Permanent Zero-Cell Number',
+                            'end' => 30,
+                            'fmt' => 'R',
+                            'field' => 'tzids'
+                          },
                'rt' => {
-                         'beg' => '1',
+                         'len' => 1,
+                         'beg' => 1,
                          'bv' => 'No',
+                         'fieldnum' => 1,
+                         'type' => 'A',
                          'description' => 'Record Type',
-                         'fieldnum' => '1',
-                         'len' => '1',
-                         'end' => '1',
+                         'end' => 1,
                          'fmt' => 'L',
-                         'field' => 'rt',
-                         'type' => 'A'
-                       }
+                         'field' => 'rt'
+                       },
+               'polyidl' => {
+                              'len' => 10,
+                              'beg' => 46,
+                              'bv' => 'Yes',
+                              'fieldnum' => 8,
+                              'type' => 'N',
+                              'description' => 'Polygon Identification Code, Left',
+                              'end' => 55,
+                              'fmt' => 'R',
+                              'field' => 'polyidl'
+                            }
              );
 
 
 my @Data_Fields = (
                  'rt',
                  'version',
+                 'file',
                  'tlid',
-                 'state',
-                 'county',
-                 'rtlink',
+                 'tzids',
+                 'tzide',
                  'cenidl',
                  'polyidl',
                  'cenidr',
                  'polyidr',
-                 'filler'
+                 'source',
+                 'ftseg',
+                 'rs_i1',
+                 'rs_i2',
+                 'rs_i3'
                );
 
 
@@ -176,7 +224,7 @@ foreach my $def (@Data_Dict{@Data_Fields}) {
 
 =head1 NAME
 
-Geo::TigerLine::Record::I - TIGER/Line 1998 Link Between Complete Chains and Polygons
+Geo::TigerLine::Record::I - TIGER/Line 2003 Link Between Complete Chains and Polygons
 
 =head1 SYNOPSIS
 
@@ -189,20 +237,24 @@ Geo::TigerLine::Record::I - TIGER/Line 1998 Link Between Complete Chains and Pol
 
   $record->rt();
   $record->version();
+  $record->file();
   $record->tlid();
-  $record->state();
-  $record->county();
-  $record->rtlink();
+  $record->tzids();
+  $record->tzide();
   $record->cenidl();
   $record->polyidl();
   $record->cenidr();
   $record->polyidr();
-  $record->filler();
+  $record->source();
+  $record->ftseg();
+  $record->rs_i1();
+  $record->rs_i2();
+  $record->rs_i3();
 
 
 =head1 DESCRIPTION
 
-This is a class representing record type I of the TIGER/Line 1998
+This is a class representing record type I of the TIGER/Line 2003
 census geographic database.  Each object is one record.  It also
 contains methods to parse TIGER/Line record type I files and turn them
 into objects.
@@ -210,17 +262,17 @@ into objects.
 This is intended as an intermediate format between pulling the raw
 data out of the simplistic TIGER/Line data files into something more
 sophisticated (a process you should only have to do once).  As such,
-its not very fast, but its careful, easy to use and performs some
+it's not very fast, but its careful, easy to use and performs some
 verifications on the data being read.
 
 As this class is autogenerated by mk_parsers, think before you modify this
-file.  Its OO, so consider sub-classing instead.
+file.  It's OO, so consider sub-classing instead.
 
 
 =head2 Accessors
 
 These are simple get/set accessors for each field of a record
-generated from the TIGER/Line 1998 data dictionary.  They perform some
+generated from the TIGER/Line 2003 data dictionary.  They perform some
 data validation.
 
 =over 4
@@ -247,48 +299,48 @@ Expects numeric data of no more than 4 characters.  $data cannot be blank
 and should be left justified.
 
 
+=item B<file>
+
+    $data = $record->file();
+    $record->file($data);
+
+File Code.  
+
+Expects numeric data of no more than 5 characters.  $data cannot be blank 
+and should be left justified.
+
+
 =item B<tlid>
 
     $data = $record->tlid();
     $record->tlid($data);
 
-TIGER/Line ID, Permanent Record Number.  
+TIGER/Line ID, Permanent 1-Cell Number.  
 
 Expects numeric data of no more than 10 characters.  $data cannot be blank 
 and should be right justified.
 
 
-=item B<state>
+=item B<tzids>
 
-    $data = $record->state();
-    $record->state($data);
+    $data = $record->tzids();
+    $record->tzids($data);
 
-FIPS State Code for File.  
+TIGER ID, Start, Permanent Zero-Cell Number.  
 
-Expects numeric data of no more than 2 characters.  $data cannot be blank 
-and should be left justified.
-
-
-=item B<county>
-
-    $data = $record->county();
-    $record->county($data);
-
-FIPS County Code for File.  
-
-Expects numeric data of no more than 3 characters.  $data cannot be blank 
-and should be left justified.
+Expects numeric data of no more than 10 characters.  $data cannot be blank 
+and should be right justified.
 
 
-=item B<rtlink>
+=item B<tzide>
 
-    $data = $record->rtlink();
-    $record->rtlink($data);
+    $data = $record->tzide();
+    $record->tzide($data);
 
-Record Type of Link.  
+TIGER ID, End, Permanent Zero-Cell Number.  
 
-Expects alphanumeric data of no more than 1 characters.  $data cannot be blank 
-and should be left justified.
+Expects numeric data of no more than 10 characters.  $data cannot be blank 
+and should be right justified.
 
 
 =item B<cenidl>
@@ -335,14 +387,58 @@ Expects numeric data of no more than 10 characters.  $data can be blank
 and should be right justified.
 
 
-=item B<filler>
+=item B<source>
 
-    $data = $record->filler();
-    $record->filler($data);
+    $data = $record->source();
+    $record->source($data);
 
-Filler (to make even character count).  
+TIGER 1-Cell Source Code.  
 
-Expects alphanumeric data of no more than 1 characters.  $data can be blank 
+Expects alphanumeric data of no more than 10 characters.  $data can be blank 
+and should be left justified.
+
+
+=item B<ftseg>
+
+    $data = $record->ftseg();
+    $record->ftseg($data);
+
+FTSeg ID (AAAAA.O.XXXXXXXXX) (Authority-S-ID) FGDC Transportation ID Standard (not filled).  
+
+Expects alphanumeric data of no more than 17 characters.  $data can be blank 
+and should be left justified.
+
+
+=item B<rs_i1>
+
+    $data = $record->rs_i1();
+    $record->rs_i1($data);
+
+Reserved Space I1.  
+
+Expects alphanumeric data of no more than 10 characters.  $data can be blank 
+and should be left justified.
+
+
+=item B<rs_i2>
+
+    $data = $record->rs_i2();
+    $record->rs_i2($data);
+
+Reserved Space I2.  
+
+Expects alphanumeric data of no more than 10 characters.  $data can be blank 
+and should be left justified.
+
+
+=item B<rs_i3>
+
+    $data = $record->rs_i3();
+    $record->rs_i3($data);
+
+Reserved Space I3.  
+
+Expects alphanumeric data of no more than 10 characters.  $data can be blank 
 and should be left justified.
 
 
@@ -352,26 +448,27 @@ and should be left justified.
 
 =head2 Data dictionary
 
-This is the original TIGER/Line 1998 data dictionary from which this
+This is the original TIGER/Line 2003 data dictionary from which this
 class was generated.
 
     Record Type I - Link Between Complete Chains and Polygons
     
-         Field   BV  Fmt  Type  Beg  End  Len  Description
-            RT   No    L     A    1    1    1  Record Type
-       VERSION   No    L     N    2    5    4  Version Number
-          TLID   No    R     N    6   15   10  TIGER/Line ID, Permanent Record Number
-         STATE   No    L     N   16   17    2  FIPS State Code for File
-        COUNTY   No    L     N   18   20    3  FIPS County Code for File
-        RTLINK   No    L     A   21   21    1  Record Type of Link
-        CENIDL  Yes    L     A   22   26    5  Census File Identification Code, Left
-       POLYIDL  Yes    R     N   27   36   10  Polygon Identification Code, Left
-        CENIDR  Yes    L     A   37   41    5  Census File Identification Code, Right
-       POLYIDR  Yes    R     N   42   51   10  Polygon Identification Code, Right
-        FILLER  Yes    L     A   52   52    1  Filler (to make even character count)
-    
-    
-    
+    Field   BV  Fmt Type Beg End Len Description
+    RT      No   L   A     1   1  1  Record Type
+    VERSION No   L   N     2   5  4  Version Number
+    FILE    No   L   N     6  10  5  File Code
+    TLID    No   R   N    11  20 10  TIGER/Line ID, Permanent 1-Cell Number
+    TZIDS   No   R   N    21  30 10  TIGER ID, Start, Permanent Zero-Cell Number
+    TZIDE   No   R   N    31  40 10  TIGER ID, End, Permanent Zero-Cell Number
+    CENIDL  Yes  L   A    41  45  5  Census File Identification Code, Left
+    POLYIDL Yes  R   N    46  55 10  Polygon Identification Code, Left
+    CENIDR  Yes  L   A    56  60  5  Census File Identification Code, Right
+    POLYIDR Yes  R   N    61  70 10  Polygon Identification Code, Right
+    SOURCE  Yes  L   A    71  80 10  TIGER 1-Cell Source Code
+    FTSEG   Yes  L   A    81  97 17  FTSeg ID (AAAAA.O.XXXXXXXXX) (Authority-S-ID) FGDC Transportation ID Standard (not filled)
+    RS-I1   Yes  L   A    98 107 10  Reserved Space I1
+    RS-I2   Yes  L   A   108 117 10  Reserved Space I2
+    RS-I3   Yes  L   A   118 127 10  Reserved Space I3
 
 
 

@@ -1,4 +1,4 @@
-package Geo::TigerLine::Record::8;
+package Geo::TigerLine::Record::T;
 
 use strict;
 
@@ -12,28 +12,28 @@ $VERSION = '0.02';
 
 # Auto-generated data dictionary.
 my %Data_Dict = (
-               'land' => {
+               'source' => {
+                             'len' => 10,
+                             'beg' => 21,
+                             'bv' => 'Yes',
+                             'fieldnum' => 5,
+                             'type' => 'A',
+                             'description' => 'TIGER Zero-Cell Source Code (not filled)',
+                             'end' => 30,
+                             'fmt' => 'L',
+                             'field' => 'source'
+                           },
+               'tzid' => {
                            'len' => 10,
-                           'beg' => 26,
+                           'beg' => 11,
                            'bv' => 'No',
-                           'fieldnum' => 6,
+                           'fieldnum' => 4,
                            'type' => 'N',
-                           'description' => 'Landmark Identification Number',
-                           'end' => 35,
+                           'description' => 'TIGER Zero-Cell ID, Permanent Zero-Cell Number',
+                           'end' => 20,
                            'fmt' => 'R',
-                           'field' => 'land'
+                           'field' => 'tzid'
                          },
-               'cenid' => {
-                            'len' => 5,
-                            'beg' => 11,
-                            'bv' => 'No',
-                            'fieldnum' => 4,
-                            'type' => 'A',
-                            'description' => 'Census File Identification Code',
-                            'end' => 15,
-                            'fmt' => 'L',
-                            'field' => 'cenid'
-                          },
                'version' => {
                               'len' => 4,
                               'beg' => 2,
@@ -45,28 +45,6 @@ my %Data_Dict = (
                               'fmt' => 'L',
                               'field' => 'version'
                             },
-               'filler' => {
-                             'len' => 1,
-                             'beg' => 36,
-                             'bv' => 'Yes',
-                             'fieldnum' => 7,
-                             'type' => 'A',
-                             'description' => 'Filler (to make even character count)',
-                             'end' => 36,
-                             'fmt' => 'L',
-                             'field' => 'filler'
-                           },
-               'polyid' => {
-                             'len' => 10,
-                             'beg' => 16,
-                             'bv' => 'No',
-                             'fieldnum' => 5,
-                             'type' => 'N',
-                             'description' => 'Polygon Identification Code',
-                             'end' => 25,
-                             'fmt' => 'R',
-                             'field' => 'polyid'
-                           },
                'file' => {
                            'len' => 5,
                            'beg' => 6,
@@ -88,7 +66,18 @@ my %Data_Dict = (
                          'end' => 1,
                          'fmt' => 'L',
                          'field' => 'rt'
-                       }
+                       },
+               'ftrp' => {
+                           'len' => 17,
+                           'beg' => 31,
+                           'bv' => 'Yes',
+                           'fieldnum' => 6,
+                           'type' => 'A',
+                           'description' => 'FTRP ID (AAAAA.O.XXXXXXXXX) (Authority-P-ID) FGDC Transportation ID Standard (not filled)',
+                           'end' => 47,
+                           'fmt' => 'L',
+                           'field' => 'ftrp'
+                         }
              );
 
 
@@ -96,10 +85,9 @@ my @Data_Fields = (
                  'rt',
                  'version',
                  'file',
-                 'cenid',
-                 'polyid',
-                 'land',
-                 'filler'
+                 'tzid',
+                 'source',
+                 'ftrp'
                );
 
 
@@ -128,31 +116,30 @@ foreach my $def (@Data_Dict{@Data_Fields}) {
 
 =head1 NAME
 
-Geo::TigerLine::Record::8 - TIGER/Line 2003 Polygons Linked to Area Landmarks
+Geo::TigerLine::Record::T - TIGER/Line 2003 TIGER Zero-Cell ID
 
 =head1 SYNOPSIS
 
-  use Geo::TigerLine::Record::8;
+  use Geo::TigerLine::Record::T;
 
-  @records = Geo::TigerLine::Record::8->parse_file($fh);
-  @records = Geo::TigerLine::Record::8->parse_file($fh, \&callback);
+  @records = Geo::TigerLine::Record::T->parse_file($fh);
+  @records = Geo::TigerLine::Record::T->parse_file($fh, \&callback);
 
-  $record = Geo::TigerLine::Record::8->new(\%fields);
+  $record = Geo::TigerLine::Record::T->new(\%fields);
 
   $record->rt();
   $record->version();
   $record->file();
-  $record->cenid();
-  $record->polyid();
-  $record->land();
-  $record->filler();
+  $record->tzid();
+  $record->source();
+  $record->ftrp();
 
 
 =head1 DESCRIPTION
 
-This is a class representing record type 8 of the TIGER/Line 2003
+This is a class representing record type T of the TIGER/Line 2003
 census geographic database.  Each object is one record.  It also
-contains methods to parse TIGER/Line record type 8 files and turn them
+contains methods to parse TIGER/Line record type T files and turn them
 into objects.
 
 This is intended as an intermediate format between pulling the raw
@@ -206,47 +193,36 @@ Expects numeric data of no more than 5 characters.  $data cannot be blank
 and should be left justified.
 
 
-=item B<cenid>
+=item B<tzid>
 
-    $data = $record->cenid();
-    $record->cenid($data);
+    $data = $record->tzid();
+    $record->tzid($data);
 
-Census File Identification Code.  
+TIGER Zero-Cell ID, Permanent Zero-Cell Number.  
 
-Expects alphanumeric data of no more than 5 characters.  $data cannot be blank 
+Expects numeric data of no more than 10 characters.  $data cannot be blank 
+and should be right justified.
+
+
+=item B<source>
+
+    $data = $record->source();
+    $record->source($data);
+
+TIGER Zero-Cell Source Code (not filled).  
+
+Expects alphanumeric data of no more than 10 characters.  $data can be blank 
 and should be left justified.
 
 
-=item B<polyid>
+=item B<ftrp>
 
-    $data = $record->polyid();
-    $record->polyid($data);
+    $data = $record->ftrp();
+    $record->ftrp($data);
 
-Polygon Identification Code.  
+FTRP ID (AAAAA.O.XXXXXXXXX) (Authority-P-ID) FGDC Transportation ID Standard (not filled).  
 
-Expects numeric data of no more than 10 characters.  $data cannot be blank 
-and should be right justified.
-
-
-=item B<land>
-
-    $data = $record->land();
-    $record->land($data);
-
-Landmark Identification Number.  
-
-Expects numeric data of no more than 10 characters.  $data cannot be blank 
-and should be right justified.
-
-
-=item B<filler>
-
-    $data = $record->filler();
-    $record->filler($data);
-
-Filler (to make even character count).  
-
-Expects alphanumeric data of no more than 1 characters.  $data can be blank 
+Expects alphanumeric data of no more than 17 characters.  $data can be blank 
 and should be left justified.
 
 
@@ -259,16 +235,15 @@ and should be left justified.
 This is the original TIGER/Line 2003 data dictionary from which this
 class was generated.
 
-    Record Type 8 - Polygons Linked to Area Landmarks
+    Record Type T - TIGER Zero-Cell ID
     
-    Field   BV  Fmt Type Beg End Len Description
-    RT      No   L    A   1    1  1  Record Type
-    VERSION No   L    N   2    5  4  Version Number
-    FILE    No   L    N   6   10  5  File Code
-    CENID   No   L    A  11   15  5  Census File Identification Code
-    POLYID  No   R    N  16   25 10  Polygon Identification Code
-    LAND    No   R    N  26   35 10  Landmark Identification Number
-    FILLER  Yes  L    A  36   36  1  Filler (to make even character count)
+    Field     BV  Fmt Type Beg End Len Description
+    RT        No   L   A    1    1  1  Record Type
+    VERSION   No   L   N    2    5  4  Version Number
+    FILE      No   L   N    6   10  5  File Code
+    TZID      No   R   N   11   20 10  TIGER Zero-Cell ID, Permanent Zero-Cell Number
+    SOURCE    Yes  L   A   21   30 10  TIGER Zero-Cell Source Code (not filled)
+    FTRP      Yes  L   A   31   47 17  FTRP ID (AAAAA.O.XXXXXXXXX) (Authority-P-ID) FGDC Transportation ID Standard (not filled)
 
 
 

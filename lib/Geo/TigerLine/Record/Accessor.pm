@@ -68,8 +68,7 @@ This is a subclass of Class::Accessor.
 
 sub get {
     my($self, $def) = @_;
-
-    return $self->[$def->{fieldnum}];
+    return $self->{$def->{field}};
 }
 
 
@@ -96,7 +95,7 @@ sub set {
         }
     }
 
-    $self->[$def->{fieldnum}] = $val;
+    $self->{$def->{field}} = $val;
 }
 
 =head2 Additional Methods

@@ -7,275 +7,275 @@ use base qw(Geo::TigerLine::Record::Parser Geo::TigerLine::Record::Accessor
             Geo::TigerLine::Record Class::Data::Inheritable);
 
 use vars qw($VERSION);
-$VERSION = '0.01';
+$VERSION = '0.02';
 
 
 # Auto-generated data dictionary.
 my %Data_Dict = (
-               'long10' => {
-                             'beg' => '190',
-                             'bv' => 'Yes',
-                             'description' => 'Point 10, Longitude',
-                             'fieldnum' => '23',
-                             'len' => '10',
-                             'end' => '199',
-                             'fmt' => 'R',
-                             'field' => 'long10',
-                             'type' => 'N'
-                           },
-               'rtsq' => {
-                           'beg' => '16',
-                           'bv' => 'No',
-                           'description' => 'Record Sequence Number',
-                           'fieldnum' => '4',
-                           'len' => '3',
-                           'end' => '18',
-                           'fmt' => 'R',
-                           'field' => 'rtsq',
-                           'type' => 'N'
-                         },
                'long1' => {
-                            'beg' => '19',
+                            'len' => 10,
+                            'beg' => 19,
                             'bv' => 'No',
+                            'fieldnum' => 5,
+                            'type' => 'N',
                             'description' => 'Point 1, Longitude',
-                            'fieldnum' => '5',
-                            'len' => '10',
-                            'end' => '28',
+                            'end' => 28,
                             'fmt' => 'R',
-                            'field' => 'long1',
-                            'type' => 'N'
-                          },
-               'long2' => {
-                            'beg' => '38',
-                            'bv' => 'Yes',
-                            'description' => 'Point 2, Longitude',
-                            'fieldnum' => '7',
-                            'len' => '10',
-                            'end' => '47',
-                            'fmt' => 'R',
-                            'field' => 'long2',
-                            'type' => 'N'
-                          },
-               'long3' => {
-                            'beg' => '57',
-                            'bv' => 'Yes',
-                            'description' => 'Point 3, Longitude',
-                            'fieldnum' => '9',
-                            'len' => '10',
-                            'end' => '66',
-                            'fmt' => 'R',
-                            'field' => 'long3',
-                            'type' => 'N'
-                          },
-               'long4' => {
-                            'beg' => '76',
-                            'bv' => 'Yes',
-                            'description' => 'Point 4, Longitude',
-                            'fieldnum' => '11',
-                            'len' => '10',
-                            'end' => '85',
-                            'fmt' => 'R',
-                            'field' => 'long4',
-                            'type' => 'N'
-                          },
-               'long5' => {
-                            'beg' => '95',
-                            'bv' => 'Yes',
-                            'description' => 'Point 5, Longitude',
-                            'fieldnum' => '13',
-                            'len' => '10',
-                            'end' => '104',
-                            'fmt' => 'R',
-                            'field' => 'long5',
-                            'type' => 'N'
-                          },
-               'long6' => {
-                            'beg' => '114',
-                            'bv' => 'Yes',
-                            'description' => 'Point 6, Longitude',
-                            'fieldnum' => '15',
-                            'len' => '10',
-                            'end' => '123',
-                            'fmt' => 'R',
-                            'field' => 'long6',
-                            'type' => 'N'
-                          },
-               'long7' => {
-                            'beg' => '133',
-                            'bv' => 'Yes',
-                            'description' => 'Point 7, Longitude',
-                            'fieldnum' => '17',
-                            'len' => '10',
-                            'end' => '142',
-                            'fmt' => 'R',
-                            'field' => 'long7',
-                            'type' => 'N'
+                            'field' => 'long1'
                           },
                'long8' => {
-                            'beg' => '152',
+                            'len' => 10,
+                            'beg' => 152,
                             'bv' => 'Yes',
+                            'fieldnum' => 19,
+                            'type' => 'N',
                             'description' => 'Point 8, Longitude',
-                            'fieldnum' => '19',
-                            'len' => '10',
-                            'end' => '161',
+                            'end' => 161,
                             'fmt' => 'R',
-                            'field' => 'long8',
-                            'type' => 'N'
+                            'field' => 'long8'
                           },
-               'tlid' => {
-                           'beg' => '6',
-                           'bv' => 'No',
-                           'description' => 'TIGER/Line ID, Permanent Record Number',
-                           'fieldnum' => '3',
-                           'len' => '10',
-                           'end' => '15',
-                           'fmt' => 'R',
-                           'field' => 'tlid',
-                           'type' => 'N'
-                         },
-               'lat1' => {
-                           'beg' => '29',
-                           'bv' => 'No',
-                           'description' => 'Point 1, Latitude',
-                           'fieldnum' => '6',
-                           'len' => '9',
-                           'end' => '37',
-                           'fmt' => 'R',
-                           'field' => 'lat1',
-                           'type' => 'N'
-                         },
-               'long9' => {
-                            'beg' => '171',
+               'long4' => {
+                            'len' => 10,
+                            'beg' => 76,
                             'bv' => 'Yes',
-                            'description' => 'Point 9, Longitude',
-                            'fieldnum' => '21',
-                            'len' => '10',
-                            'end' => '180',
+                            'fieldnum' => 11,
+                            'type' => 'N',
+                            'description' => 'Point 4, Longitude',
+                            'end' => 85,
                             'fmt' => 'R',
-                            'field' => 'long9',
-                            'type' => 'N'
-                          },
-               'lat2' => {
-                           'beg' => '48',
-                           'bv' => 'Yes',
-                           'description' => 'Point 2, Latitude',
-                           'fieldnum' => '8',
-                           'len' => '9',
-                           'end' => '56',
-                           'fmt' => 'R',
-                           'field' => 'lat2',
-                           'type' => 'N'
-                         },
-               'lat3' => {
-                           'beg' => '67',
-                           'bv' => 'Yes',
-                           'description' => 'Point 3, Latitude',
-                           'fieldnum' => '10',
-                           'len' => '9',
-                           'end' => '75',
-                           'fmt' => 'R',
-                           'field' => 'lat3',
-                           'type' => 'N'
-                         },
-               'lat4' => {
-                           'beg' => '86',
-                           'bv' => 'Yes',
-                           'description' => 'Point 4, Latitude',
-                           'fieldnum' => '12',
-                           'len' => '9',
-                           'end' => '94',
-                           'fmt' => 'R',
-                           'field' => 'lat4',
-                           'type' => 'N'
-                         },
-               'lat10' => {
-                            'beg' => '200',
-                            'bv' => 'Yes',
-                            'description' => 'Point 10, Latitude',
-                            'fieldnum' => '24',
-                            'len' => '9',
-                            'end' => '208',
-                            'fmt' => 'R',
-                            'field' => 'lat10',
-                            'type' => 'N'
+                            'field' => 'long4'
                           },
                'lat5' => {
-                           'beg' => '105',
+                           'len' => 9,
+                           'beg' => 105,
                            'bv' => 'Yes',
+                           'fieldnum' => 14,
+                           'type' => 'N',
                            'description' => 'Point 5, Latitude',
-                           'fieldnum' => '14',
-                           'len' => '9',
-                           'end' => '113',
+                           'end' => 113,
                            'fmt' => 'R',
-                           'field' => 'lat5',
-                           'type' => 'N'
+                           'field' => 'lat5'
                          },
-               'lat6' => {
-                           'beg' => '124',
-                           'bv' => 'Yes',
-                           'description' => 'Point 6, Latitude',
-                           'fieldnum' => '16',
-                           'len' => '9',
-                           'end' => '132',
-                           'fmt' => 'R',
-                           'field' => 'lat6',
-                           'type' => 'N'
-                         },
-               'lat7' => {
-                           'beg' => '143',
-                           'bv' => 'Yes',
-                           'description' => 'Point 7, Latitude',
-                           'fieldnum' => '18',
-                           'len' => '9',
-                           'end' => '151',
-                           'fmt' => 'R',
-                           'field' => 'lat7',
-                           'type' => 'N'
-                         },
-               'version' => {
-                              'beg' => '2',
-                              'bv' => 'No',
-                              'description' => 'Version Number',
-                              'fieldnum' => '2',
-                              'len' => '4',
-                              'end' => '5',
-                              'fmt' => 'L',
-                              'field' => 'version',
-                              'type' => 'N'
-                            },
+               'long9' => {
+                            'len' => 10,
+                            'beg' => 171,
+                            'bv' => 'Yes',
+                            'fieldnum' => 21,
+                            'type' => 'N',
+                            'description' => 'Point 9, Longitude',
+                            'end' => 180,
+                            'fmt' => 'R',
+                            'field' => 'long9'
+                          },
                'lat8' => {
-                           'beg' => '162',
+                           'len' => 9,
+                           'beg' => 162,
                            'bv' => 'Yes',
+                           'fieldnum' => 20,
+                           'type' => 'N',
                            'description' => 'Point 8, Latitude',
-                           'fieldnum' => '20',
-                           'len' => '9',
-                           'end' => '170',
+                           'end' => 170,
                            'fmt' => 'R',
-                           'field' => 'lat8',
-                           'type' => 'N'
+                           'field' => 'lat8'
                          },
-               'lat9' => {
-                           'beg' => '181',
+               'long7' => {
+                            'len' => 10,
+                            'beg' => 133,
+                            'bv' => 'Yes',
+                            'fieldnum' => 17,
+                            'type' => 'N',
+                            'description' => 'Point 7, Longitude',
+                            'end' => 142,
+                            'fmt' => 'R',
+                            'field' => 'long7'
+                          },
+               'lat4' => {
+                           'len' => 9,
+                           'beg' => 86,
                            'bv' => 'Yes',
-                           'description' => 'Point 9, Latitude',
-                           'fieldnum' => '22',
-                           'len' => '9',
-                           'end' => '189',
+                           'fieldnum' => 12,
+                           'type' => 'N',
+                           'description' => 'Point 4, Latitude',
+                           'end' => 94,
                            'fmt' => 'R',
-                           'field' => 'lat9',
-                           'type' => 'N'
+                           'field' => 'lat4'
                          },
                'rt' => {
-                         'beg' => '1',
+                         'len' => 1,
+                         'beg' => 1,
                          'bv' => 'No',
+                         'fieldnum' => 1,
+                         'type' => 'A',
                          'description' => 'Record Type',
-                         'fieldnum' => '1',
-                         'len' => '1',
-                         'end' => '1',
+                         'end' => 1,
                          'fmt' => 'L',
-                         'field' => 'rt',
-                         'type' => 'A'
-                       }
+                         'field' => 'rt'
+                       },
+               'lat6' => {
+                           'len' => 9,
+                           'beg' => 124,
+                           'bv' => 'Yes',
+                           'fieldnum' => 16,
+                           'type' => 'N',
+                           'description' => 'Point 6, Latitude',
+                           'end' => 132,
+                           'fmt' => 'R',
+                           'field' => 'lat6'
+                         },
+               'lat7' => {
+                           'len' => 9,
+                           'beg' => 143,
+                           'bv' => 'Yes',
+                           'fieldnum' => 18,
+                           'type' => 'N',
+                           'description' => 'Point 7, Latitude',
+                           'end' => 151,
+                           'fmt' => 'R',
+                           'field' => 'lat7'
+                         },
+               'long6' => {
+                            'len' => 10,
+                            'beg' => 114,
+                            'bv' => 'Yes',
+                            'fieldnum' => 15,
+                            'type' => 'N',
+                            'description' => 'Point 6, Longitude',
+                            'end' => 123,
+                            'fmt' => 'R',
+                            'field' => 'long6'
+                          },
+               'long5' => {
+                            'len' => 10,
+                            'beg' => 95,
+                            'bv' => 'Yes',
+                            'fieldnum' => 13,
+                            'type' => 'N',
+                            'description' => 'Point 5, Longitude',
+                            'end' => 104,
+                            'fmt' => 'R',
+                            'field' => 'long5'
+                          },
+               'version' => {
+                              'len' => 4,
+                              'beg' => 2,
+                              'bv' => 'No',
+                              'fieldnum' => 2,
+                              'type' => 'N',
+                              'description' => 'Version Number',
+                              'end' => 5,
+                              'fmt' => 'L',
+                              'field' => 'version'
+                            },
+               'lat2' => {
+                           'len' => 9,
+                           'beg' => 48,
+                           'bv' => 'Yes',
+                           'fieldnum' => 8,
+                           'type' => 'N',
+                           'description' => 'Point 2, Latitude',
+                           'end' => 56,
+                           'fmt' => 'R',
+                           'field' => 'lat2'
+                         },
+               'long10' => {
+                             'len' => 10,
+                             'beg' => 190,
+                             'bv' => 'Yes',
+                             'fieldnum' => 23,
+                             'type' => 'N',
+                             'description' => 'Point 10, Longitude',
+                             'end' => 199,
+                             'fmt' => 'R',
+                             'field' => 'long10'
+                           },
+               'lat9' => {
+                           'len' => 9,
+                           'beg' => 181,
+                           'bv' => 'Yes',
+                           'fieldnum' => 22,
+                           'type' => 'N',
+                           'description' => 'Point 9, Latitude',
+                           'end' => 189,
+                           'fmt' => 'R',
+                           'field' => 'lat9'
+                         },
+               'lat10' => {
+                            'len' => 9,
+                            'beg' => 200,
+                            'bv' => 'Yes',
+                            'fieldnum' => 24,
+                            'type' => 'N',
+                            'description' => 'Point 10, Latitude',
+                            'end' => 208,
+                            'fmt' => 'R',
+                            'field' => 'lat10'
+                          },
+               'long2' => {
+                            'len' => 10,
+                            'beg' => 38,
+                            'bv' => 'Yes',
+                            'fieldnum' => 7,
+                            'type' => 'N',
+                            'description' => 'Point 2, Longitude',
+                            'end' => 47,
+                            'fmt' => 'R',
+                            'field' => 'long2'
+                          },
+               'lat1' => {
+                           'len' => 9,
+                           'beg' => 29,
+                           'bv' => 'No',
+                           'fieldnum' => 6,
+                           'type' => 'N',
+                           'description' => 'Point 1, Latitude',
+                           'end' => 37,
+                           'fmt' => 'R',
+                           'field' => 'lat1'
+                         },
+               'tlid' => {
+                           'len' => 10,
+                           'beg' => 6,
+                           'bv' => 'No',
+                           'fieldnum' => 3,
+                           'type' => 'N',
+                           'description' => 'TIGER/Line ID, Permanent 1-Cell Number',
+                           'end' => 15,
+                           'fmt' => 'R',
+                           'field' => 'tlid'
+                         },
+               'rtsq' => {
+                           'len' => 3,
+                           'beg' => 16,
+                           'bv' => 'No',
+                           'fieldnum' => 4,
+                           'type' => 'N',
+                           'description' => 'Record Sequence Number',
+                           'end' => 18,
+                           'fmt' => 'R',
+                           'field' => 'rtsq'
+                         },
+               'lat3' => {
+                           'len' => 9,
+                           'beg' => 67,
+                           'bv' => 'Yes',
+                           'fieldnum' => 10,
+                           'type' => 'N',
+                           'description' => 'Point 3, Latitude',
+                           'end' => 75,
+                           'fmt' => 'R',
+                           'field' => 'lat3'
+                         },
+               'long3' => {
+                            'len' => 10,
+                            'beg' => 57,
+                            'bv' => 'Yes',
+                            'fieldnum' => 9,
+                            'type' => 'N',
+                            'description' => 'Point 3, Longitude',
+                            'end' => 66,
+                            'fmt' => 'R',
+                            'field' => 'long3'
+                          }
              );
 
 
@@ -332,7 +332,7 @@ foreach my $def (@Data_Dict{@Data_Fields}) {
 
 =head1 NAME
 
-Geo::TigerLine::Record::2 - TIGER/Line 1998 Complete Chain Shape Coordinates
+Geo::TigerLine::Record::2 - TIGER/Line 2003 Complete Chain Shape Coordinates
 
 =head1 SYNOPSIS
 
@@ -371,7 +371,7 @@ Geo::TigerLine::Record::2 - TIGER/Line 1998 Complete Chain Shape Coordinates
 
 =head1 DESCRIPTION
 
-This is a class representing record type 2 of the TIGER/Line 1998
+This is a class representing record type 2 of the TIGER/Line 2003
 census geographic database.  Each object is one record.  It also
 contains methods to parse TIGER/Line record type 2 files and turn them
 into objects.
@@ -379,17 +379,17 @@ into objects.
 This is intended as an intermediate format between pulling the raw
 data out of the simplistic TIGER/Line data files into something more
 sophisticated (a process you should only have to do once).  As such,
-its not very fast, but its careful, easy to use and performs some
+it's not very fast, but its careful, easy to use and performs some
 verifications on the data being read.
 
 As this class is autogenerated by mk_parsers, think before you modify this
-file.  Its OO, so consider sub-classing instead.
+file.  It's OO, so consider sub-classing instead.
 
 
 =head2 Accessors
 
 These are simple get/set accessors for each field of a record
-generated from the TIGER/Line 1998 data dictionary.  They perform some
+generated from the TIGER/Line 2003 data dictionary.  They perform some
 data validation.
 
 =over 4
@@ -421,7 +421,7 @@ and should be left justified.
     $data = $record->tlid();
     $record->tlid($data);
 
-TIGER/Line ID, Permanent Record Number.  
+TIGER/Line ID, Permanent 1-Cell Number.  
 
 Expects numeric data of no more than 10 characters.  $data cannot be blank 
 and should be right justified.
@@ -664,38 +664,36 @@ and should be right justified.
 
 =head2 Data dictionary
 
-This is the original TIGER/Line 1998 data dictionary from which this
+This is the original TIGER/Line 2003 data dictionary from which this
 class was generated.
 
     Record Type 2 - Complete Chain Shape Coordinates
     
-         Field   BV  Fmt  Type  Beg  End  Len  Description
-            RT   No    L     A    1    1    1  Record Type
-       VERSION   No    L     N    2    5    4  Version Number
-          TLID   No    R     N    6   15   10  TIGER/Line ID, Permanent Record Number
-          RTSQ   No    R     N   16   18    3  Record Sequence Number
-         LONG1   No    R     N   19   28   10  Point 1, Longitude
-          LAT1   No    R     N   29   37    9  Point 1, Latitude
-         LONG2  Yes    R     N   38   47   10  Point 2, Longitude
-          LAT2  Yes    R     N   48   56    9  Point 2, Latitude
-         LONG3  Yes    R     N   57   66   10  Point 3, Longitude
-          LAT3  Yes    R     N   67   75    9  Point 3, Latitude
-         LONG4  Yes    R     N   76   85   10  Point 4, Longitude
-          LAT4  Yes    R     N   86   94    9  Point 4, Latitude
-         LONG5  Yes    R     N   95  104   10  Point 5, Longitude
-          LAT5  Yes    R     N  105  113    9  Point 5, Latitude
-         LONG6  Yes    R     N  114  123   10  Point 6, Longitude
-          LAT6  Yes    R     N  124  132    9  Point 6, Latitude
-         LONG7  Yes    R     N  133  142   10  Point 7, Longitude
-          LAT7  Yes    R     N  143  151    9  Point 7, Latitude
-         LONG8  Yes    R     N  152  161   10  Point 8, Longitude
-          LAT8  Yes    R     N  162  170    9  Point 8, Latitude
-         LONG9  Yes    R     N  171  180   10  Point 9, Longitude
-          LAT9  Yes    R     N  181  189    9  Point 9, Latitude
-        LONG10  Yes    R     N  190  199   10  Point 10, Longitude
-         LAT10  Yes    R     N  200  208    9  Point 10, Latitude
-    
-    
+    Field   BV  Fmt Type Beg End Len Description
+    RT      No   L    A    1   1  1  Record Type
+    VERSION No   L    N    2   5  4  Version Number
+    TLID    No   R    N    6  15 10  TIGER/Line ID, Permanent 1-Cell Number
+    RTSQ    No   R    N   16  18  3  Record Sequence Number
+    LONG1   No   R    N   19  28 10  Point 1, Longitude
+    LAT1    No   R    N   29  37  9  Point 1, Latitude
+    LONG2   Yes  R    N   38  47 10  Point 2, Longitude
+    LAT2    Yes  R    N   48  56  9  Point 2, Latitude
+    LONG3   Yes  R    N   57  66 10  Point 3, Longitude
+    LAT3    Yes  R    N   67  75  9  Point 3, Latitude
+    LONG4   Yes  R    N   76  85 10  Point 4, Longitude
+    LAT4    Yes  R    N   86  94  9  Point 4, Latitude
+    LONG5   Yes  R    N   95 104 10  Point 5, Longitude
+    LAT5    Yes  R    N  105 113  9  Point 5, Latitude
+    LONG6   Yes  R    N  114 123 10  Point 6, Longitude
+    LAT6    Yes  R    N  124 132  9  Point 6, Latitude
+    LONG7   Yes  R    N  133 142 10  Point 7, Longitude
+    LAT7    Yes  R    N  143 151  9  Point 7, Latitude
+    LONG8   Yes  R    N  152 161 10  Point 8, Longitude
+    LAT8    Yes  R    N  162 170  9  Point 8, Latitude
+    LONG9   Yes  R    N  171 180 10  Point 9, Longitude
+    LAT9    Yes  R    N  181 189  9  Point 9, Latitude
+    LONG10  Yes  R    N  190 199 10  Point 10, Longitude
+    LAT10   Yes  R    N  200 208  9  Point 10, Latitude
     
 
 

@@ -7,131 +7,120 @@ use base qw(Geo::TigerLine::Record::Parser Geo::TigerLine::Record::Accessor
             Geo::TigerLine::Record Class::Data::Inheritable);
 
 use vars qw($VERSION);
-$VERSION = '0.01';
+$VERSION = '0.02';
 
 
 # Auto-generated data dictionary.
 my %Data_Dict = (
-               'state' => {
-                            'beg' => '6',
-                            'bv' => 'No',
-                            'description' => 'FIPS State Code for File',
-                            'fieldnum' => '3',
-                            'len' => '2',
-                            'end' => '7',
-                            'fmt' => 'L',
-                            'field' => 'state',
-                            'type' => 'N'
-                          },
-               'county' => {
-                             'beg' => '8',
-                             'bv' => 'No',
-                             'description' => 'FIPS County Code for File',
-                             'fieldnum' => '4',
-                             'len' => '3',
-                             'end' => '10',
+               'source' => {
+                             'len' => 1,
+                             'beg' => 22,
+                             'bv' => 'Yes',
+                             'fieldnum' => 6,
+                             'type' => 'A',
+                             'description' => 'Source or First Source Code to Update',
+                             'end' => 22,
                              'fmt' => 'L',
-                             'field' => 'county',
-                             'type' => 'N'
+                             'field' => 'source'
                            },
                'tlidto1' => {
-                              'beg' => '43',
+                              'len' => 10,
+                              'beg' => 43,
                               'bv' => 'Yes',
+                              'fieldnum' => 9,
+                              'type' => 'N',
                               'description' => 'TIGER/Line ID, Became Number 1',
-                              'fieldnum' => '10',
-                              'len' => '10',
-                              'end' => '52',
+                              'end' => 52,
                               'fmt' => 'R',
-                              'field' => 'tlidto1',
-                              'type' => 'N'
+                              'field' => 'tlidto1'
+                            },
+               'version' => {
+                              'len' => 4,
+                              'beg' => 2,
+                              'bv' => 'No',
+                              'fieldnum' => 2,
+                              'type' => 'N',
+                              'description' => 'Version Number',
+                              'end' => 5,
+                              'fmt' => 'L',
+                              'field' => 'version'
+                            },
+               'file' => {
+                           'len' => 5,
+                           'beg' => 6,
+                           'bv' => 'No',
+                           'fieldnum' => 3,
+                           'type' => 'N',
+                           'description' => 'File Code',
+                           'end' => 10,
+                           'fmt' => 'L',
+                           'field' => 'file'
+                         },
+               'tlidfr2' => {
+                              'len' => 10,
+                              'beg' => 33,
+                              'bv' => 'Yes',
+                              'fieldnum' => 8,
+                              'type' => 'N',
+                              'description' => 'TIGER/Line ID, Created From Number 2',
+                              'end' => 42,
+                              'fmt' => 'R',
+                              'field' => 'tlidfr2'
                             },
                'hist' => {
-                           'beg' => '21',
+                           'len' => 1,
+                           'beg' => 21,
                            'bv' => 'Yes',
+                           'fieldnum' => 5,
+                           'type' => 'A',
                            'description' => 'History or Last Source Code to Update',
-                           'fieldnum' => '6',
-                           'len' => '1',
-                           'end' => '21',
+                           'end' => 21,
                            'fmt' => 'L',
-                           'field' => 'hist',
-                           'type' => 'A'
+                           'field' => 'hist'
                          },
                'tlidto2' => {
-                              'beg' => '53',
+                              'len' => 10,
+                              'beg' => 53,
                               'bv' => 'Yes',
+                              'fieldnum' => 10,
+                              'type' => 'N',
                               'description' => 'TIGER/Line ID, Became Number 2',
-                              'fieldnum' => '11',
-                              'len' => '10',
-                              'end' => '62',
+                              'end' => 62,
                               'fmt' => 'R',
-                              'field' => 'tlidto2',
-                              'type' => 'N'
+                              'field' => 'tlidto2'
                             },
-               'source' => {
-                             'beg' => '22',
-                             'bv' => 'No',
-                             'description' => 'Source or First Source Code to Update',
-                             'fieldnum' => '7',
-                             'len' => '1',
-                             'end' => '22',
-                             'fmt' => 'L',
-                             'field' => 'source',
-                             'type' => 'A'
-                           },
                'tlid' => {
-                           'beg' => '11',
+                           'len' => 10,
+                           'beg' => 11,
                            'bv' => 'No',
-                           'description' => 'TIGER/Line ID, Permanent Record Number',
-                           'fieldnum' => '5',
-                           'len' => '10',
-                           'end' => '20',
+                           'fieldnum' => 4,
+                           'type' => 'N',
+                           'description' => 'TIGER/Line ID, Permanent 1-Cell Number',
+                           'end' => 20,
                            'fmt' => 'R',
-                           'field' => 'tlid',
-                           'type' => 'N'
+                           'field' => 'tlid'
                          },
-               'version' => {
-                              'beg' => '2',
-                              'bv' => 'No',
-                              'description' => 'Version Number',
-                              'fieldnum' => '2',
-                              'len' => '4',
-                              'end' => '5',
-                              'fmt' => 'L',
-                              'field' => 'version',
-                              'type' => 'N'
-                            },
                'tlidfr1' => {
-                              'beg' => '23',
+                              'len' => 10,
+                              'beg' => 23,
                               'bv' => 'Yes',
+                              'fieldnum' => 7,
+                              'type' => 'N',
                               'description' => 'TIGER/Line ID, Created From Number 1',
-                              'fieldnum' => '8',
-                              'len' => '10',
-                              'end' => '32',
+                              'end' => 32,
                               'fmt' => 'R',
-                              'field' => 'tlidfr1',
-                              'type' => 'N'
-                            },
-               'tlidfr2' => {
-                              'beg' => '33',
-                              'bv' => 'Yes',
-                              'description' => 'TIGER/Line ID, Created From Number 2',
-                              'fieldnum' => '9',
-                              'len' => '10',
-                              'end' => '42',
-                              'fmt' => 'R',
-                              'field' => 'tlidfr2',
-                              'type' => 'N'
+                              'field' => 'tlidfr1'
                             },
                'rt' => {
-                         'beg' => '1',
+                         'len' => 1,
+                         'beg' => 1,
                          'bv' => 'No',
+                         'fieldnum' => 1,
+                         'type' => 'A',
                          'description' => 'Record Type',
-                         'fieldnum' => '1',
-                         'len' => '1',
-                         'end' => '1',
+                         'end' => 1,
                          'fmt' => 'L',
-                         'field' => 'rt',
-                         'type' => 'A'
+                         'field' => 'rt'
                        }
              );
 
@@ -139,8 +128,7 @@ my %Data_Dict = (
 my @Data_Fields = (
                  'rt',
                  'version',
-                 'state',
-                 'county',
+                 'file',
                  'tlid',
                  'hist',
                  'source',
@@ -176,7 +164,7 @@ foreach my $def (@Data_Dict{@Data_Fields}) {
 
 =head1 NAME
 
-Geo::TigerLine::Record::H - TIGER/Line 1998 TIGER/Line ID History
+Geo::TigerLine::Record::H - TIGER/Line 2003 TIGER/Line ID History
 
 =head1 SYNOPSIS
 
@@ -189,8 +177,7 @@ Geo::TigerLine::Record::H - TIGER/Line 1998 TIGER/Line ID History
 
   $record->rt();
   $record->version();
-  $record->state();
-  $record->county();
+  $record->file();
   $record->tlid();
   $record->hist();
   $record->source();
@@ -202,7 +189,7 @@ Geo::TigerLine::Record::H - TIGER/Line 1998 TIGER/Line ID History
 
 =head1 DESCRIPTION
 
-This is a class representing record type H of the TIGER/Line 1998
+This is a class representing record type H of the TIGER/Line 2003
 census geographic database.  Each object is one record.  It also
 contains methods to parse TIGER/Line record type H files and turn them
 into objects.
@@ -210,17 +197,17 @@ into objects.
 This is intended as an intermediate format between pulling the raw
 data out of the simplistic TIGER/Line data files into something more
 sophisticated (a process you should only have to do once).  As such,
-its not very fast, but its careful, easy to use and performs some
+it's not very fast, but its careful, easy to use and performs some
 verifications on the data being read.
 
 As this class is autogenerated by mk_parsers, think before you modify this
-file.  Its OO, so consider sub-classing instead.
+file.  It's OO, so consider sub-classing instead.
 
 
 =head2 Accessors
 
 These are simple get/set accessors for each field of a record
-generated from the TIGER/Line 1998 data dictionary.  They perform some
+generated from the TIGER/Line 2003 data dictionary.  They perform some
 data validation.
 
 =over 4
@@ -247,25 +234,14 @@ Expects numeric data of no more than 4 characters.  $data cannot be blank
 and should be left justified.
 
 
-=item B<state>
+=item B<file>
 
-    $data = $record->state();
-    $record->state($data);
+    $data = $record->file();
+    $record->file($data);
 
-FIPS State Code for File.  
+File Code.  
 
-Expects numeric data of no more than 2 characters.  $data cannot be blank 
-and should be left justified.
-
-
-=item B<county>
-
-    $data = $record->county();
-    $record->county($data);
-
-FIPS County Code for File.  
-
-Expects numeric data of no more than 3 characters.  $data cannot be blank 
+Expects numeric data of no more than 5 characters.  $data cannot be blank 
 and should be left justified.
 
 
@@ -274,7 +250,7 @@ and should be left justified.
     $data = $record->tlid();
     $record->tlid($data);
 
-TIGER/Line ID, Permanent Record Number.  
+TIGER/Line ID, Permanent 1-Cell Number.  
 
 Expects numeric data of no more than 10 characters.  $data cannot be blank 
 and should be right justified.
@@ -298,7 +274,7 @@ and should be left justified.
 
 Source or First Source Code to Update.  
 
-Expects alphanumeric data of no more than 1 characters.  $data cannot be blank 
+Expects alphanumeric data of no more than 1 characters.  $data can be blank 
 and should be left justified.
 
 
@@ -352,25 +328,22 @@ and should be right justified.
 
 =head2 Data dictionary
 
-This is the original TIGER/Line 1998 data dictionary from which this
+This is the original TIGER/Line 2003 data dictionary from which this
 class was generated.
 
     Record Type H - TIGER/Line ID History
     
-         Field   BV  Fmt  Type  Beg  End  Len  Description
-            RT   No    L     A    1    1    1  Record Type
-       VERSION   No    L     N    2    5    4  Version Number
-         STATE   No    L     N    6    7    2  FIPS State Code for File
-        COUNTY   No    L     N    8   10    3  FIPS County Code for File
-          TLID   No    R     N   11   20   10  TIGER/Line ID, Permanent Record Number
-          HIST  Yes    L     A   21   21    1  History or Last Source Code to Update
-        SOURCE   No    L     A   22   22    1  Source or First Source Code to Update
-       TLIDFR1  Yes    R     N   23   32   10  TIGER/Line ID, Created From Number 1
-       TLIDFR2  Yes    R     N   33   42   10  TIGER/Line ID, Created From Number 2
-       TLIDTO1  Yes    R     N   43   52   10  TIGER/Line ID, Became Number 1
-       TLIDTO2  Yes    R     N   53   62   10  TIGER/Line ID, Became Number 2
-    
-    
+    Field   BV  Fmt Type Beg End Len Description
+    RT      No   L   A    1    1  1  Record Type
+    VERSION No   L   N    2    5  4  Version Number
+    FILE    No   L   N    6   10  5  File Code
+    TLID    No   R   N   11   20 10  TIGER/Line ID, Permanent 1-Cell Number
+    HIST    Yes  L   A   21   21  1  History or Last Source Code to Update
+    SOURCE  Yes  L   A   22   22  1  Source or First Source Code to Update
+    TLIDFR1 Yes  R   N   23   32 10  TIGER/Line ID, Created From Number 1
+    TLIDFR2 Yes  R   N   33   42 10  TIGER/Line ID, Created From Number 2
+    TLIDTO1 Yes  R   N   43   52 10  TIGER/Line ID, Became Number 1
+    TLIDTO2 Yes  R   N   53   62 10  TIGER/Line ID, Became Number 2
     
 
 

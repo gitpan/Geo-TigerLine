@@ -7,164 +7,164 @@ use base qw(Geo::TigerLine::Record::Parser Geo::TigerLine::Record::Accessor
             Geo::TigerLine::Record Class::Data::Inheritable);
 
 use vars qw($VERSION);
-$VERSION = '0.01';
+$VERSION = '0.02';
 
 
 # Auto-generated data dictionary.
 my %Data_Dict = (
-               'toaddr' => {
-                             'beg' => '52',
-                             'bv' => 'Yes',
-                             'description' => 'End Address, Right',
-                             'fieldnum' => '8',
-                             'len' => '11',
-                             'end' => '62',
-                             'fmt' => 'R',
-                             'field' => 'toaddr',
-                             'type' => 'A'
-                           },
-               'zipr' => {
-                           'beg' => '72',
-                           'bv' => 'Yes',
-                           'description' => 'ZIP Code, Right',
-                           'fieldnum' => '14',
-                           'len' => '5',
-                           'end' => '76',
-                           'fmt' => 'L',
-                           'field' => 'zipr',
-                           'type' => 'N'
-                         },
-               'friaddr' => {
-                              'beg' => '65',
-                              'bv' => 'Yes',
-                              'description' => 'Start Imputed Address Flag, Right',
-                              'fieldnum' => '11',
-                              'len' => '1',
-                              'end' => '65',
-                              'fmt' => 'L',
-                              'field' => 'friaddr',
-                              'type' => 'A'
-                            },
-               'toiaddr' => {
-                              'beg' => '66',
-                              'bv' => 'Yes',
-                              'description' => 'End Imputed Address Flag, Right',
-                              'fieldnum' => '12',
-                              'len' => '1',
-                              'end' => '66',
-                              'fmt' => 'L',
-                              'field' => 'toiaddr',
-                              'type' => 'A'
-                            },
-               'fraddl' => {
-                             'beg' => '19',
-                             'bv' => 'Yes',
-                             'description' => 'Start Address, Left',
-                             'fieldnum' => '5',
-                             'len' => '11',
-                             'end' => '29',
-                             'fmt' => 'R',
-                             'field' => 'fraddl',
-                             'type' => 'A'
-                           },
-               'tlid' => {
-                           'beg' => '6',
-                           'bv' => 'No',
-                           'description' => 'TIGER/Line ID, Permanent Record Number',
-                           'fieldnum' => '3',
-                           'len' => '10',
-                           'end' => '15',
-                           'fmt' => 'R',
-                           'field' => 'tlid',
-                           'type' => 'N'
-                         },
-               'rtsq' => {
-                           'beg' => '16',
-                           'bv' => 'No',
-                           'description' => 'Record Sequence Number',
-                           'fieldnum' => '4',
-                           'len' => '3',
-                           'end' => '18',
-                           'fmt' => 'R',
-                           'field' => 'rtsq',
-                           'type' => 'N'
-                         },
                'toaddl' => {
-                             'beg' => '30',
+                             'len' => 11,
+                             'beg' => 30,
                              'bv' => 'Yes',
+                             'fieldnum' => 6,
+                             'type' => 'A',
                              'description' => 'End Address, Left',
-                             'fieldnum' => '6',
-                             'len' => '11',
-                             'end' => '40',
+                             'end' => 40,
                              'fmt' => 'R',
-                             'field' => 'toaddl',
-                             'type' => 'A'
-                           },
-               'fraddr' => {
-                             'beg' => '41',
-                             'bv' => 'Yes',
-                             'description' => 'Start Address, Right',
-                             'fieldnum' => '7',
-                             'len' => '11',
-                             'end' => '51',
-                             'fmt' => 'R',
-                             'field' => 'fraddr',
-                             'type' => 'A'
+                             'field' => 'toaddl'
                            },
                'zipl' => {
-                           'beg' => '67',
+                           'len' => 5,
+                           'beg' => 67,
                            'bv' => 'Yes',
+                           'fieldnum' => 13,
+                           'type' => 'N',
                            'description' => 'ZIP Code, Left',
-                           'fieldnum' => '13',
-                           'len' => '5',
-                           'end' => '71',
+                           'end' => 71,
                            'fmt' => 'L',
-                           'field' => 'zipl',
-                           'type' => 'N'
+                           'field' => 'zipl'
+                         },
+               'version' => {
+                              'len' => 4,
+                              'beg' => 2,
+                              'bv' => 'No',
+                              'fieldnum' => 2,
+                              'type' => 'N',
+                              'description' => 'Version Number',
+                              'end' => 5,
+                              'fmt' => 'L',
+                              'field' => 'version'
+                            },
+               'zipr' => {
+                           'len' => 5,
+                           'beg' => 72,
+                           'bv' => 'Yes',
+                           'fieldnum' => 14,
+                           'type' => 'N',
+                           'description' => 'ZIP Code, Right',
+                           'end' => 76,
+                           'fmt' => 'L',
+                           'field' => 'zipr'
                          },
                'friaddl' => {
-                              'beg' => '63',
+                              'len' => 1,
+                              'beg' => 63,
                               'bv' => 'Yes',
+                              'fieldnum' => 9,
+                              'type' => 'A',
                               'description' => 'Start Imputed Address Flag, Left',
-                              'fieldnum' => '9',
-                              'len' => '1',
-                              'end' => '63',
+                              'end' => 63,
                               'fmt' => 'L',
-                              'field' => 'friaddl',
-                              'type' => 'A'
+                              'field' => 'friaddl'
                             },
-               'version' => {
-                              'beg' => '2',
-                              'bv' => 'No',
-                              'description' => 'Version Number',
-                              'fieldnum' => '2',
-                              'len' => '4',
-                              'end' => '5',
+               'toaddr' => {
+                             'len' => 11,
+                             'beg' => 52,
+                             'bv' => 'Yes',
+                             'fieldnum' => 8,
+                             'type' => 'A',
+                             'description' => 'End Address, Right',
+                             'end' => 62,
+                             'fmt' => 'R',
+                             'field' => 'toaddr'
+                           },
+               'toiaddr' => {
+                              'len' => 1,
+                              'beg' => 66,
+                              'bv' => 'Yes',
+                              'fieldnum' => 12,
+                              'type' => 'A',
+                              'description' => 'End Imputed Address Flag, Right',
+                              'end' => 66,
                               'fmt' => 'L',
-                              'field' => 'version',
-                              'type' => 'N'
+                              'field' => 'toiaddr'
+                            },
+               'tlid' => {
+                           'len' => 10,
+                           'beg' => 6,
+                           'bv' => 'No',
+                           'fieldnum' => 3,
+                           'type' => 'N',
+                           'description' => 'TIGER/Line ID, Permanent 1-Cell Number',
+                           'end' => 15,
+                           'fmt' => 'R',
+                           'field' => 'tlid'
+                         },
+               'fraddl' => {
+                             'len' => 11,
+                             'beg' => 19,
+                             'bv' => 'Yes',
+                             'fieldnum' => 5,
+                             'type' => 'A',
+                             'description' => 'Start Address, Left',
+                             'end' => 29,
+                             'fmt' => 'R',
+                             'field' => 'fraddl'
+                           },
+               'friaddr' => {
+                              'len' => 1,
+                              'beg' => 65,
+                              'bv' => 'Yes',
+                              'fieldnum' => 11,
+                              'type' => 'A',
+                              'description' => 'Start Imputed Address Flag, Right',
+                              'end' => 65,
+                              'fmt' => 'L',
+                              'field' => 'friaddr'
                             },
                'toiaddl' => {
-                              'beg' => '64',
+                              'len' => 1,
+                              'beg' => 64,
                               'bv' => 'Yes',
+                              'fieldnum' => 10,
+                              'type' => 'A',
                               'description' => 'End Imputed Address Flag, Left',
-                              'fieldnum' => '10',
-                              'len' => '1',
-                              'end' => '64',
+                              'end' => 64,
                               'fmt' => 'L',
-                              'field' => 'toiaddl',
-                              'type' => 'A'
+                              'field' => 'toiaddl'
                             },
+               'rtsq' => {
+                           'len' => 3,
+                           'beg' => 16,
+                           'bv' => 'No',
+                           'fieldnum' => 4,
+                           'type' => 'N',
+                           'description' => 'Record Sequence Number',
+                           'end' => 18,
+                           'fmt' => 'R',
+                           'field' => 'rtsq'
+                         },
+               'fraddr' => {
+                             'len' => 11,
+                             'beg' => 41,
+                             'bv' => 'Yes',
+                             'fieldnum' => 7,
+                             'type' => 'A',
+                             'description' => 'Start Address, Right',
+                             'end' => 51,
+                             'fmt' => 'R',
+                             'field' => 'fraddr'
+                           },
                'rt' => {
-                         'beg' => '1',
+                         'len' => 1,
+                         'beg' => 1,
                          'bv' => 'No',
+                         'fieldnum' => 1,
+                         'type' => 'A',
                          'description' => 'Record Type',
-                         'fieldnum' => '1',
-                         'len' => '1',
-                         'end' => '1',
+                         'end' => 1,
                          'fmt' => 'L',
-                         'field' => 'rt',
-                         'type' => 'A'
+                         'field' => 'rt'
                        }
              );
 
@@ -212,7 +212,7 @@ foreach my $def (@Data_Dict{@Data_Fields}) {
 
 =head1 NAME
 
-Geo::TigerLine::Record::6 - TIGER/Line 1998 Additional Address Range and ZIP Code Data
+Geo::TigerLine::Record::6 - TIGER/Line 2003 Additional Address Range and ZIP Code Data
 
 =head1 SYNOPSIS
 
@@ -241,7 +241,7 @@ Geo::TigerLine::Record::6 - TIGER/Line 1998 Additional Address Range and ZIP Cod
 
 =head1 DESCRIPTION
 
-This is a class representing record type 6 of the TIGER/Line 1998
+This is a class representing record type 6 of the TIGER/Line 2003
 census geographic database.  Each object is one record.  It also
 contains methods to parse TIGER/Line record type 6 files and turn them
 into objects.
@@ -249,17 +249,17 @@ into objects.
 This is intended as an intermediate format between pulling the raw
 data out of the simplistic TIGER/Line data files into something more
 sophisticated (a process you should only have to do once).  As such,
-its not very fast, but its careful, easy to use and performs some
+it's not very fast, but its careful, easy to use and performs some
 verifications on the data being read.
 
 As this class is autogenerated by mk_parsers, think before you modify this
-file.  Its OO, so consider sub-classing instead.
+file.  It's OO, so consider sub-classing instead.
 
 
 =head2 Accessors
 
 These are simple get/set accessors for each field of a record
-generated from the TIGER/Line 1998 data dictionary.  They perform some
+generated from the TIGER/Line 2003 data dictionary.  They perform some
 data validation.
 
 =over 4
@@ -291,7 +291,7 @@ and should be left justified.
     $data = $record->tlid();
     $record->tlid($data);
 
-TIGER/Line ID, Permanent Record Number.  
+TIGER/Line ID, Permanent 1-Cell Number.  
 
 Expects numeric data of no more than 10 characters.  $data cannot be blank 
 and should be right justified.
@@ -424,29 +424,26 @@ and should be left justified.
 
 =head2 Data dictionary
 
-This is the original TIGER/Line 1998 data dictionary from which this
+This is the original TIGER/Line 2003 data dictionary from which this
 class was generated.
 
     Record Type 6 - Additional Address Range and ZIP Code Data
     
-         Field   BV  Fmt  Type  Beg  End  Len  Description
-            RT   No    L     A    1    1    1  Record Type
-       VERSION   No    L     N    2    5    4  Version Number
-          TLID   No    R     N    6   15   10  TIGER/Line ID, Permanent Record Number
-          RTSQ   No    R     N   16   18    3  Record Sequence Number
-        FRADDL  Yes    R     A   19   29   11  Start Address, Left
-        TOADDL  Yes    R     A   30   40   11  End Address, Left
-        FRADDR  Yes    R     A   41   51   11  Start Address, Right
-        TOADDR  Yes    R     A   52   62   11  End Address, Right
-       FRIADDL  Yes    L     A   63   63    1  Start Imputed Address Flag, Left
-       TOIADDL  Yes    L     A   64   64    1  End Imputed Address Flag, Left
-       FRIADDR  Yes    L     A   65   65    1  Start Imputed Address Flag, Right
-       TOIADDR  Yes    L     A   66   66    1  End Imputed Address Flag, Right
-          ZIPL  Yes    L     N   67   71    5  ZIP Code, Left
-          ZIPR  Yes    L     N   72   76    5  ZIP Code, Right
-    
-    
-    
+    Field   BV  Fmt Type Beg End Len Description
+    RT      No   L   A    1   1   1  Record Type
+    VERSION No   L   N    2   5   4  Version Number
+    TLID    No   R   N    6  15  10  TIGER/Line ID, Permanent 1-Cell Number
+    RTSQ    No   R   N   16  18   3  Record Sequence Number
+    FRADDL  Yes  R   A   19  29  11  Start Address, Left
+    TOADDL  Yes  R   A   30  40  11  End Address, Left
+    FRADDR  Yes  R   A   41  51  11  Start Address, Right
+    TOADDR  Yes  R   A   52  62  11  End Address, Right
+    FRIADDL Yes  L   A   63  63   1  Start Imputed Address Flag, Left
+    TOIADDL Yes  L   A   64  64   1  End Imputed Address Flag, Left
+    FRIADDR Yes  L   A   65  65   1  Start Imputed Address Flag, Right
+    TOIADDR Yes  L   A   66  66   1  End Imputed Address Flag, Right
+    ZIPL    Yes  L   N   67  71   5  ZIP Code, Left
+    ZIPR    Yes  L   N   72  76   5  ZIP Code, Right
 
 
 

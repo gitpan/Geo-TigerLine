@@ -115,7 +115,8 @@ sub parse {
         $fields{$field} =~ s/^\s+//;
     }
 
-    return $class->new(\%fields);
+    my $obj =  $class->new(\%fields);
+    return $obj;
 }
 
 =pod

@@ -7,303 +7,591 @@ use base qw(Geo::TigerLine::Record::Parser Geo::TigerLine::Record::Accessor
             Geo::TigerLine::Record Class::Data::Inheritable);
 
 use vars qw($VERSION);
-$VERSION = '0.01';
+$VERSION = '0.02';
 
 
 # Auto-generated data dictionary.
 my %Data_Dict = (
-               'ua90' => {
-                           'beg' => '81',
-                           'bv' => 'Yes',
-                           'description' => 'Census Urbanized Area Code, 1990',
-                           'fieldnum' => '19',
-                           'len' => '4',
-                           'end' => '84',
+               'file' => {
+                           'len' => 5,
+                           'beg' => 6,
+                           'bv' => 'No',
+                           'fieldnum' => 3,
+                           'type' => 'N',
+                           'description' => 'File Code',
+                           'end' => 10,
                            'fmt' => 'L',
-                           'field' => 'ua90',
-                           'type' => 'N'
+                           'field' => 'file'
                          },
-               'taz' => {
-                          'beg' => '75',
-                          'bv' => 'Yes',
-                          'description' => 'Traffic Analysis Zone Code, 1990',
-                          'fieldnum' => '18',
-                          'len' => '6',
-                          'end' => '80',
-                          'fmt' => 'L',
-                          'field' => 'taz',
-                          'type' => 'A'
-                        },
-               'sduni' => {
-                            'beg' => '70',
-                            'bv' => 'Yes',
-                            'description' => 'School District Code, Unified District',
-                            'fieldnum' => '17',
-                            'len' => '5',
-                            'end' => '74',
+               'tract' => {
+                            'len' => 6,
+                            'beg' => 31,
+                            'bv' => 'No',
+                            'fieldnum' => 8,
+                            'type' => 'N',
+                            'description' => 'Census Tract, 2000',
+                            'end' => 36,
                             'fmt' => 'L',
-                            'field' => 'sduni',
-                            'type' => 'A'
+                            'field' => 'tract'
                           },
-               'ctpp' => {
-                           'beg' => '86',
-                           'bv' => 'Yes',
-                           'description' => 'Census Transportation Planning Package Area Code, 1990',
-                           'fieldnum' => '21',
-                           'len' => '4',
-                           'end' => '89',
-                           'fmt' => 'L',
-                           'field' => 'ctpp',
-                           'type' => 'A'
-                         },
-               'urbflag' => {
-                              'beg' => '85',
-                              'bv' => 'Yes',
-                              'description' => 'Urban/Rural Indicator, 1990',
-                              'fieldnum' => '20',
-                              'len' => '1',
-                              'end' => '85',
-                              'fmt' => 'L',
-                              'field' => 'urbflag',
-                              'type' => 'A'
-                            },
-               'sdsec' => {
-                            'beg' => '65',
-                            'bv' => 'Yes',
-                            'description' => 'School District Code, Secondary School',
-                            'fieldnum' => '16',
-                            'len' => '5',
-                            'end' => '69',
-                            'fmt' => 'L',
-                            'field' => 'sdsec',
-                            'type' => 'A'
-                          },
-               'ctbna90' => {
-                              'beg' => '41',
-                              'bv' => 'Yes',
-                              'description' => 'Census Tract/BNA Code, 1990',
-                              'fieldnum' => '10',
-                              'len' => '6',
-                              'end' => '46',
-                              'fmt' => 'L',
-                              'field' => 'ctbna90',
-                              'type' => 'N'
-                            },
-               'fpl' => {
-                          'beg' => '36',
-                          'bv' => 'Yes',
-                          'description' => 'FIPS 55 Code (Place/CDP), 1990',
-                          'fieldnum' => '9',
-                          'len' => '5',
-                          'end' => '40',
-                          'fmt' => 'L',
-                          'field' => 'fpl',
-                          'type' => 'N'
-                        },
-               'blk90' => {
-                            'beg' => '47',
-                            'bv' => 'Yes',
-                            'description' => 'Census Block Number, 1990',
-                            'fieldnum' => '11',
-                            'len' => '4',
-                            'end' => '50',
-                            'fmt' => 'L',
-                            'field' => 'blk90',
-                            'type' => 'A'
-                          },
-               'fair' => {
-                           'beg' => '26',
-                           'bv' => 'Yes',
-                           'description' => 'FIPS 55 Code (American Indian/Alaska Native Area), 1990',
-                           'fieldnum' => '7',
-                           'len' => '5',
-                           'end' => '30',
-                           'fmt' => 'L',
-                           'field' => 'fair',
-                           'type' => 'N'
-                         },
-               'coun90' => {
-                             'beg' => '92',
+               'rs_a18' => {
+                             'len' => 6,
+                             'beg' => 194,
                              'bv' => 'Yes',
-                             'description' => 'FIPS County Code, 1990',
-                             'fieldnum' => '23',
-                             'len' => '3',
-                             'end' => '94',
+                             'fieldnum' => 47,
+                             'type' => 'A',
+                             'description' => 'Reserved Space A18',
+                             'end' => 199,
                              'fmt' => 'L',
-                             'field' => 'coun90',
-                             'type' => 'N'
+                             'field' => 'rs_a18'
                            },
-               'air90' => {
-                            'beg' => '95',
+               'rs_a6' => {
+                            'len' => 3,
+                            'beg' => 132,
                             'bv' => 'Yes',
-                            'description' => 'Census American Indian/Alaska Native Area Code, 1990',
-                            'fieldnum' => '24',
-                            'len' => '4',
-                            'end' => '98',
-                            'fmt' => 'L',
-                            'field' => 'air90',
-                            'type' => 'N'
-                          },
-               'state' => {
-                            'beg' => '6',
-                            'bv' => 'No',
-                            'description' => 'FIPS State Code for File',
-                            'fieldnum' => '3',
-                            'len' => '2',
-                            'end' => '7',
-                            'fmt' => 'L',
-                            'field' => 'state',
-                            'type' => 'N'
-                          },
-               'polyid' => {
-                             'beg' => '16',
-                             'bv' => 'No',
-                             'description' => 'Polygon Identification Code',
-                             'fieldnum' => '6',
-                             'len' => '10',
-                             'end' => '25',
-                             'fmt' => 'R',
-                             'field' => 'polyid',
-                             'type' => 'N'
-                           },
-               'county' => {
-                             'beg' => '8',
-                             'bv' => 'No',
-                             'description' => 'FIPS County Code for File',
-                             'fieldnum' => '4',
-                             'len' => '3',
-                             'end' => '10',
-                             'fmt' => 'L',
-                             'field' => 'county',
-                             'type' => 'N'
-                           },
-               'ua' => {
-                         'beg' => '60',
-                         'bv' => 'Yes',
-                         'description' => 'Census Urbanized Area Code, 2000 (not filled)',
-                         'fieldnum' => '15',
-                         'len' => '5',
-                         'end' => '64',
-                         'fmt' => 'L',
-                         'field' => 'ua',
-                         'type' => 'N'
-                       },
-               'cd106' => {
-                            'beg' => '51',
-                            'bv' => 'Yes',
-                            'description' => 'Congressional District Number, 106th',
-                            'fieldnum' => '12',
-                            'len' => '2',
-                            'end' => '52',
+                            'fieldnum' => 33,
+                            'type' => 'A',
+                            'description' => 'Reserved Space A6',
+                            'end' => 134,
                             'fmt' => 'R',
-                            'field' => 'cd106',
-                            'type' => 'N'
+                            'field' => 'rs_a6'
                           },
-               'cenid' => {
-                            'beg' => '11',
-                            'bv' => 'No',
-                            'description' => 'Census File Identification Code',
-                            'fieldnum' => '5',
-                            'len' => '5',
-                            'end' => '15',
-                            'fmt' => 'L',
-                            'field' => 'cenid',
-                            'type' => 'A'
-                          },
-               'sdelm' => {
-                            'beg' => '55',
-                            'bv' => 'Yes',
-                            'description' => 'School District Code, Elementary School',
-                            'fieldnum' => '14',
-                            'len' => '5',
-                            'end' => '59',
-                            'fmt' => 'L',
-                            'field' => 'sdelm',
-                            'type' => 'A'
-                          },
-               'fmcd' => {
-                           'beg' => '31',
-                           'bv' => 'Yes',
-                           'description' => 'FIPS 55 Code (MCD/CCD), 1990',
-                           'fieldnum' => '8',
-                           'len' => '5',
-                           'end' => '35',
-                           'fmt' => 'L',
-                           'field' => 'fmcd',
-                           'type' => 'N'
-                         },
-               'cd108' => {
-                            'beg' => '53',
-                            'bv' => 'Yes',
-                            'description' => 'Congressional District Number, 108th',
-                            'fieldnum' => '13',
-                            'len' => '2',
-                            'end' => '54',
-                            'fmt' => 'R',
-                            'field' => 'cd108',
-                            'type' => 'N'
-                          },
-               'state90' => {
-                              'beg' => '90',
-                              'bv' => 'Yes',
-                              'description' => 'FIPS State Code, 1990',
-                              'fieldnum' => '22',
-                              'len' => '2',
-                              'end' => '91',
-                              'fmt' => 'L',
-                              'field' => 'state90',
-                              'type' => 'N'
-                            },
-               'version' => {
-                              'beg' => '2',
-                              'bv' => 'No',
-                              'description' => 'Version Number',
-                              'fieldnum' => '2',
-                              'len' => '4',
-                              'end' => '5',
-                              'fmt' => 'L',
-                              'field' => 'version',
-                              'type' => 'N'
-                            },
                'rt' => {
-                         'beg' => '1',
+                         'len' => 1,
+                         'beg' => 1,
                          'bv' => 'No',
+                         'fieldnum' => 1,
+                         'type' => 'A',
                          'description' => 'Record Type',
-                         'fieldnum' => '1',
-                         'len' => '1',
-                         'end' => '1',
+                         'end' => 1,
                          'fmt' => 'L',
-                         'field' => 'rt',
-                         'type' => 'A'
-                       }
+                         'field' => 'rt'
+                       },
+               'cbsacu' => {
+                             'len' => 5,
+                             'beg' => 152,
+                             'bv' => 'Yes',
+                             'fieldnum' => 37,
+                             'type' => 'N',
+                             'description' => 'FIPS Metropolitan Statistical Area/ Micropolitan Statistical Area Code, Current',
+                             'end' => 156,
+                             'fmt' => 'L',
+                             'field' => 'cbsacu'
+                           },
+               'rs_a20' => {
+                             'len' => 4,
+                             'beg' => 101,
+                             'bv' => 'Yes',
+                             'fieldnum' => 25,
+                             'type' => 'N',
+                             'description' => 'Reserved Space A20',
+                             'end' => 104,
+                             'fmt' => 'L',
+                             'field' => 'rs_a20'
+                           },
+               'sdelmcu' => {
+                              'len' => 5,
+                              'beg' => 86,
+                              'bv' => 'Yes',
+                              'fieldnum' => 22,
+                              'type' => 'A',
+                              'description' => 'Elementary School District Code, Current',
+                              'end' => 90,
+                              'fmt' => 'L',
+                              'field' => 'sdelmcu'
+                            },
+               'rs_a19' => {
+                             'len' => 11,
+                             'beg' => 200,
+                             'bv' => 'Yes',
+                             'fieldnum' => 48,
+                             'type' => 'A',
+                             'description' => 'Reserved Space A19',
+                             'end' => 210,
+                             'fmt' => 'L',
+                             'field' => 'rs_a19'
+                           },
+               'rs_a5' => {
+                            'len' => 3,
+                            'beg' => 129,
+                            'bv' => 'Yes',
+                            'fieldnum' => 32,
+                            'type' => 'A',
+                            'description' => 'Reserved Space A5',
+                            'end' => 131,
+                            'fmt' => 'R',
+                            'field' => 'rs_a5'
+                          },
+               'zcta5cu' => {
+                              'len' => 5,
+                              'beg' => 115,
+                              'bv' => 'Yes',
+                              'fieldnum' => 29,
+                              'type' => 'A',
+                              'description' => '5-Digit ZIP Code Tabulation Area, current',
+                              'end' => 119,
+                              'fmt' => 'L',
+                              'field' => 'zcta5cu'
+                            },
+               'submcdcu' => {
+                               'len' => 5,
+                               'beg' => 76,
+                               'bv' => 'Yes',
+                               'fieldnum' => 20,
+                               'type' => 'N',
+                               'description' => 'FIPS 55 Code (Subbarrio), Current',
+                               'end' => 80,
+                               'fmt' => 'L',
+                               'field' => 'submcdcu'
+                             },
+               'polyid' => {
+                             'len' => 10,
+                             'beg' => 16,
+                             'bv' => 'No',
+                             'fieldnum' => 5,
+                             'type' => 'N',
+                             'description' => 'Polygon Identification Code',
+                             'end' => 25,
+                             'fmt' => 'R',
+                             'field' => 'polyid'
+                           },
+               'csacu' => {
+                            'len' => 3,
+                            'beg' => 157,
+                            'bv' => 'Yes',
+                            'fieldnum' => 38,
+                            'type' => 'N',
+                            'description' => 'FIPS Combined Statistical Area Code, Current',
+                            'end' => 159,
+                            'fmt' => 'L',
+                            'field' => 'csacu'
+                          },
+               'rs_a17' => {
+                             'len' => 6,
+                             'beg' => 188,
+                             'bv' => 'Yes',
+                             'fieldnum' => 46,
+                             'type' => 'A',
+                             'description' => 'Reserved Space A17',
+                             'end' => 193,
+                             'fmt' => 'L',
+                             'field' => 'rs_a17'
+                           },
+               'rs_a22' => {
+                             'len' => 4,
+                             'beg' => 109,
+                             'bv' => 'Yes',
+                             'fieldnum' => 27,
+                             'type' => 'N',
+                             'description' => 'Reserved Space A22',
+                             'end' => 112,
+                             'fmt' => 'L',
+                             'field' => 'rs_a22'
+                           },
+               'aianhhfpcu' => {
+                                 'len' => 5,
+                                 'beg' => 43,
+                                 'bv' => 'Yes',
+                                 'fieldnum' => 12,
+                                 'type' => 'N',
+                                 'description' => 'FIPS 55 Code (American Indian/Alaska Native Area/Hawaiian Home Land), Current',
+                                 'end' => 47,
+                                 'fmt' => 'L',
+                                 'field' => 'aianhhfpcu'
+                               },
+               'cnectacu' => {
+                               'len' => 3,
+                               'beg' => 165,
+                               'bv' => 'Yes',
+                               'fieldnum' => 40,
+                               'type' => 'N',
+                               'description' => 'FIPS Combined New England City and Town Area Code, Current',
+                               'end' => 167,
+                               'fmt' => 'L',
+                               'field' => 'cnectacu'
+                             },
+               'rs_a1' => {
+                            'len' => 1,
+                            'beg' => 42,
+                            'bv' => 'Yes',
+                            'fieldnum' => 11,
+                            'type' => 'A',
+                            'description' => 'Reserved Space A1',
+                            'end' => 42,
+                            'fmt' => 'L',
+                            'field' => 'rs_a1'
+                          },
+               'sdunicu' => {
+                              'len' => 5,
+                              'beg' => 96,
+                              'bv' => 'Yes',
+                              'fieldnum' => 24,
+                              'type' => 'A',
+                              'description' => 'Unified School District Code, Current',
+                              'end' => 100,
+                              'fmt' => 'L',
+                              'field' => 'sdunicu'
+                            },
+               'statecu' => {
+                              'len' => 2,
+                              'beg' => 26,
+                              'bv' => 'No',
+                              'fieldnum' => 6,
+                              'type' => 'N',
+                              'description' => 'FIPS State Code, Current',
+                              'end' => 27,
+                              'fmt' => 'L',
+                              'field' => 'statecu'
+                            },
+               'rs_a7' => {
+                            'len' => 5,
+                            'beg' => 135,
+                            'bv' => 'Yes',
+                            'fieldnum' => 34,
+                            'type' => 'A',
+                            'description' => 'Reserved Space A7',
+                            'end' => 139,
+                            'fmt' => 'R',
+                            'field' => 'rs_a7'
+                          },
+               'blocksufcu' => {
+                                 'len' => 1,
+                                 'beg' => 41,
+                                 'bv' => 'Yes',
+                                 'fieldnum' => 10,
+                                 'type' => 'A',
+                                 'description' => 'Current Suffix for Census 2000 Block Number',
+                                 'end' => 41,
+                                 'fmt' => 'L',
+                                 'field' => 'blocksufcu'
+                               },
+               'placecu' => {
+                              'len' => 5,
+                              'beg' => 81,
+                              'bv' => 'Yes',
+                              'fieldnum' => 21,
+                              'type' => 'N',
+                              'description' => 'FIPS 55 Code (Incorporated Place), Current',
+                              'end' => 85,
+                              'fmt' => 'L',
+                              'field' => 'placecu'
+                            },
+               'cdcu' => {
+                           'len' => 2,
+                           'beg' => 113,
+                           'bv' => 'Yes',
+                           'fieldnum' => 28,
+                           'type' => 'N',
+                           'description' => 'Congressional District Code, Current (108th)',
+                           'end' => 114,
+                           'fmt' => 'R',
+                           'field' => 'cdcu'
+                         },
+               'concitcu' => {
+                               'len' => 5,
+                               'beg' => 66,
+                               'bv' => 'Yes',
+                               'fieldnum' => 18,
+                               'type' => 'N',
+                               'description' => 'FIPS 55 Code (Consolidated City), Current',
+                               'end' => 70,
+                               'fmt' => 'L',
+                               'field' => 'concitcu'
+                             },
+               'sdseccu' => {
+                              'len' => 5,
+                              'beg' => 91,
+                              'bv' => 'Yes',
+                              'fieldnum' => 23,
+                              'type' => 'A',
+                              'description' => 'Secondary School District Code, Current',
+                              'end' => 95,
+                              'fmt' => 'L',
+                              'field' => 'sdseccu'
+                            },
+               'aitscu' => {
+                             'len' => 5,
+                             'beg' => 61,
+                             'bv' => 'Yes',
+                             'fieldnum' => 17,
+                             'type' => 'N',
+                             'description' => 'FIPS 55 Code (American Indian Tribal Subdivision), Current',
+                             'end' => 65,
+                             'fmt' => 'L',
+                             'field' => 'aitscu'
+                           },
+               'cenid' => {
+                            'len' => 5,
+                            'beg' => 11,
+                            'bv' => 'No',
+                            'fieldnum' => 4,
+                            'type' => 'A',
+                            'description' => 'Census File Identification Code',
+                            'end' => 15,
+                            'fmt' => 'L',
+                            'field' => 'cenid'
+                          },
+               'rs_a21' => {
+                             'len' => 4,
+                             'beg' => 105,
+                             'bv' => 'Yes',
+                             'fieldnum' => 26,
+                             'type' => 'N',
+                             'description' => 'Reserved Space A21',
+                             'end' => 108,
+                             'fmt' => 'L',
+                             'field' => 'rs_a21'
+                           },
+               'rs_a8' => {
+                            'len' => 6,
+                            'beg' => 140,
+                            'bv' => 'Yes',
+                            'fieldnum' => 35,
+                            'type' => 'A',
+                            'description' => 'Reserved Space A8',
+                            'end' => 145,
+                            'fmt' => 'R',
+                            'field' => 'rs_a8'
+                          },
+               'aihhtlicu' => {
+                                'len' => 1,
+                                'beg' => 52,
+                                'bv' => 'Yes',
+                                'fieldnum' => 14,
+                                'type' => 'A',
+                                'description' => 'American Indian/Hawaiian Home Land Trust Land Indicator, Current',
+                                'end' => 52,
+                                'fmt' => 'L',
+                                'field' => 'aihhtlicu'
+                              },
+               'metdivcu' => {
+                               'len' => 5,
+                               'beg' => 168,
+                               'bv' => 'Yes',
+                               'fieldnum' => 41,
+                               'type' => 'N',
+                               'description' => 'FIPS Metropolitan Division Code, Current',
+                               'end' => 172,
+                               'fmt' => 'L',
+                               'field' => 'metdivcu'
+                             },
+               'rs_a14' => {
+                             'len' => 4,
+                             'beg' => 178,
+                             'bv' => 'Yes',
+                             'fieldnum' => 43,
+                             'type' => 'A',
+                             'description' => 'Reserved Space A14',
+                             'end' => 181,
+                             'fmt' => 'L',
+                             'field' => 'rs_a14'
+                           },
+               'aianhhcu' => {
+                               'len' => 4,
+                               'beg' => 48,
+                               'bv' => 'Yes',
+                               'fieldnum' => 13,
+                               'type' => 'N',
+                               'description' => 'Census Code (American Indian/Alaska Native Area/Hawaiian Home Land), Current',
+                               'end' => 51,
+                               'fmt' => 'L',
+                               'field' => 'aianhhcu'
+                             },
+               'version' => {
+                              'len' => 4,
+                              'beg' => 2,
+                              'bv' => 'No',
+                              'fieldnum' => 2,
+                              'type' => 'N',
+                              'description' => 'Version Number',
+                              'end' => 5,
+                              'fmt' => 'L',
+                              'field' => 'version'
+                            },
+               'countycu' => {
+                               'len' => 3,
+                               'beg' => 28,
+                               'bv' => 'No',
+                               'fieldnum' => 7,
+                               'type' => 'N',
+                               'description' => 'FIPS County Code, Current',
+                               'end' => 30,
+                               'fmt' => 'L',
+                               'field' => 'countycu'
+                             },
+               'zcta3cu' => {
+                              'len' => 3,
+                              'beg' => 120,
+                              'bv' => 'Yes',
+                              'fieldnum' => 30,
+                              'type' => 'A',
+                              'description' => '3-Digit ZIP Code Tabulation Area, current',
+                              'end' => 122,
+                              'fmt' => 'R',
+                              'field' => 'zcta3cu'
+                            },
+               'rs_a16' => {
+                             'len' => 1,
+                             'beg' => 187,
+                             'bv' => 'Yes',
+                             'fieldnum' => 45,
+                             'type' => 'A',
+                             'description' => 'Reserved Space A16',
+                             'end' => 187,
+                             'fmt' => 'L',
+                             'field' => 'rs_a16'
+                           },
+               'cousubcu' => {
+                               'len' => 5,
+                               'beg' => 71,
+                               'bv' => 'No',
+                               'fieldnum' => 19,
+                               'type' => 'N',
+                               'description' => 'FIPS 55 Code (County Subdivision), Current',
+                               'end' => 75,
+                               'fmt' => 'L',
+                               'field' => 'cousubcu'
+                             },
+               'rs_a4' => {
+                            'len' => 6,
+                            'beg' => 123,
+                            'bv' => 'Yes',
+                            'fieldnum' => 31,
+                            'type' => 'A',
+                            'description' => 'Reserved Space A4',
+                            'end' => 128,
+                            'fmt' => 'R',
+                            'field' => 'rs_a4'
+                          },
+               'aitscecu' => {
+                               'len' => 3,
+                               'beg' => 58,
+                               'bv' => 'Yes',
+                               'fieldnum' => 16,
+                               'type' => 'N',
+                               'description' => 'Census Code (American Indian Tribal Subdivision), Current',
+                               'end' => 60,
+                               'fmt' => 'L',
+                               'field' => 'aitscecu'
+                             },
+               'block' => {
+                            'len' => 4,
+                            'beg' => 37,
+                            'bv' => 'No',
+                            'fieldnum' => 9,
+                            'type' => 'N',
+                            'description' => 'Census Block Number, 2000',
+                            'end' => 40,
+                            'fmt' => 'L',
+                            'field' => 'block'
+                          },
+               'rs_a15' => {
+                             'len' => 5,
+                             'beg' => 182,
+                             'bv' => 'Yes',
+                             'fieldnum' => 44,
+                             'type' => 'A',
+                             'description' => 'Reserved Space A15',
+                             'end' => 186,
+                             'fmt' => 'L',
+                             'field' => 'rs_a15'
+                           },
+               'nectacu' => {
+                              'len' => 5,
+                              'beg' => 160,
+                              'bv' => 'Yes',
+                              'fieldnum' => 39,
+                              'type' => 'N',
+                              'description' => 'FIPS New England City and Town Area Code, Current',
+                              'end' => 164,
+                              'fmt' => 'L',
+                              'field' => 'nectacu'
+                            },
+               'nectadivcu' => {
+                                 'len' => 5,
+                                 'beg' => 173,
+                                 'bv' => 'Yes',
+                                 'fieldnum' => 42,
+                                 'type' => 'N',
+                                 'description' => 'FIPS New England City and Town Area Division Code, Current',
+                                 'end' => 177,
+                                 'fmt' => 'L',
+                                 'field' => 'nectadivcu'
+                               },
+               'rs_a9' => {
+                            'len' => 6,
+                            'beg' => 146,
+                            'bv' => 'Yes',
+                            'fieldnum' => 36,
+                            'type' => 'A',
+                            'description' => 'Reserved Space A9',
+                            'end' => 151,
+                            'fmt' => 'L',
+                            'field' => 'rs_a9'
+                          },
+               'anrccu' => {
+                             'len' => 5,
+                             'beg' => 53,
+                             'bv' => 'Yes',
+                             'fieldnum' => 15,
+                             'type' => 'N',
+                             'description' => 'FIPS 55 Code (ANRC), Current',
+                             'end' => 57,
+                             'fmt' => 'L',
+                             'field' => 'anrccu'
+                           }
              );
 
 
 my @Data_Fields = (
                  'rt',
                  'version',
-                 'state',
-                 'county',
+                 'file',
                  'cenid',
                  'polyid',
-                 'fair',
-                 'fmcd',
-                 'fpl',
-                 'ctbna90',
-                 'blk90',
-                 'cd106',
-                 'cd108',
-                 'sdelm',
-                 'ua',
-                 'sdsec',
-                 'sduni',
-                 'taz',
-                 'ua90',
-                 'urbflag',
-                 'ctpp',
-                 'state90',
-                 'coun90',
-                 'air90'
+                 'statecu',
+                 'countycu',
+                 'tract',
+                 'block',
+                 'blocksufcu',
+                 'rs_a1',
+                 'aianhhfpcu',
+                 'aianhhcu',
+                 'aihhtlicu',
+                 'anrccu',
+                 'aitscecu',
+                 'aitscu',
+                 'concitcu',
+                 'cousubcu',
+                 'submcdcu',
+                 'placecu',
+                 'sdelmcu',
+                 'sdseccu',
+                 'sdunicu',
+                 'rs_a20',
+                 'rs_a21',
+                 'rs_a22',
+                 'cdcu',
+                 'zcta5cu',
+                 'zcta3cu',
+                 'rs_a4',
+                 'rs_a5',
+                 'rs_a6',
+                 'rs_a7',
+                 'rs_a8',
+                 'rs_a9',
+                 'cbsacu',
+                 'csacu',
+                 'nectacu',
+                 'cnectacu',
+                 'metdivcu',
+                 'nectadivcu',
+                 'rs_a14',
+                 'rs_a15',
+                 'rs_a16',
+                 'rs_a17',
+                 'rs_a18',
+                 'rs_a19'
                );
 
 
@@ -332,7 +620,7 @@ foreach my $def (@Data_Dict{@Data_Fields}) {
 
 =head1 NAME
 
-Geo::TigerLine::Record::A - TIGER/Line 1998 Polygon Geographic Entity Codes
+Geo::TigerLine::Record::A - TIGER/Line 2003 Polygon Geographic Entity Codes: Current Geography
 
 =head1 SYNOPSIS
 
@@ -345,33 +633,57 @@ Geo::TigerLine::Record::A - TIGER/Line 1998 Polygon Geographic Entity Codes
 
   $record->rt();
   $record->version();
-  $record->state();
-  $record->county();
+  $record->file();
   $record->cenid();
   $record->polyid();
-  $record->fair();
-  $record->fmcd();
-  $record->fpl();
-  $record->ctbna90();
-  $record->blk90();
-  $record->cd106();
-  $record->cd108();
-  $record->sdelm();
-  $record->ua();
-  $record->sdsec();
-  $record->sduni();
-  $record->taz();
-  $record->ua90();
-  $record->urbflag();
-  $record->ctpp();
-  $record->state90();
-  $record->coun90();
-  $record->air90();
+  $record->statecu();
+  $record->countycu();
+  $record->tract();
+  $record->block();
+  $record->blocksufcu();
+  $record->rs_a1();
+  $record->aianhhfpcu();
+  $record->aianhhcu();
+  $record->aihhtlicu();
+  $record->anrccu();
+  $record->aitscecu();
+  $record->aitscu();
+  $record->concitcu();
+  $record->cousubcu();
+  $record->submcdcu();
+  $record->placecu();
+  $record->sdelmcu();
+  $record->sdseccu();
+  $record->sdunicu();
+  $record->rs_a20();
+  $record->rs_a21();
+  $record->rs_a22();
+  $record->cdcu();
+  $record->zcta5cu();
+  $record->zcta3cu();
+  $record->rs_a4();
+  $record->rs_a5();
+  $record->rs_a6();
+  $record->rs_a7();
+  $record->rs_a8();
+  $record->rs_a9();
+  $record->cbsacu();
+  $record->csacu();
+  $record->nectacu();
+  $record->cnectacu();
+  $record->metdivcu();
+  $record->nectadivcu();
+  $record->rs_a14();
+  $record->rs_a15();
+  $record->rs_a16();
+  $record->rs_a17();
+  $record->rs_a18();
+  $record->rs_a19();
 
 
 =head1 DESCRIPTION
 
-This is a class representing record type A of the TIGER/Line 1998
+This is a class representing record type A of the TIGER/Line 2003
 census geographic database.  Each object is one record.  It also
 contains methods to parse TIGER/Line record type A files and turn them
 into objects.
@@ -379,17 +691,17 @@ into objects.
 This is intended as an intermediate format between pulling the raw
 data out of the simplistic TIGER/Line data files into something more
 sophisticated (a process you should only have to do once).  As such,
-its not very fast, but its careful, easy to use and performs some
+it's not very fast, but its careful, easy to use and performs some
 verifications on the data being read.
 
 As this class is autogenerated by mk_parsers, think before you modify this
-file.  Its OO, so consider sub-classing instead.
+file.  It's OO, so consider sub-classing instead.
 
 
 =head2 Accessors
 
 These are simple get/set accessors for each field of a record
-generated from the TIGER/Line 1998 data dictionary.  They perform some
+generated from the TIGER/Line 2003 data dictionary.  They perform some
 data validation.
 
 =over 4
@@ -416,25 +728,14 @@ Expects numeric data of no more than 4 characters.  $data cannot be blank
 and should be left justified.
 
 
-=item B<state>
+=item B<file>
 
-    $data = $record->state();
-    $record->state($data);
+    $data = $record->file();
+    $record->file($data);
 
-FIPS State Code for File.  
+File Code.  
 
-Expects numeric data of no more than 2 characters.  $data cannot be blank 
-and should be left justified.
-
-
-=item B<county>
-
-    $data = $record->county();
-    $record->county($data);
-
-FIPS County Code for File.  
-
-Expects numeric data of no more than 3 characters.  $data cannot be blank 
+Expects numeric data of no more than 5 characters.  $data cannot be blank 
 and should be left justified.
 
 
@@ -460,201 +761,476 @@ Expects numeric data of no more than 10 characters.  $data cannot be blank
 and should be right justified.
 
 
-=item B<fair>
+=item B<statecu>
 
-    $data = $record->fair();
-    $record->fair($data);
+    $data = $record->statecu();
+    $record->statecu($data);
 
-FIPS 55 Code (American Indian/Alaska Native Area), 1990.  
+FIPS State Code, Current.  
 
-Expects numeric data of no more than 5 characters.  $data can be blank 
+Expects numeric data of no more than 2 characters.  $data cannot be blank 
 and should be left justified.
 
 
-=item B<fmcd>
+=item B<countycu>
 
-    $data = $record->fmcd();
-    $record->fmcd($data);
+    $data = $record->countycu();
+    $record->countycu($data);
 
-FIPS 55 Code (MCD/CCD), 1990.  
+FIPS County Code, Current.  
 
-Expects numeric data of no more than 5 characters.  $data can be blank 
+Expects numeric data of no more than 3 characters.  $data cannot be blank 
 and should be left justified.
 
 
-=item B<fpl>
+=item B<tract>
 
-    $data = $record->fpl();
-    $record->fpl($data);
+    $data = $record->tract();
+    $record->tract($data);
 
-FIPS 55 Code (Place/CDP), 1990.  
+Census Tract, 2000.  
 
-Expects numeric data of no more than 5 characters.  $data can be blank 
+Expects numeric data of no more than 6 characters.  $data cannot be blank 
 and should be left justified.
 
 
-=item B<ctbna90>
+=item B<block>
 
-    $data = $record->ctbna90();
-    $record->ctbna90($data);
+    $data = $record->block();
+    $record->block($data);
 
-Census Tract/BNA Code, 1990.  
+Census Block Number, 2000.  
 
-Expects numeric data of no more than 6 characters.  $data can be blank 
+Expects numeric data of no more than 4 characters.  $data cannot be blank 
 and should be left justified.
 
 
-=item B<blk90>
+=item B<blocksufcu>
 
-    $data = $record->blk90();
-    $record->blk90($data);
+    $data = $record->blocksufcu();
+    $record->blocksufcu($data);
 
-Census Block Number, 1990.  
-
-Expects alphanumeric data of no more than 4 characters.  $data can be blank 
-and should be left justified.
-
-
-=item B<cd106>
-
-    $data = $record->cd106();
-    $record->cd106($data);
-
-Congressional District Number, 106th.  
-
-Expects numeric data of no more than 2 characters.  $data can be blank 
-and should be right justified.
-
-
-=item B<cd108>
-
-    $data = $record->cd108();
-    $record->cd108($data);
-
-Congressional District Number, 108th.  
-
-Expects numeric data of no more than 2 characters.  $data can be blank 
-and should be right justified.
-
-
-=item B<sdelm>
-
-    $data = $record->sdelm();
-    $record->sdelm($data);
-
-School District Code, Elementary School.  
-
-Expects alphanumeric data of no more than 5 characters.  $data can be blank 
-and should be left justified.
-
-
-=item B<ua>
-
-    $data = $record->ua();
-    $record->ua($data);
-
-Census Urbanized Area Code, 2000 (not filled).  
-
-Expects numeric data of no more than 5 characters.  $data can be blank 
-and should be left justified.
-
-
-=item B<sdsec>
-
-    $data = $record->sdsec();
-    $record->sdsec($data);
-
-School District Code, Secondary School.  
-
-Expects alphanumeric data of no more than 5 characters.  $data can be blank 
-and should be left justified.
-
-
-=item B<sduni>
-
-    $data = $record->sduni();
-    $record->sduni($data);
-
-School District Code, Unified District.  
-
-Expects alphanumeric data of no more than 5 characters.  $data can be blank 
-and should be left justified.
-
-
-=item B<taz>
-
-    $data = $record->taz();
-    $record->taz($data);
-
-Traffic Analysis Zone Code, 1990.  
-
-Expects alphanumeric data of no more than 6 characters.  $data can be blank 
-and should be left justified.
-
-
-=item B<ua90>
-
-    $data = $record->ua90();
-    $record->ua90($data);
-
-Census Urbanized Area Code, 1990.  
-
-Expects numeric data of no more than 4 characters.  $data can be blank 
-and should be left justified.
-
-
-=item B<urbflag>
-
-    $data = $record->urbflag();
-    $record->urbflag($data);
-
-Urban/Rural Indicator, 1990.  
+Current Suffix for Census 2000 Block Number.  
 
 Expects alphanumeric data of no more than 1 characters.  $data can be blank 
 and should be left justified.
 
 
-=item B<ctpp>
+=item B<rs_a1>
 
-    $data = $record->ctpp();
-    $record->ctpp($data);
+    $data = $record->rs_a1();
+    $record->rs_a1($data);
 
-Census Transportation Planning Package Area Code, 1990.  
+Reserved Space A1.  
 
-Expects alphanumeric data of no more than 4 characters.  $data can be blank 
+Expects alphanumeric data of no more than 1 characters.  $data can be blank 
 and should be left justified.
 
 
-=item B<state90>
+=item B<aianhhfpcu>
 
-    $data = $record->state90();
-    $record->state90($data);
+    $data = $record->aianhhfpcu();
+    $record->aianhhfpcu($data);
 
-FIPS State Code, 1990.  
+FIPS 55 Code (American Indian/Alaska Native Area/Hawaiian Home Land), Current.  
 
-Expects numeric data of no more than 2 characters.  $data can be blank 
+Expects numeric data of no more than 5 characters.  $data can be blank 
 and should be left justified.
 
 
-=item B<coun90>
+=item B<aianhhcu>
 
-    $data = $record->coun90();
-    $record->coun90($data);
+    $data = $record->aianhhcu();
+    $record->aianhhcu($data);
 
-FIPS County Code, 1990.  
+Census Code (American Indian/Alaska Native Area/Hawaiian Home Land), Current.  
+
+Expects numeric data of no more than 4 characters.  $data can be blank 
+and should be left justified.
+
+
+=item B<aihhtlicu>
+
+    $data = $record->aihhtlicu();
+    $record->aihhtlicu($data);
+
+American Indian/Hawaiian Home Land Trust Land Indicator, Current.  
+
+Expects alphanumeric data of no more than 1 characters.  $data can be blank 
+and should be left justified.
+
+
+=item B<anrccu>
+
+    $data = $record->anrccu();
+    $record->anrccu($data);
+
+FIPS 55 Code (ANRC), Current.  
+
+Expects numeric data of no more than 5 characters.  $data can be blank 
+and should be left justified.
+
+
+=item B<aitscecu>
+
+    $data = $record->aitscecu();
+    $record->aitscecu($data);
+
+Census Code (American Indian Tribal Subdivision), Current.  
 
 Expects numeric data of no more than 3 characters.  $data can be blank 
 and should be left justified.
 
 
-=item B<air90>
+=item B<aitscu>
 
-    $data = $record->air90();
-    $record->air90($data);
+    $data = $record->aitscu();
+    $record->aitscu($data);
 
-Census American Indian/Alaska Native Area Code, 1990.  
+FIPS 55 Code (American Indian Tribal Subdivision), Current.  
+
+Expects numeric data of no more than 5 characters.  $data can be blank 
+and should be left justified.
+
+
+=item B<concitcu>
+
+    $data = $record->concitcu();
+    $record->concitcu($data);
+
+FIPS 55 Code (Consolidated City), Current.  
+
+Expects numeric data of no more than 5 characters.  $data can be blank 
+and should be left justified.
+
+
+=item B<cousubcu>
+
+    $data = $record->cousubcu();
+    $record->cousubcu($data);
+
+FIPS 55 Code (County Subdivision), Current.  
+
+Expects numeric data of no more than 5 characters.  $data cannot be blank 
+and should be left justified.
+
+
+=item B<submcdcu>
+
+    $data = $record->submcdcu();
+    $record->submcdcu($data);
+
+FIPS 55 Code (Subbarrio), Current.  
+
+Expects numeric data of no more than 5 characters.  $data can be blank 
+and should be left justified.
+
+
+=item B<placecu>
+
+    $data = $record->placecu();
+    $record->placecu($data);
+
+FIPS 55 Code (Incorporated Place), Current.  
+
+Expects numeric data of no more than 5 characters.  $data can be blank 
+and should be left justified.
+
+
+=item B<sdelmcu>
+
+    $data = $record->sdelmcu();
+    $record->sdelmcu($data);
+
+Elementary School District Code, Current.  
+
+Expects alphanumeric data of no more than 5 characters.  $data can be blank 
+and should be left justified.
+
+
+=item B<sdseccu>
+
+    $data = $record->sdseccu();
+    $record->sdseccu($data);
+
+Secondary School District Code, Current.  
+
+Expects alphanumeric data of no more than 5 characters.  $data can be blank 
+and should be left justified.
+
+
+=item B<sdunicu>
+
+    $data = $record->sdunicu();
+    $record->sdunicu($data);
+
+Unified School District Code, Current.  
+
+Expects alphanumeric data of no more than 5 characters.  $data can be blank 
+and should be left justified.
+
+
+=item B<rs_a20>
+
+    $data = $record->rs_a20();
+    $record->rs_a20($data);
+
+Reserved Space A20.  
 
 Expects numeric data of no more than 4 characters.  $data can be blank 
+and should be left justified.
+
+
+=item B<rs_a21>
+
+    $data = $record->rs_a21();
+    $record->rs_a21($data);
+
+Reserved Space A21.  
+
+Expects numeric data of no more than 4 characters.  $data can be blank 
+and should be left justified.
+
+
+=item B<rs_a22>
+
+    $data = $record->rs_a22();
+    $record->rs_a22($data);
+
+Reserved Space A22.  
+
+Expects numeric data of no more than 4 characters.  $data can be blank 
+and should be left justified.
+
+
+=item B<cdcu>
+
+    $data = $record->cdcu();
+    $record->cdcu($data);
+
+Congressional District Code, Current (108th).  
+
+Expects numeric data of no more than 2 characters.  $data can be blank 
+and should be right justified.
+
+
+=item B<zcta5cu>
+
+    $data = $record->zcta5cu();
+    $record->zcta5cu($data);
+
+5-Digit ZIP Code Tabulation Area, current.  
+
+Expects alphanumeric data of no more than 5 characters.  $data can be blank 
+and should be left justified.
+
+
+=item B<zcta3cu>
+
+    $data = $record->zcta3cu();
+    $record->zcta3cu($data);
+
+3-Digit ZIP Code Tabulation Area, current.  
+
+Expects alphanumeric data of no more than 3 characters.  $data can be blank 
+and should be right justified.
+
+
+=item B<rs_a4>
+
+    $data = $record->rs_a4();
+    $record->rs_a4($data);
+
+Reserved Space A4.  
+
+Expects alphanumeric data of no more than 6 characters.  $data can be blank 
+and should be right justified.
+
+
+=item B<rs_a5>
+
+    $data = $record->rs_a5();
+    $record->rs_a5($data);
+
+Reserved Space A5.  
+
+Expects alphanumeric data of no more than 3 characters.  $data can be blank 
+and should be right justified.
+
+
+=item B<rs_a6>
+
+    $data = $record->rs_a6();
+    $record->rs_a6($data);
+
+Reserved Space A6.  
+
+Expects alphanumeric data of no more than 3 characters.  $data can be blank 
+and should be right justified.
+
+
+=item B<rs_a7>
+
+    $data = $record->rs_a7();
+    $record->rs_a7($data);
+
+Reserved Space A7.  
+
+Expects alphanumeric data of no more than 5 characters.  $data can be blank 
+and should be right justified.
+
+
+=item B<rs_a8>
+
+    $data = $record->rs_a8();
+    $record->rs_a8($data);
+
+Reserved Space A8.  
+
+Expects alphanumeric data of no more than 6 characters.  $data can be blank 
+and should be right justified.
+
+
+=item B<rs_a9>
+
+    $data = $record->rs_a9();
+    $record->rs_a9($data);
+
+Reserved Space A9.  
+
+Expects alphanumeric data of no more than 6 characters.  $data can be blank 
+and should be left justified.
+
+
+=item B<cbsacu>
+
+    $data = $record->cbsacu();
+    $record->cbsacu($data);
+
+FIPS Metropolitan Statistical Area/ Micropolitan Statistical Area Code, Current.  
+
+Expects numeric data of no more than 5 characters.  $data can be blank 
+and should be left justified.
+
+
+=item B<csacu>
+
+    $data = $record->csacu();
+    $record->csacu($data);
+
+FIPS Combined Statistical Area Code, Current.  
+
+Expects numeric data of no more than 3 characters.  $data can be blank 
+and should be left justified.
+
+
+=item B<nectacu>
+
+    $data = $record->nectacu();
+    $record->nectacu($data);
+
+FIPS New England City and Town Area Code, Current.  
+
+Expects numeric data of no more than 5 characters.  $data can be blank 
+and should be left justified.
+
+
+=item B<cnectacu>
+
+    $data = $record->cnectacu();
+    $record->cnectacu($data);
+
+FIPS Combined New England City and Town Area Code, Current.  
+
+Expects numeric data of no more than 3 characters.  $data can be blank 
+and should be left justified.
+
+
+=item B<metdivcu>
+
+    $data = $record->metdivcu();
+    $record->metdivcu($data);
+
+FIPS Metropolitan Division Code, Current.  
+
+Expects numeric data of no more than 5 characters.  $data can be blank 
+and should be left justified.
+
+
+=item B<nectadivcu>
+
+    $data = $record->nectadivcu();
+    $record->nectadivcu($data);
+
+FIPS New England City and Town Area Division Code, Current.  
+
+Expects numeric data of no more than 5 characters.  $data can be blank 
+and should be left justified.
+
+
+=item B<rs_a14>
+
+    $data = $record->rs_a14();
+    $record->rs_a14($data);
+
+Reserved Space A14.  
+
+Expects alphanumeric data of no more than 4 characters.  $data can be blank 
+and should be left justified.
+
+
+=item B<rs_a15>
+
+    $data = $record->rs_a15();
+    $record->rs_a15($data);
+
+Reserved Space A15.  
+
+Expects alphanumeric data of no more than 5 characters.  $data can be blank 
+and should be left justified.
+
+
+=item B<rs_a16>
+
+    $data = $record->rs_a16();
+    $record->rs_a16($data);
+
+Reserved Space A16.  
+
+Expects alphanumeric data of no more than 1 characters.  $data can be blank 
+and should be left justified.
+
+
+=item B<rs_a17>
+
+    $data = $record->rs_a17();
+    $record->rs_a17($data);
+
+Reserved Space A17.  
+
+Expects alphanumeric data of no more than 6 characters.  $data can be blank 
+and should be left justified.
+
+
+=item B<rs_a18>
+
+    $data = $record->rs_a18();
+    $record->rs_a18($data);
+
+Reserved Space A18.  
+
+Expects alphanumeric data of no more than 6 characters.  $data can be blank 
+and should be left justified.
+
+
+=item B<rs_a19>
+
+    $data = $record->rs_a19();
+    $record->rs_a19($data);
+
+Reserved Space A19.  
+
+Expects alphanumeric data of no more than 11 characters.  $data can be blank 
 and should be left justified.
 
 
@@ -664,38 +1240,60 @@ and should be left justified.
 
 =head2 Data dictionary
 
-This is the original TIGER/Line 1998 data dictionary from which this
+This is the original TIGER/Line 2003 data dictionary from which this
 class was generated.
 
-    Record Type A - Polygon Geographic Entity Codes
+    Record Type A - Polygon Geographic Entity Codes: Current Geography
     
-         Field   BV  Fmt  Type  Beg  End  Len  Description
-            RT   No    L     A    1    1    1  Record Type
-       VERSION   No    L     N    2    5    4  Version Number
-         STATE   No    L     N    6    7    2  FIPS State Code for File
-        COUNTY   No    L     N    8   10    3  FIPS County Code for File
-         CENID   No    L     A   11   15    5  Census File Identification Code
-        POLYID   No    R     N   16   25   10  Polygon Identification Code
-          FAIR  Yes    L     N   26   30    5  FIPS 55 Code (American Indian/Alaska Native Area), 1990
-          FMCD  Yes    L     N   31   35    5  FIPS 55 Code (MCD/CCD), 1990
-           FPL  Yes    L     N   36   40    5  FIPS 55 Code (Place/CDP), 1990
-       CTBNA90  Yes    L     N   41   46    6  Census Tract/BNA Code, 1990
-         BLK90  Yes    L     A   47   50    4  Census Block Number, 1990
-         CD106  Yes    R     N   51   52    2  Congressional District Number, 106th
-         CD108  Yes    R     N   53   54    2  Congressional District Number, 108th
-         SDELM  Yes    L     A   55   59    5  School District Code, Elementary School
-            UA  Yes    L     N   60   64    5  Census Urbanized Area Code, 2000 (not filled)
-         SDSEC  Yes    L     A   65   69    5  School District Code, Secondary School
-         SDUNI  Yes    L     A   70   74    5  School District Code, Unified District
-           TAZ  Yes    L     A   75   80    6  Traffic Analysis Zone Code, 1990
-          UA90  Yes    L     N   81   84    4  Census Urbanized Area Code, 1990
-       URBFLAG  Yes    L     A   85   85    1  Urban/Rural Indicator, 1990
-          CTPP  Yes    L     A   86   89    4  Census Transportation Planning Package Area Code, 1990
-       STATE90  Yes    L     N   90   91    2  FIPS State Code, 1990
-        COUN90  Yes    L     N   92   94    3  FIPS County Code, 1990
-         AIR90  Yes    L     N   95   98    4  Census American Indian/Alaska Native Area Code, 1990
-    
-    
+    Field      BV  Fmt Type  Beg End Len Description
+    RT         No   L    A    1    1  1  Record Type
+    VERSION    No   L   N     2    5  4  Version Number
+    FILE       No   L   N     6   10  5  File Code
+    CENID      No   L    A   11   15  5  Census File Identification Code
+    POLYID     No   R   N    16   25 10  Polygon Identification Code
+    STATECU    No   L   N    26   27  2  FIPS State Code, Current
+    COUNTYCU   No   L   N    28   30  3  FIPS County Code, Current
+    TRACT      No   L    N   31   36  6  Census Tract, 2000
+    BLOCK      No   L   N    37   40  4  Census Block Number, 2000
+    BLOCKSUFCU Yes  L    A   41   41  1  Current Suffix for Census 2000 Block Number
+    RS-A1      Yes  L    A   42   42  1  Reserved Space A1
+    AIANHHFPCU Yes  L   N    43   47  5  FIPS 55 Code (American Indian/Alaska Native Area/Hawaiian Home Land), Current
+    AIANHHCU   Yes  L   N    48   51  4  Census Code (American Indian/Alaska Native Area/Hawaiian Home Land), Current
+    AIHHTLICU  Yes  L    A   52   52  1  American Indian/Hawaiian Home Land Trust Land Indicator, Current
+    ANRCCU     Yes  L    N   53   57  5  FIPS 55 Code (ANRC), Current
+    AITSCECU   Yes  L    N   58   60  3  Census Code (American Indian Tribal Subdivision), Current
+    AITSCU     Yes  L    N   61   65  5  FIPS 55 Code (American Indian Tribal Subdivision), Current
+    CONCITCU   Yes  L   N    66   70  5  FIPS 55 Code (Consolidated City), Current
+    COUSUBCU   No   L   N    71   75  5  FIPS 55 Code (County Subdivision), Current
+    SUBMCDCU   Yes  L    N   76   80  5  FIPS 55 Code (Subbarrio), Current
+    PLACECU    Yes  L    N   81   85  5  FIPS 55 Code (Incorporated Place), Current
+    SDELMCU    Yes  L    A   86   90  5  Elementary School District Code, Current
+    SDSECCU    Yes  L    A   91   95  5  Secondary School District Code, Current
+    SDUNICU    Yes  L    A   96  100  5  Unified School District Code, Current
+    RS-A20     Yes  L   N   101  104  4  Reserved Space A20
+    RS-A21     Yes  L   N   105  108  4  Reserved Space A21
+    RS-A22     Yes  L   N    109 112  4 Reserved Space A22
+    CDCU       Yes	R N 113 114  2 Congressional District Code, Current (108th)
+    ZCTA5CU    Yes	L A 115 119  5 5-Digit ZIP Code Tabulation Area, current
+    ZCTA3CU    Yes	R A 120 122  3 3-Digit ZIP Code Tabulation Area, current
+    RS-A4      Yes	R A 123 128  6 Reserved Space A4
+    RS-A5      Yes	R A 129 131  3 Reserved Space A5
+    RS-A6      Yes	R A 132 134  3 Reserved Space A6
+    RS-A7      Yes	R A 135 139  5 Reserved Space A7
+    RS-A8      Yes	R A 140 145  6 Reserved Space A8
+    RS-A9      Yes	L A 146 151  6 Reserved Space A9
+    CBSACU     Yes	L N 152 156  5 FIPS Metropolitan Statistical Area/ Micropolitan Statistical Area Code, Current
+    CSACU      Yes	L N 157 159  3 FIPS Combined Statistical Area Code, Current
+    NECTACU    Yes	L N 160 164  5 FIPS New England City and Town Area Code, Current
+    CNECTACU   Yes	L N 165 167  3 FIPS Combined New England City and Town Area Code, Current
+    METDIVCU   Yes L N 168 172  5 FIPS Metropolitan Division Code, Current
+    NECTADIVCU Yes L N 173 177  5 FIPS New England City and Town Area Division Code, Current
+    RS-A14     Yes L A 178 181  4 Reserved Space A14
+    RS-A15     Yes L A 182 186  5 Reserved Space A15
+    RS-A16     Yes L A 187 187  1 Reserved Space A16
+    RS-A17     Yes L A 188 193  6 Reserved Space A17
+    RS-A18     Yes L A 194 199  6 Reserved Space A18
+    RS-A19     Yes L A 200 210 11 Reserved Space A19
     
 
 

@@ -7,76 +7,76 @@ use base qw(Geo::TigerLine::Record::Parser Geo::TigerLine::Record::Accessor
             Geo::TigerLine::Record Class::Data::Inheritable);
 
 use vars qw($VERSION);
-$VERSION = '0.01';
+$VERSION = '0.02';
 
 
 # Auto-generated data dictionary.
 my %Data_Dict = (
-               'zip4l' => {
-                            'beg' => '19',
+               'tlid' => {
+                           'len' => 10,
+                           'beg' => 6,
+                           'bv' => 'No',
+                           'fieldnum' => 3,
+                           'type' => 'N',
+                           'description' => 'TIGER/Line ID, Permanent 1-Cell Number',
+                           'end' => 15,
+                           'fmt' => 'R',
+                           'field' => 'tlid'
+                         },
+               'zip4r' => {
+                            'len' => 4,
+                            'beg' => 23,
                             'bv' => 'Yes',
-                            'description' => '+4 Postal Add-On Code, Left',
-                            'fieldnum' => '5',
-                            'len' => '4',
-                            'end' => '22',
+                            'fieldnum' => 6,
+                            'type' => 'N',
+                            'description' => '+4 Postal Add-On Code, Right',
+                            'end' => 26,
                             'fmt' => 'L',
-                            'field' => 'zip4l',
-                            'type' => 'N'
+                            'field' => 'zip4r'
+                          },
+               'zip4l' => {
+                            'len' => 4,
+                            'beg' => 19,
+                            'bv' => 'Yes',
+                            'fieldnum' => 5,
+                            'type' => 'N',
+                            'description' => '+4 Postal Add-On Code, Left',
+                            'end' => 22,
+                            'fmt' => 'L',
+                            'field' => 'zip4l'
                           },
                'rtsq' => {
-                           'beg' => '16',
+                           'len' => 3,
+                           'beg' => 16,
                            'bv' => 'No',
+                           'fieldnum' => 4,
+                           'type' => 'N',
                            'description' => 'Record Sequence Number',
-                           'fieldnum' => '4',
-                           'len' => '3',
-                           'end' => '18',
+                           'end' => 18,
                            'fmt' => 'R',
-                           'field' => 'rtsq',
-                           'type' => 'N'
+                           'field' => 'rtsq'
                          },
                'version' => {
-                              'beg' => '2',
+                              'len' => 4,
+                              'beg' => 2,
                               'bv' => 'No',
+                              'fieldnum' => 2,
+                              'type' => 'N',
                               'description' => 'Version Number',
-                              'fieldnum' => '2',
-                              'len' => '4',
-                              'end' => '5',
+                              'end' => 5,
                               'fmt' => 'L',
-                              'field' => 'version',
-                              'type' => 'N'
+                              'field' => 'version'
                             },
-               'zip4r' => {
-                            'beg' => '23',
-                            'bv' => 'Yes',
-                            'description' => '+4 Postal Add-On Code, Right',
-                            'fieldnum' => '6',
-                            'len' => '4',
-                            'end' => '26',
-                            'fmt' => 'L',
-                            'field' => 'zip4r',
-                            'type' => 'N'
-                          },
-               'tlid' => {
-                           'beg' => '6',
-                           'bv' => 'No',
-                           'description' => 'TIGER/Line ID, Permanent Record Number',
-                           'fieldnum' => '3',
-                           'len' => '10',
-                           'end' => '15',
-                           'fmt' => 'R',
-                           'field' => 'tlid',
-                           'type' => 'N'
-                         },
                'rt' => {
-                         'beg' => '1',
+                         'len' => 1,
+                         'beg' => 1,
                          'bv' => 'No',
+                         'fieldnum' => 1,
+                         'type' => 'A',
                          'description' => 'Record Type',
-                         'fieldnum' => '1',
-                         'len' => '1',
-                         'end' => '1',
+                         'end' => 1,
                          'fmt' => 'L',
-                         'field' => 'rt',
-                         'type' => 'A'
+                         'field' => 'rt'
                        }
              );
 
@@ -116,7 +116,7 @@ foreach my $def (@Data_Dict{@Data_Fields}) {
 
 =head1 NAME
 
-Geo::TigerLine::Record::Z - TIGER/Line 1998 ZIP+4 Codes
+Geo::TigerLine::Record::Z - TIGER/Line 2003 ZIP+4 Codes
 
 =head1 SYNOPSIS
 
@@ -137,7 +137,7 @@ Geo::TigerLine::Record::Z - TIGER/Line 1998 ZIP+4 Codes
 
 =head1 DESCRIPTION
 
-This is a class representing record type Z of the TIGER/Line 1998
+This is a class representing record type Z of the TIGER/Line 2003
 census geographic database.  Each object is one record.  It also
 contains methods to parse TIGER/Line record type Z files and turn them
 into objects.
@@ -145,17 +145,17 @@ into objects.
 This is intended as an intermediate format between pulling the raw
 data out of the simplistic TIGER/Line data files into something more
 sophisticated (a process you should only have to do once).  As such,
-its not very fast, but its careful, easy to use and performs some
+it's not very fast, but its careful, easy to use and performs some
 verifications on the data being read.
 
 As this class is autogenerated by mk_parsers, think before you modify this
-file.  Its OO, so consider sub-classing instead.
+file.  It's OO, so consider sub-classing instead.
 
 
 =head2 Accessors
 
 These are simple get/set accessors for each field of a record
-generated from the TIGER/Line 1998 data dictionary.  They perform some
+generated from the TIGER/Line 2003 data dictionary.  They perform some
 data validation.
 
 =over 4
@@ -187,7 +187,7 @@ and should be left justified.
     $data = $record->tlid();
     $record->tlid($data);
 
-TIGER/Line ID, Permanent Record Number.  
+TIGER/Line ID, Permanent 1-Cell Number.  
 
 Expects numeric data of no more than 10 characters.  $data cannot be blank 
 and should be right justified.
@@ -232,19 +232,18 @@ and should be left justified.
 
 =head2 Data dictionary
 
-This is the original TIGER/Line 1998 data dictionary from which this
+This is the original TIGER/Line 2003 data dictionary from which this
 class was generated.
 
     Record Type Z - ZIP+4 Codes  
     
-         Field   BV  Fmt  Type  Beg  End  Len  Description
-            RT   No    L     A    1    1    1  Record Type
-       VERSION   No    L     N    2    5    4  Version Number
-          TLID   No    R     N    6   15   10  TIGER/Line ID, Permanent Record Number
-          RTSQ   No    R     N   16   18    3  Record Sequence Number
-         ZIP4L  Yes    L     N   19   22    4  +4 Postal Add-On Code, Left
-         ZIP4R  Yes    L     N   23   26    4  +4 Postal Add-On Code, Right
-    
+    Field   BV  Fmt Type Beg End Len Description
+    RT      No   L   A    1    1  1  Record Type
+    VERSION No   L   N    2    5  4  Version Number
+    TLID    No   R   N    6   15 10  TIGER/Line ID, Permanent 1-Cell Number
+    RTSQ    No   R   N   16   18  3  Record Sequence Number
+    ZIP4L   Yes  L   N   19   22  4  +4 Postal Add-On Code, Left
+    ZIP4R   Yes  L   N   23   26  4  +4 Postal Add-On Code, Right
 
 
 
